@@ -116,7 +116,7 @@ export const PricingSection = () => {
                 transition={{ duration: 0.25 }}
                 className={`relative rounded-[var(--radius-card)] p-8 text-left flex flex-col justify-between ${
                   plan.recommended
-                    ? "bg-[#120F24] border-2 border-[var(--primary)] md:scale-104 shadow-[var(--shadow-glow)] z-20"
+                    ? "bg-[#120F24] border-2 border-[var(--primary)] md:scale-105 shadow-[var(--shadow-glow)] z-20"
                     : "bg-[#110e21]/75 border border-purple-950/40 z-10"
                 }`}
               >

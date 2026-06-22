@@ -72,37 +72,6 @@ export const HowItWorksSteps = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Mobile/Tablet Vertical Connector Line with looping flow glow (Mobile Only, left line) */}
-          <div className="md:hidden absolute left-[44px] top-6 bottom-6 w-[1.5px] pointer-events-none z-0 overflow-hidden">
-            {/* Base Line structure: 1.5px on mobile with beautiful low-opacity visibility */}
-            <div className="absolute inset-0 bg-[#8B5CF6]/20 rounded-full" />
-            
-            {/* Dynamic Thick Glow Layer */}
-            <motion.div
-              className="absolute left-1/2 -translate-x-1/2 w-[6px] h-[20%] bg-gradient-to-b from-transparent via-[#8B5CF6] to-transparent blur-[3px] opacity-80"
-              animate={{
-                top: ["-20%", "120%"]
-              }}
-              transition={{
-                duration: 5.5,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-            {/* Sharp Cyan Core Accent for workflow kinetic energy */}
-            <motion.div
-              className="absolute left-1/2 -translate-x-1/2 w-[1.5px] h-[15%] bg-gradient-to-b from-transparent via-cyan-300 to-transparent opacity-95"
-              animate={{
-                top: ["-20%", "120%"]
-              }}
-              transition={{
-                duration: 5.5,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-          </div>
-
           {/* Desktop Horizontal Connector Line with looping flow glow */}
           <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[2px] pointer-events-none z-0 overflow-hidden">
             {/* Base Line structure: ~2px on desktop with beautiful low-opacity structure */}

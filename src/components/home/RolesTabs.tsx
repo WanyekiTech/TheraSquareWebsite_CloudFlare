@@ -139,7 +139,7 @@ export const RolesTabs = () => {
 
           {/* Tab Selection Capsule - directly beneath the title */}
           <div className="flex justify-center mb-6">
-            <div className="bg-[#120F24] p-1.5 rounded-full border border-purple-900/30 inline-flex items-center gap-1">
+            <div className="bg-[#120F24] p-1.5 rounded-2xl md:rounded-full border border-purple-900/30 flex flex-wrap md:inline-flex justify-center items-center gap-1">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab;
                 return (

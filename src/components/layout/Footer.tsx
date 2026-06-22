@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Column 1: Logo & details with Socials */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 space-y-5 flex flex-col items-center md:items-start text-center md:text-left">
             <Link to="/" className="flex items-center gap-2.5">
               <Logo className="w-8 h-8" />
               <span className="font-bold text-lg text-white tracking-tight">
@@ -28,7 +28,7 @@ export const Footer = () => {
             </p>
 
             {/* Social Icons row moved to far left */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex justify-center md:justify-start items-center gap-3 pt-2">
               <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:border-white/20 transition-all">
                 <Twitter className="w-4 h-4" />
               </a>
@@ -45,7 +45,7 @@ export const Footer = () => {
           </div>
 
           {/* Column 2: Platform links */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 text-center md:text-left">
             <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--primary-light)] mb-6">
               Quick Links
             </h4>
@@ -58,11 +58,11 @@ export const Footer = () => {
           </div>
 
           {/* Column 3: Contact info far right */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 text-center md:text-left">
             <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--primary-light)] mb-6">
               Contact
             </h4>
-            <div className="space-y-3.5 text-sm font-light text-gray-400 flex flex-col items-start">
+            <div className="space-y-3.5 text-sm font-light text-gray-400 flex flex-col items-center md:items-start">
               <a href="mailto:info@therapy.ke" className="flex items-center gap-2.5 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-purple-400 shrink-0" />
                 <span>info@therapy.ke</span>

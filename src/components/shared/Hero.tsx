@@ -227,7 +227,7 @@ export const HeroSection = () => {
             {/* headline */}
             <motion.h1 
               variants={itemVariants} 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 lg:mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 lg:mb-6"
             >
               The Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">EMR</span> for Mental Health Practices
             </motion.h1>
@@ -285,7 +285,7 @@ export const HeroSection = () => {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="w-[576px] max-w-none origin-top scale-[0.55] sm:scale-[0.8] lg:scale-100 -mb-[200px] sm:-mb-[90px] lg:mb-0 mx-auto relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible"
+              className="w-[576px] max-w-none origin-top scale-[0.55] sm:scale-[0.8] lg:scale-[0.85] xl:scale-100 -mb-[200px] sm:-mb-[90px] lg:mb-0 mx-auto relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible"
             >
               {/* EMR Mockup Header */}
               <div className="bg-[#120d22] rounded-t-2xl border-b border-purple-950/50 pt-[10px] pb-[10px] pl-[15px] pr-[15px] flex items-center justify-between relative">
