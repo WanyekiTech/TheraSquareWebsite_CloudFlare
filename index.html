@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheraSquare - Premium Practice EMR</title>
+    <meta name="description" content="Modern Therapy Practice Management Platform for Mental Health Professionals ">
+    <meta property="og:title" content="TheraSquare">
+    <meta property="og:description" content="Modern Therapy Practice Management Platform for Mental Health Professionals ">
+    <link rel="icon" type="image/png" href="/therasquare-logo.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- 
+      Netlify Forms Detection Template:
+      This static clone is registered at build time by Netlify's crawler.
+      It matching labels, input elements, names, and honeypot structures.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden style="display: none">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>
+

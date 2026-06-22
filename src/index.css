@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --primary: #7C3AED;        /* purple-600 */
+  --primary-light: #A78BFA;  /* purple-400 */
+  --primary-dark: #5B21B6;   /* purple-800 */
+  --primary-rgb: 124, 58, 237;
+  --bg: #06040D;             /* Stunning deep obsidian purple matching screenshots */
+  --bg-subtle: #0F0C1E;      /* Elegant deep violet */
+  --bg-card: #120F22;        /* Dark card backing */
+  --text: #F9FAFB;           /* High contrast off-white */
+  --text-muted: #A1A1AA;     /* Zinc 400 */
+  --radius-card: 16px;
+  --shadow-card: 0 4px 24px rgba(124, 58, 237, 0.15);
+  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.25);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography styles according to guidelines */
+h1 {
+  font-family: var(--font-sans);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 38px;
+  }
+}
+
+h2 {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.019em;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.body-muted {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.label-uppercase {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-light);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #25213A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}

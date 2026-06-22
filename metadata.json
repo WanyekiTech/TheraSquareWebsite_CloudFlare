@@ -1,0 +1,8 @@
+{
+  "name": "Remix 10: TheraSquare",
+  "description": "Modern EMR and practice management platform for mental health clinics, therapists, and counsellors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
