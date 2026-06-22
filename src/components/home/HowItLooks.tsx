@@ -19,7 +19,7 @@ import {
   Home
 } from "lucide-react";
 
-export const HowItWorksVisual = () => {
+export const HowItLooks = () => {
   const [selectedDay, setSelectedDay] = useState<number>(18);
 
   // Recreated dataset exactly matching the Happy Clinic mockup image
@@ -261,7 +261,7 @@ export const HowItWorksVisual = () => {
           
           {/* Top Title */}
           <div className="flex items-center justify-between pb-1.5 sm:pb-2 border-b border-slate-100 shrink-0" style={{ paddingBottom: '0px' }}>
-            <h1 className="text-[10px] sm:text-[13px] md:text-[16px] font-black text-slate-900 tracking-tight leading-normal">My Calendar</h1>
+            <div className="text-[10px] sm:text-[13px] md:text-[16px] font-black text-slate-900 tracking-tight leading-normal">My Calendar</div>
           </div>
 
           {/* Split grid of interactive Calendar and right lists */}
@@ -469,7 +469,7 @@ export const HowItWorksVisual = () => {
           
           {/* Header Bar precisely matching screenshot */}
           <div className="bg-white px-3.5 py-2.5 flex items-center justify-between border-b border-slate-100 shrink-0 shadow-3xs" style={{ fontSize: '8px', paddingTop: '5px', paddingBottom: '5px' }}>
-            <h2 className="text-[11.5px] font-black text-slate-900 tracking-tight leading-none" style={{ fontSize: '12px', lineHeight: '18px' }}>My Calendar</h2>
+            <div className="text-[11.5px] font-black text-slate-900 tracking-tight leading-none" style={{ fontSize: '12px', lineHeight: '18px' }}>My Calendar</div>
             
             {/* Notification alert bell */}
             <div className="relative cursor-pointer">
@@ -796,7 +796,7 @@ export const HowItWorksVisual = () => {
             </div>
 
             {/* 2. PHOTOREALISTIC IPHONE 15 PRO WRAPPER */}
-            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0">
+            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0 scale-[1.35] md:scale-100 origin-top mb-24 md:mb-0 mx-auto md:mx-0">
               
               {/* Titanium frame exterior with subtle high-contrast rim */}
               <div className="relative bg-[#1f1d29] border-[1.5px] border-zinc-700 rounded-[38px] shadow-[0_25px_50px_-8px_rgba(0,0,0,1)] p-[6px]">
@@ -843,4 +843,4 @@ export const HowItWorksVisual = () => {
   );
 };
 
-export default HowItWorksVisual;
+export default HowItLooks;

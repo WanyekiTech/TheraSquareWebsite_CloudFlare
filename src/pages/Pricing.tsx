@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import AnimatedSection from "../components/AnimatedSection";
-import PricingSection from "../components/home/PricingSection";
-import { Button } from "../components/ui/Button";
+import { AnimatedSection } from "@components/wrappers";
+import { PricingSection } from "@components/shared";
+import { Button } from "@components/ui";
 import { Check, Minus, Plus, Sparkles, HelpCircle } from "lucide-react";
 
 export const Pricing = () => {

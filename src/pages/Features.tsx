@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import AnimatedSection from "../components/AnimatedSection";
+import { AnimatedSection } from "@components/wrappers";
 import { 
   FileText, Mic, ClipboardCheck, History, 
   Calendar, MessageSquareCode, Clock, BellRing, 

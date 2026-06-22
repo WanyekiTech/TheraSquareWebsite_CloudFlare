@@ -5,8 +5,7 @@
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Navbar, Footer } from "@components/layout";
 
 // Lazy loaded routes for performance (code-splitting)
 const Home = lazy(() => import("./pages/Home"));

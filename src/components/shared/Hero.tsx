@@ -1,7 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/Button";
+import { Button } from "@components/ui";
 import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard } from "lucide-react";
 
 interface CountUpProps {
@@ -192,7 +192,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden">
       {/* Background ambient blobs (position: absolute, z-index: 0) */}
       <motion.div
         className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-25 bg-[var(--primary)] pointer-events-none z-0"
@@ -227,7 +227,7 @@ export const HeroSection = () => {
             {/* headline */}
             <motion.h1 
               variants={itemVariants} 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 lg:mb-6"
             >
               The Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">EMR</span> for Mental Health Practices
             </motion.h1>
@@ -285,7 +285,7 @@ export const HeroSection = () => {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full max-w-xl relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible"
+              className="w-[576px] max-w-none origin-top scale-[0.55] sm:scale-[0.8] lg:scale-100 -mb-[200px] sm:-mb-[90px] lg:mb-0 mx-auto relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible"
             >
               {/* EMR Mockup Header */}
               <div className="bg-[#120d22] rounded-t-2xl border-b border-purple-950/50 pt-[10px] pb-[10px] pl-[15px] pr-[15px] flex items-center justify-between relative">
@@ -334,7 +334,7 @@ export const HeroSection = () => {
               {/* Mockup Dashboard inner content */}
               <div className="grid grid-cols-12 text-left">
                 {/* Mockup Sidenav */}
-                <div className="col-span-3 border-r border-purple-950/50 p-2.5 bg-[#0d091e] hidden sm:flex flex-col justify-between text-[11px]">
+                <div className="col-span-3 border-r border-purple-950/50 p-2.5 bg-[#0d091e] flex flex-col justify-between text-[11px]">
                   <div>
                     {/* Header with circular logo / branding */}
                     <div className="flex items-center gap-1.5 mb-4 px-1 py-1">
@@ -411,7 +411,7 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Mockup Main Panel */}
-                <div className="col-span-12 sm:col-span-9 p-4 text-gray-200 bg-[#0d091e]/45 flex flex-col gap-3.5 min-h-0">
+                <div className="col-span-9 p-4 text-gray-200 bg-[#0d091e]/45 flex flex-col gap-3.5 min-h-0">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="text-xs font-black text-white tracking-tight leading-none">Dashboard</h4>
@@ -425,7 +425,7 @@ export const HeroSection = () => {
                   </div>
 
                   {/* 4 Stats Cards matched with uploaded photo */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-2">
                     {/* Card 1: Total Appointments */}
                     <div 
                       onMouseEnter={() => setHover1(prev => prev + 1)}
@@ -496,7 +496,7 @@ export const HeroSection = () => {
                   </div>
 
                   {/* 3 Analytics Charts / Visual Representation Row from the image */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <div className="grid grid-cols-3 gap-2.5">
                     
                     {/* Widget 1: Weekly Activity Bar Chart */}
                     <motion.div 
@@ -650,7 +650,7 @@ export const HeroSection = () => {
                   </div>
 
                   {/* Row of lists matching Bottom Section of Image */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-2 gap-2.5">
                     
                     {/* List 1: Today's Schedule */}
                     <div className="bg-[#141029]/70 border border-purple-950/40 rounded-xl p-2 text-left">
@@ -743,7 +743,7 @@ export const HeroSection = () => {
               </div>
               
               {/* Overlapping Floating Element */}
-              <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left scale-75 sm:scale-100 z-10 origin-bottom-right">
+              <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left z-10 origin-bottom-right">
                 <div className="flex items-center gap-2">
                   <div className="bg-emerald-950/50 p-1 rounded animate-pulse">
                     <CreditCard className="w-4 h-4 text-emerald-400" />

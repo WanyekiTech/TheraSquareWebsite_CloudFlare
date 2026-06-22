@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { Button } from "../components/ui/Button";
+import { Button } from "@components/ui";
 import { LogIn, Key, Mail, ShieldAlert } from "lucide-react";
 
 export const Login = () => {

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import AnimatedSection from "../components/AnimatedSection";
-import { Button } from "../components/ui/Button";
+import { AnimatedSection } from "@components/wrappers";
+import { Button } from "@components/ui";
 import { Link } from "react-router-dom";
 import { 
   HeartHandshake, Smile, Zap, 

@@ -1,14 +1,7 @@
-import { motion } from "motion/react";
-import HeroSection from "../components/hero/HeroSection";
-import TrustedBy from "../components/home/TrustedBy";
-import MetricsBar from "../components/home/MetricsBar";
-import HowItWorksVisual from "../components/home/HowItWorksVisual";
-import RolesTabs from "../components/home/RolesTabs";
-import HowItWorksSteps from "../components/home/HowItWorksSteps";
-import PricingSection from "../components/home/PricingSection";
-import FAQ from "../components/home/FAQ";
-import FinalCTA from "../components/home/FinalCTA";
-import AnimatedSection from "../components/AnimatedSection";
+
+import { HeroSection, TrustedBy, PricingSection, FAQ, FinalCTA } from "@components/shared";
+import { MetricsBar, HowItLooks, RolesTabs, HowItWorksSteps } from "@components/home";
+import { AnimatedSection } from "@components/wrappers";
 
 export const Home = () => {
   return (
@@ -29,7 +22,7 @@ export const Home = () => {
 
       {/* How it works visual showcase */}
       <AnimatedSection>
-        <HowItWorksVisual />
+        <HowItLooks />
       </AnimatedSection>
 
       {/* Numbered setup stages */}

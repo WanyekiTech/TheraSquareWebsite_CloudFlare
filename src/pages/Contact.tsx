@@ -1,8 +1,8 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import AnimatedSection from "../components/AnimatedSection";
-import { Button } from "../components/ui/Button";
-import { Phone, Mail, MapPin, Send, MessageSquareHeart, CheckCircle2 } from "lucide-react";
+import { AnimatedSection } from "@components/wrappers";
+import { Button } from "@components/ui";
+import { Phone, Mail, MapPin, Send, MessageSquareHeart, CheckCircle2, ShieldAlert } from "lucide-react";
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -10,12 +10,14 @@ export const Contact = () => {
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
 
     setIsSubmitting(true);
+    setErrorMsg("");
     
     // Helper function to encode form fields as x-www-form-urlencoded
     const encode = (data: Record<string, string>) => {
@@ -49,8 +51,7 @@ export const Contact = () => {
       .catch((error) => {
         setIsSubmitting(false);
         console.error("Netlify Form Submission Error:", error);
-        // Display success state anyway or degrade gracefully as robust fallback
-        setIsSubmitted(true); 
+        setErrorMsg("Failed to send message. Please try again later.");
       });
   };
 
@@ -132,6 +133,13 @@ export const Contact = () => {
                         <MessageSquareHeart className="w-5 h-5 text-[var(--primary-light)]" />
                         Send an Inquiry Message
                       </h2>
+
+                      {errorMsg && (
+                        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-xl text-xs flex items-center gap-2">
+                          <ShieldAlert className="w-4 h-4 text-red-400 shrink-0" />
+                          <span>{errorMsg}</span>
+                        </div>
+                      )}
 
                       {/* Hidden form name identifier for Netlify parser */}
                       <input type="hidden" name="form-name" value="contact" />
