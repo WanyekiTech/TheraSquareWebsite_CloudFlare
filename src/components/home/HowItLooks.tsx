@@ -782,7 +782,7 @@ export const HowItLooks = () => {
               <div className="absolute left-[3%] right-[3%] -bottom-[4px] h-[4px] bg-[#000000]/60 rounded-full blur-[2px] pointer-events-none" />
 
               {/* 1b. PREMIUM STUDIO MIRROR-REFLECTION (Below the product shelf line) */}
-              <div className="absolute top-[100%] left-0 right-0 h-[100px] pointer-events-none opacity-25 scale-y-[-1] overflow-hidden select-none [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_80%)] z-0">
+              <div className="absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
                 {/* Reflected Screen Bezel */}
                 <div className="relative bg-[#000000] rounded-t-[20px] rounded-b-[4px] p-[10px] pb-[16px] blur-[1px]">
                   <div className="relative w-full aspect-[16/10] bg-[#0c0a1a] rounded-[10px] overflow-hidden">
@@ -824,7 +824,7 @@ export const HowItLooks = () => {
               </div>
 
               {/* 2b. PREMIUM IPHONE STUDIO MIRROR-REFLECTION (Below floor line) */}
-              <div className="absolute top-[102%] left-0 right-0 h-[80px] pointer-events-none opacity-25 scale-y-[-1] overflow-hidden select-none [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_80%)] z-0">
+              <div className="absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
                 <div className="bg-[#1f1d29] rounded-[38px] p-[6px] blur-[1px]">
                   <div className="bg-[#000000] rounded-[32px] border-[4px] border-black aspect-[9/19.5]">
                     <RecreatedPhoneScreen />
