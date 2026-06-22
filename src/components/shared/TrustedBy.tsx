@@ -129,12 +129,12 @@ export const TrustedBy = () => {
             {tripleLogos.map((logo, index) => (
               <div 
                 key={`${logo.name}-${index}`}
-                className="flex items-center gap-3 text-zinc-500 hover:text-zinc-300 transition-colors duration-300 group cursor-default"
+                className="flex items-center gap-3 text-zinc-400 hover:text-zinc-200 transition-colors duration-300 group cursor-default"
               >
-                <div className="opacity-40 group-hover:opacity-80 transition-opacity duration-300 text-purple-400">
+                <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-purple-400">
                   {logo.icon}
                 </div>
-                <span className="font-display text-xs md:text-sm font-semibold tracking-wider uppercase opacity-40 group-hover:opacity-80 transition-opacity duration-300">
+                <span className="font-display text-xs md:text-sm font-semibold tracking-wider uppercase opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                   {logo.name}
                 </span>
               </div>
