@@ -192,7 +192,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen pt-20 pb-12 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden">
       {/* Background ambient blobs (position: absolute, z-index: 0) */}
       <motion.div
         className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-25 bg-[var(--primary)] pointer-events-none z-0"

@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useState, FormEvent, useEffect, ChangeEvent } from "react";
 import { PRICING_PLANS, PlanType, BillingCycle } from "../config/pricingData";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
@@ -60,7 +60,7 @@ export const Signup = () => {
     }
   }, [formData.clinicName, formData.contactPerson, initialsManuallyEdited]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     if (name === "subdomain") {
@@ -127,7 +127,7 @@ export const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden text-left">
+    <div className="min-h-screen py-12 flex items-center justify-center relative overflow-hidden text-left">
       {/* Background blobs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--primary)] blur-[120px] opacity-15 pointer-events-none -z-10" />
 

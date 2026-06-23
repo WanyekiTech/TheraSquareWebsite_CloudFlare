@@ -23,7 +23,7 @@ const itemVariants = {
 
 export const ProblemStatement = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
       
       {/* Subtle Crimson Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,27,27,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
@@ -49,7 +49,7 @@ export const ProblemStatement = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 lg:mb-16"
         >
           {PROBLEM_STATEMENTS.map((prob) => (
             <motion.div 

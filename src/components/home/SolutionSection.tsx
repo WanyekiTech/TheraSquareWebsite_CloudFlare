@@ -24,7 +24,7 @@ const itemVariants = {
 
 export const SolutionSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
+    <section className="pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-14 lg:pb-16 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
       
       {/* Subtle Primary Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.15)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />

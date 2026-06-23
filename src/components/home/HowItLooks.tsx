@@ -257,15 +257,15 @@ export const HowItLooks = () => {
         </div>
 
         {/* Dashboard Operations Panel */}
-        <div className="flex-grow p-1.5 sm:p-3.5 flex flex-col min-h-0 overflow-hidden pl-2 sm:pl-3.5">
+        <div className="flex-grow pt-1 sm:pt-2 px-1.5 sm:px-3.5 pb-1.5 sm:pb-3.5 flex flex-col min-h-0 overflow-hidden pl-2 sm:pl-3.5">
           
           {/* Top Title */}
-          <div className="flex items-center justify-between pb-1.5 sm:pb-2 border-b border-slate-100 shrink-0" style={{ paddingBottom: '0px' }}>
+          <div className="flex items-center justify-between pb-1 sm:pb-1.5 border-b border-slate-100 shrink-0">
             <div className="text-[10px] sm:text-[13px] md:text-[16px] font-black text-slate-900 tracking-tight leading-normal">My Calendar</div>
           </div>
 
           {/* Split grid of interactive Calendar and right lists */}
-          <div className="flex-grow grid grid-cols-12 gap-1.5 sm:gap-3.5 mt-1.5 sm:mt-3 min-h-0 overflow-hidden">
+          <div className="flex-grow grid grid-cols-12 gap-1.5 sm:gap-3.5 mt-1 sm:mt-2 min-h-0 overflow-hidden">
             
             {/* 1. Standard Interactive Calendar Grid Box (reproduced precisely from mockup) */}
             <div className="col-span-12 sm:col-span-8 bg-white border border-slate-100 rounded-lg p-1.5 sm:p-2.5 flex flex-col min-h-0 shadow-2xs">
@@ -717,7 +717,7 @@ export const HowItLooks = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
       
       {/* Dynamic Purple Spotlight & Grid Floor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(58,18,105,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
@@ -743,7 +743,7 @@ export const HowItLooks = () => {
         {/* Studio Product Shelf Layout with laptop & mobile in light theme */}
         <div className="w-full flex flex-col items-center px-4 sm:px-0">
           
-          <div className="relative w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 xl:gap-8 pb-16 md:pb-32">
+          <div className="relative w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 xl:gap-8">
             
             {/* 1. PHOTOREALISTIC MACBOOK PRO WRAPPER */}
             <div className="relative w-full md:w-[65%] max-w-[680px] select-none group z-10">
@@ -782,7 +782,7 @@ export const HowItLooks = () => {
               <div className="absolute left-[3%] right-[3%] -bottom-[4px] h-[4px] bg-[#000000]/60 rounded-full blur-[2px] pointer-events-none" />
 
               {/* 1b. PREMIUM STUDIO MIRROR-REFLECTION (Below the product shelf line) */}
-              <div className="absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
+              <div className="hidden lg:block absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
                 {/* Reflected Screen Bezel */}
                 <div className="relative bg-[#000000] rounded-t-[20px] rounded-b-[4px] p-[10px] pb-[16px] blur-[1px]">
                   <div className="relative w-full aspect-[16/10] bg-[#0c0a1a] rounded-[10px] overflow-hidden">
@@ -796,7 +796,7 @@ export const HowItLooks = () => {
             </div>
 
             {/* 2. PHOTOREALISTIC IPHONE 15 PRO WRAPPER */}
-            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0 scale-[1.35] md:scale-100 origin-top mb-24 md:mb-0 mx-auto md:mx-0">
+            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0 scale-[1.35] md:scale-100 origin-top mb-8 md:mb-0 mx-auto md:mx-0">
               
               {/* Titanium frame exterior with subtle high-contrast rim */}
               <div className="relative bg-[#1f1d29] border-[1.5px] border-zinc-700 rounded-[38px] shadow-[0_25px_50px_-8px_rgba(0,0,0,1)] p-[6px]">
@@ -824,7 +824,7 @@ export const HowItLooks = () => {
               </div>
 
               {/* 2b. PREMIUM IPHONE STUDIO MIRROR-REFLECTION (Below floor line) */}
-              <div className="absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
+              <div className="hidden lg:block absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
                 <div className="bg-[#1f1d29] rounded-[38px] p-[6px] blur-[1px]">
                   <div className="bg-[#000000] rounded-[32px] border-[4px] border-black aspect-[9/19.5]">
                     <RecreatedPhoneScreen />

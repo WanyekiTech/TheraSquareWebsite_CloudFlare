@@ -56,7 +56,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="pt-32 pb-20 overflow-hidden text-left relative">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden text-left relative">
       {/* Background Blobs */}
       <div className="absolute top-20 right-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--primary)] blur-[120px] opacity-15 pointer-events-none -z-10" />
 

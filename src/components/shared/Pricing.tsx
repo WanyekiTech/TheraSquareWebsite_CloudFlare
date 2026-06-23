@@ -11,11 +11,11 @@ export const PricingSection = () => {
   const plans = PRICING_PLANS;
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#090712] border-t border-purple-950/20 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#090712] border-t border-purple-950/20 z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="label-uppercase mb-3 block">Plans & Pricing</span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Pricing</span>

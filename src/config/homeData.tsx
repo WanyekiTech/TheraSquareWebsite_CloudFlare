@@ -1,8 +1,9 @@
 import {
-  Clock,
-  CalendarX,
   FolderSearch,
+  CalendarX,
+  Clock,
   Wallet,
+  TrendingDown,
   Settings,
   Users,
   CalendarCheck,
@@ -22,8 +23,8 @@ export interface FeatureItem {
 export const PROBLEM_STATEMENTS: FeatureItem[] = [
   {
     id: "prob-1",
-    title: "Session notes take too long and are often delayed",
-    icon: Clock,
+    title: "Client records and follow-ups easily fall through the cracks",
+    icon: FolderSearch,
   },
   {
     id: "prob-2",
@@ -32,8 +33,8 @@ export const PROBLEM_STATEMENTS: FeatureItem[] = [
   },
   {
     id: "prob-3",
-    title: "Client records are scattered across files and devices",
-    icon: FolderSearch,
+    title: "Session notes take too long and are often delayed",
+    icon: Clock,
   },
   {
     id: "prob-4",
@@ -42,7 +43,12 @@ export const PROBLEM_STATEMENTS: FeatureItem[] = [
   },
   {
     id: "prob-5",
-    title: "Using multiple tools slows down daily operations",
+    title: "Tracking practice revenue and growth feels like a guessing game",
+    icon: TrendingDown,
+  },
+  {
+    id: "prob-6",
+    title: "Managing operations across a growing clinic becomes chaotic",
     icon: Settings,
   }
 ];
@@ -60,7 +66,7 @@ export const SOLUTION_FEATURES: FeatureItem[] = [
   },
   {
     id: "sol-3",
-    title: "Clinical notes (SOAP, structured templates, AI-assisted)",
+    title: "Smart Clinical Notes (Voice, AI, SOAP)",
     icon: FileText,
   },
   {

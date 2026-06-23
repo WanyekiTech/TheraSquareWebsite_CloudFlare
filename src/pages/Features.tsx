@@ -138,7 +138,7 @@ export const Features = () => {
   ];
 
   return (
-    <div className="pt-32 pb-20 overflow-hidden relative">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden relative">
       {/* Decorative Blob */}
       <div className="absolute top-10 right-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--primary)] blur-[130px] opacity-15 pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-[-10%] w-[400px] h-[400px] rounded-full bg-indigo-500 blur-[120px] opacity-10 pointer-events-none -z-10" />
@@ -146,7 +146,7 @@ export const Features = () => {
       <div className="container mx-auto px-6">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="label-uppercase mb-3 block">Complete Feature Suite</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
             The Complete EMR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Operating System</span>

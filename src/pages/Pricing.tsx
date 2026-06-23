@@ -88,12 +88,12 @@ export const Pricing = () => {
   ];
 
   return (
-    <div className="pt-12 pb-20">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-0">
       {/* Same pricing cards + toggle Monthly/Annual is embedded here */}
       <PricingSection />
 
       {/* Feature Comparison Table Section */}
-      <section className="py-12 bg-transparent relative z-10 text-left">
+      <section className="pt-12 pb-16 md:pb-20 lg:pb-24 bg-transparent relative z-10 text-left">
         <div className="container mx-auto px-6 max-w-5xl">
           
           {/* Header */}

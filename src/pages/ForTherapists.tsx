@@ -50,14 +50,14 @@ export const ForTherapists = () => {
   ];
 
   return (
-    <div className="pt-32 pb-20 overflow-hidden text-left relative">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden text-left relative">
       {/* Background Blobs */}
       <div className="absolute top-20 left-[-5%] w-[500px] h-[500px] rounded-full bg-[var(--primary)] blur-[130px] opacity-15 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6">
         
         {/* Page Hero Header */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-3xl mb-16">
           <span className="label-uppercase mb-3 block">Made for Clinicians</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             Designed to Help <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Therapists</span> Do What They Do Best

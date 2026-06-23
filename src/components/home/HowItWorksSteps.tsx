@@ -50,7 +50,7 @@ export const HowItWorksSteps = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/20 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/20 z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}

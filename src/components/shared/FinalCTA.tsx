@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/25 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/25 z-10">
       <div className="container mx-auto px-6 max-w-5xl">
         
         {/* Animated Background Pulse Blob */}

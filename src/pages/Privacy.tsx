@@ -8,7 +8,7 @@ export const Privacy = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-24 relative overflow-hidden text-left bg-[#06040D]">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 relative overflow-hidden text-left bg-[#06040D]">
       {/* Subtle Background Glow */}
       <div className="absolute top-20 right-1/4 w-[600px] h-[600px] rounded-full bg-[var(--primary)] blur-[120px] opacity-10 pointer-events-none -z-10" />
 
