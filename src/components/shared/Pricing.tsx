@@ -161,7 +161,9 @@ export const PricingSection = () => {
 
                 {/* CTA Button */}
                 <Link
-                  to={plan.name === "Enterprise" ? "/contact" : "/signup"}
+                  to={plan.name === "Enterprise" 
+                    ? "/contact" 
+                    : `/signup?plan=${encodeURIComponent(plan.name)}&billing=${isAnnual ? 'Annual' : 'Monthly'}&price=${price}`}
                   className="w-full mt-4 block"
                 >
                   <Button

@@ -85,11 +85,6 @@ export const Navbar = () => {
 
           {/* Desktop Auth Buttons (Right-side column) */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link to="/login">
-              <Button variant="ghost" size="sm" className="font-semibold uppercase tracking-wider text-xs">
-                Login
-              </Button>
-            </Link>
             <Link to="/signup">
               <Button variant="primary" size="sm" className="font-semibold uppercase tracking-wider text-xs px-5 py-2.5">
                 Get Started
@@ -137,11 +132,6 @@ export const Navbar = () => {
             </div>
 
             <div className="flex flex-col gap-3">
-              <Link to="/login" className="w-full">
-                <Button variant="ghost" className="w-full font-semibold uppercase tracking-wider text-sm py-3.5">
-                  Login
-                </Button>
-              </Link>
               <Link to="/signup" className="w-full">
                 <Button variant="primary" className="w-full font-semibold uppercase tracking-wider text-sm py-3.5">
                   Get Started

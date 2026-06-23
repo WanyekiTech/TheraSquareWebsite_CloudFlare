@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { Navbar, Footer } from "@components/layout";
 
@@ -13,7 +13,6 @@ const Features = lazy(() => import("./pages/Features"));
 const ForTherapists = lazy(() => import("./pages/ForTherapists"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 
 // Simple fallback loader during chunk loading
@@ -37,7 +36,7 @@ function ScrollToTop() {
 // Master Layout with conditional Header/Footer matching premium SaaS designs
 function AppContent() {
   const location = useLocation();
-  const isAuthPage = ["/login", "/signup"].includes(location.pathname);
+  const isAuthPage = ["/signup"].includes(location.pathname);
 
   return (
     <div className="flex flex-col min-h-screen relative bg-[#06040D] text-white">
@@ -56,8 +55,8 @@ function AppContent() {
             <Route path="/for-therapists" element={<ForTherapists />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </main>
