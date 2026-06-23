@@ -9,6 +9,9 @@ export const Home = () => {
       {/* Hero Section */}
       <HeroSection />
 
+      {/* Metrics Bar */}
+      <MetricsBar />
+
       {/* Trusted Partner Logo Strip */}
       <TrustedBy />
 
@@ -21,9 +24,6 @@ export const Home = () => {
       <AnimatedSection>
         <SolutionSection />
       </AnimatedSection>
-
-      {/* Metrics Bar */}
-      <MetricsBar />
 
       {/* For Clients, Therapists, & Admins Grid */}
       <AnimatedSection>

@@ -5,7 +5,7 @@ export const MetricsBar = () => {
     { number: "AI-Powered", label: "Notes" },
     { number: "30-Day", label: "Free Access" },
     { number: "KES 2,000/mo", label: "Starting at" },
-    { number: "HIPAA-Inspired", label: "Security" },
+    { number: "Enterprise-Grade", label: "Security" },
     { number: "Built for", label: "Africa" }
   ];
 
