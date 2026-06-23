@@ -14,6 +14,8 @@ const ForTherapists = lazy(() => import("./pages/ForTherapists"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Signup = lazy(() => import("./pages/Signup"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 // Simple fallback loader during chunk loading
 const Loader = () => (
@@ -56,6 +58,8 @@ function AppContent() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

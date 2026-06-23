@@ -1,6 +1,6 @@
 
 import { HeroSection, TrustedBy, PricingSection, FAQ, FinalCTA } from "@components/shared";
-import { MetricsBar, HowItLooks, RolesTabs, HowItWorksSteps } from "@components/home";
+import { MetricsBar, HowItLooks, RolesTabs, HowItWorksSteps, ProblemStatement, SolutionSection } from "@components/home";
 import { AnimatedSection } from "@components/wrappers";
 
 export const Home = () => {
@@ -11,6 +11,16 @@ export const Home = () => {
 
       {/* Trusted Partner Logo Strip */}
       <TrustedBy />
+
+      {/* The Challenge */}
+      <AnimatedSection>
+        <ProblemStatement />
+      </AnimatedSection>
+
+      {/* The Solution */}
+      <AnimatedSection>
+        <SolutionSection />
+      </AnimatedSection>
 
       {/* Metrics Bar */}
       <MetricsBar />

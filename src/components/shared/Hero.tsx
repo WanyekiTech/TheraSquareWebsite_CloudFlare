@@ -2,7 +2,7 @@ import { motion, useInView } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@components/ui";
-import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard } from "lucide-react";
+import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, X, Building2 } from "lucide-react";
 
 interface CountUpProps {
   value: number;
@@ -221,7 +221,7 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-[var(--primary-light)] bg-[var(--primary)]/10 border border-[var(--primary)]/20 w-fit mb-6 uppercase tracking-wider"
             >
               <Sparkles className="w-3.5 h-3.5 text-[var(--primary-light)]" />
-              Built for Mental Health Practices
+              Built for Modern Mental Health Practices
             </motion.span>
 
             {/* headline */}
@@ -229,16 +229,35 @@ export const HeroSection = () => {
               variants={itemVariants} 
               className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 lg:mb-6"
             >
-              The Modern <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">EMR</span> for Mental Health Practices
+              Focus on <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">therapy</span>. Not paperwork.
             </motion.h1>
 
             {/* subheadline */}
             <motion.p 
               variants={itemVariants} 
-              className="text-lg md:text-xl text-gray-400 font-light mb-8 max-w-xl leading-relaxed"
+              className="text-lg md:text-xl text-gray-400 font-light mb-6 max-w-xl leading-relaxed"
             >
-              A secure Electronic Medical Record (EMR) platform that helps you automate your workflows so you can fully focus on your clients.
+              A complete EMR platform for mental health professionals — designed to simplify scheduling, notes, billing, and client management in one secure system.
             </motion.p>
+
+            {/* Anti-features list */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-sm font-medium text-gray-300"
+            >
+              <div className="flex items-center gap-1.5">
+                <X className="w-3.5 h-3.5 text-red-400/80" strokeWidth={3} />
+                <span>No spreadsheets</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <X className="w-3.5 h-3.5 text-red-400/80" strokeWidth={3} />
+                <span>No scattered tools</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <X className="w-3.5 h-3.5 text-red-400/80" strokeWidth={3} />
+                <span>No manual chaos</span>
+              </div>
+            </motion.div>
 
             {/* buttons */}
             <motion.div 
@@ -261,15 +280,19 @@ export const HeroSection = () => {
             {/* Quality badges */}
             <motion.div 
               variants={itemVariants}
-              className="flex items-center gap-6 mt-12 pt-8 border-t border-purple-950/40 text-xs text-gray-500"
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-12 pt-8 border-t border-purple-950/40 text-xs text-gray-500 font-medium"
             >
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-emerald-500" />
-                <span>HIPAA-Inspired Security</span>
+                <CreditCard className="w-4 h-4 text-emerald-400" />
+                <span>M-Pesa Supported</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-[var(--primary-light)]" />
-                <span>M-Pesa Supported</span>
+                <Shield className="w-4 h-4 text-cyan-400" />
+                <span>Secure & Encrypted</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-[var(--primary-light)]" />
+                <span>Built for Therapists & Clinics</span>
               </div>
             </motion.div>
           </motion.div>

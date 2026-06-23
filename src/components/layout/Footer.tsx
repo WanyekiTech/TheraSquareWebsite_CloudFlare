@@ -95,7 +95,7 @@ export const Footer = () => {
 
         {/* Bottom bar: Divider and copyright block */}
         <div className="border-t border-purple-900/15 pt-8 mt-12 flex flex-col items-center justify-center gap-4 text-xs font-light text-gray-500 text-center">
-          <p>© {currentYear} TheraSquare. All rights reserved • <Link to="#" className="hover:text-white transition-colors">Privacy</Link> • <Link to="#" className="hover:text-white transition-colors">Terms</Link></p>
+          <p>© {currentYear} TheraSquare. All rights reserved • <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link> • <Link to="/terms" className="hover:text-white transition-colors">Terms</Link></p>
         </div>
 
       </div>

@@ -1,4 +1,5 @@
 import { useState, FormEvent, useEffect } from "react";
+import { PRICING_PLANS, PlanType, BillingCycle } from "../config/pricingData";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@components/ui";
@@ -9,12 +10,8 @@ export const Signup = () => {
   const navigate = useNavigate();
 
   // URL Params parsing
-  const urlPlan = searchParams.get("plan");
-  const urlBilling = searchParams.get("billing");
-  const urlPrice = searchParams.get("price");
-
-  const defaultPlanName = urlPlan ? `1 ${urlBilling === 'Annual' ? 'Year' : 'Month'} ${urlPlan} Subscription` : "1 Month Starter Subscription";
-  const defaultAmount = urlPrice ? `KES ${Number(urlPrice).toLocaleString()}` : "KES 2,000";
+  const urlPlan = searchParams.get("plan") as PlanType | null;
+  const urlBilling = searchParams.get("billing") as BillingCycle | null;
 
   // Calculate 60 days expiry
   const expiryDate = new Date();
@@ -29,7 +26,15 @@ export const Signup = () => {
     phone: "",
     subdomain: "",
     initials: "",
+    planType: (urlPlan && ["Starter", "Professional", "Enterprise"].includes(urlPlan) ? urlPlan : "Starter") as PlanType,
+    billingCycle: (urlBilling && ["Monthly", "Annual"].includes(urlBilling) ? urlBilling : "Monthly") as BillingCycle,
   });
+
+  // Calculate dynamic pricing
+  const currentPlanConfig = PRICING_PLANS.find(p => p.name === formData.planType) || PRICING_PLANS[0];
+  const calculatedAmount = formData.billingCycle === "Annual" ? currentPlanConfig.priceAnnual : currentPlanConfig.priceMonthly;
+  const displayAmount = `KES ${calculatedAmount.toLocaleString()} /mo ${formData.billingCycle === "Annual" ? "(Billed Annually)" : ""}`;
+  const hiddenPayload = `${formData.planType} Plan - ${formData.billingCycle} Billing - KES ${calculatedAmount.toLocaleString()}/mo (Total: KES ${(formData.billingCycle === "Annual" ? calculatedAmount * 12 : calculatedAmount).toLocaleString()}/${formData.billingCycle === "Annual" ? 'yr' : 'mo'})`;
 
   const [initialsManuallyEdited, setInitialsManuallyEdited] = useState(false);
   
@@ -102,8 +107,7 @@ export const Signup = () => {
         "form-name": "initialize-workspace",
         ...formData,
         fullSubdomain: `${formData.subdomain}.therapy.ke`,
-        planType: defaultPlanName,
-        planAmount: defaultAmount,
+        subscriptionDetails: hiddenPayload,
         expiryDate: formattedExpiry
       })
     })
@@ -287,33 +291,52 @@ export const Signup = () => {
                   </div>
                 </div>
 
-                {/* Read-Only Subscription Section */}
+                {/* Interactive Subscription Section */}
                 <div className="bg-[#0b0818] border border-[var(--primary-light)]/20 rounded-2xl p-5 relative overflow-hidden mt-6">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--primary)]/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
                   
                   <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-[var(--primary-light)]" />
                     Subscription Summary
+                    <span className="ml-auto bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold">Includes 30 Days Free!</span>
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1">Plan Type</span>
-                      <span className="text-xs text-white font-medium flex items-center gap-1.5">
-                        {defaultPlanName}
+                      <div className="relative">
+                        <select
+                          name="planType"
+                          value={formData.planType}
+                          onChange={handleInputChange}
+                          className="bg-[#120F22] border border-purple-950/70 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--primary)] transition-colors w-full appearance-none cursor-pointer"
+                        >
+                          {PRICING_PLANS.map(plan => (
+                            <option key={plan.name} value={plan.name}>{plan.name}</option>
+                          ))}
+                        </select>
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">Amount</span>
+                        <div className="flex bg-[#120F22] rounded overflow-hidden border border-purple-950/50">
+                          <button type="button" onClick={() => setFormData(p => ({...p, billingCycle: 'Monthly'}))} className={`px-2 py-0.5 text-[9px] font-bold transition-colors ${formData.billingCycle === 'Monthly' ? 'bg-[var(--primary)] text-white' : 'text-gray-500 hover:text-gray-300'}`}>MO</button>
+                          <button type="button" onClick={() => setFormData(p => ({...p, billingCycle: 'Annual'}))} className={`px-2 py-0.5 text-[9px] font-bold transition-colors ${formData.billingCycle === 'Annual' ? 'bg-[var(--primary)] text-white' : 'text-gray-500 hover:text-gray-300'}`}>YR</button>
+                        </div>
+                      </div>
+                      <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
+                        <CreditCard className="w-3 h-3 text-[var(--primary-light)]" />
+                        {displayAmount}
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1">Amount</span>
-                      <span className="text-xs text-white font-mono flex items-center gap-1.5">
-                        <CreditCard className="w-3 h-3 text-gray-400" />
-                        {defaultAmount}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1">Trial Expiry</span>
-                      <span className="text-xs text-white font-mono flex items-center gap-1.5">
-                        <CalendarDays className="w-3 h-3 text-gray-400" />
+                      <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1 h-[18px] md:h-auto md:mb-1">Trial Expiry</span>
+                      <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
+                        <CalendarDays className="w-3 h-3 text-[var(--primary-light)]" />
                         {formattedExpiry}
                       </span>
                     </div>

@@ -82,6 +82,14 @@ h3 {
   color: var(--primary-light);
 }
 
+.label-uppercase-alert {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F87171; /* Tailwind red-400 equivalent for alerts */
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
