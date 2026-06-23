@@ -23,6 +23,7 @@ export const Signup = () => {
     initials: "",
     planType: (urlPlan && ["Starter", "Professional", "Enterprise"].includes(urlPlan) ? urlPlan : "Starter") as PlanType,
     billingCycle: (urlBilling && ["Monthly", "Annual"].includes(urlBilling) ? urlBilling : "Monthly") as BillingCycle,
+    botField: "",
   });
 
   // Calculate dynamic pricing
@@ -109,6 +110,7 @@ export const Signup = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ 
         "form-name": "signup",
+        "bot-field": formData.botField,
         ...formData,
         fullSubdomain: `${formData.subdomain}.therapy.ke`,
         subscriptionDetails: hiddenPayload,
@@ -184,7 +186,7 @@ export const Signup = () => {
                 <input type="hidden" name="form-name" value="signup" />
                 <div className="hidden" aria-hidden="true">
                   <label>
-                    Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} />
+                    Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} onChange={(e) => setFormData(p => ({...p, botField: e.target.value}))} value={formData.botField} />
                   </label>
                 </div>
 

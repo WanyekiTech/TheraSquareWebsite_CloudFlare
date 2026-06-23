@@ -8,6 +8,7 @@ export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [botField, setBotField] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -32,6 +33,7 @@ export const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ 
         "form-name": "contact", 
+        "bot-field": botField,
         name, 
         email, 
         message 
@@ -148,7 +150,7 @@ export const Contact = () => {
                       <div className="hidden" aria-hidden="true">
                         <label>
                           Don't fill this out if you're human:{" "}
-                          <input name="bot-field" tabIndex={-1} />
+                          <input name="bot-field" tabIndex={-1} onChange={(e) => setBotField(e.target.value)} value={botField} />
                         </label>
                       </div>
 

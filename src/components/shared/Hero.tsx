@@ -206,14 +206,14 @@ export const HeroSection = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: text content */}
           <motion.div 
             variants={containerVariants} 
             initial="hidden" 
             animate="visible"
-            className="flex flex-col text-left min-w-0"
+            className="lg:col-span-5 flex flex-col text-left min-w-0"
           >
             {/* eyebrow */}
             <motion.span 
@@ -302,10 +302,10 @@ export const HeroSection = () => {
             initial={{ opacity: 0, x: 48, scale: 0.96 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center relative w-full min-w-0"
+            className="lg:col-span-7 flex justify-center relative w-full min-w-0"
           >
             {/* Scaling Wrapper to prevent Framer Motion from overwriting Tailwind transforms */}
-            <div className="w-[576px] shrink-0 flex justify-center origin-top scale-[0.55] sm:scale-[0.8] lg:scale-[0.85] xl:scale-100 -mb-[200px] sm:-mb-[90px] lg:mb-0">
+            <div className="w-[576px] shrink-0 flex justify-center origin-top scale-[0.55] sm:scale-[0.8] lg:scale-[0.95] xl:scale-[1.1] 2xl:scale-[1.15] -mb-[200px] sm:-mb-[90px] lg:mb-0">
               {/* High fidelity interactive mockup representation */}
               <motion.div
                 animate={{ y: [0, -12, 0] }}
