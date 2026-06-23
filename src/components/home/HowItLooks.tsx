@@ -181,7 +181,7 @@ export const HowItLooks = () => {
       <div className="flex-1 flex min-h-0 bg-[#f8fafc]">
         
         {/* Left Side Navigation (Therapist sidebar) */}
-        <div className="hidden sm:flex w-24 md:w-34 bg-white border-r border-slate-100 flex flex-col justify-between p-2 shrink-0" style={{ lineHeight: '16.75px' }}>
+        <div className="flex w-24 md:w-34 bg-white border-r border-slate-100 flex-col justify-between p-2 shrink-0" style={{ lineHeight: '16.75px' }}>
           <div className="space-y-3.5">
             {/* Happy Clinic Header */}
             <div className="flex items-center gap-1.5 px-1.5 py-1">
@@ -746,7 +746,8 @@ export const HowItLooks = () => {
           <div className="relative w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 xl:gap-8">
             
             {/* 1. PHOTOREALISTIC MACBOOK PRO WRAPPER */}
-            <div className="relative w-full md:w-[65%] max-w-[680px] select-none group z-10">
+            <div className="w-[680px] shrink-0 origin-top scale-[0.45] sm:scale-[0.7] md:scale-[0.8] lg:scale-[0.9] xl:scale-100 -mx-[187px] sm:-mx-[102px] md:-mx-[68px] lg:-mx-[34px] xl:mx-0 -mb-[249px] sm:-mb-[136px] md:-mb-[91px] lg:-mb-[45px] xl:mb-0 z-10 flex justify-center">
+              <div className="relative w-[680px] shrink-0 select-none group">
               
               {/* Laptop Screen Body Bezel */}
               <div className="relative bg-[#000000] rounded-t-[20px] rounded-b-[4px] border border-gray-800 p-[10px] pb-[16px] shadow-[0_20px_40px_-5px_rgba(0,0,0,0.8)]">
@@ -794,9 +795,10 @@ export const HowItLooks = () => {
               </div>
 
             </div>
+            </div>
 
             {/* 2. PHOTOREALISTIC IPHONE 15 PRO WRAPPER */}
-            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0 scale-[1.35] md:scale-100 origin-top mb-8 md:mb-0 mx-auto md:mx-0">
+            <div className="relative w-[190px] select-none z-20 mt-12 md:mt-0 scale-[1.35] md:scale-100 origin-top mb-28 md:mb-0 mx-auto md:mx-0">
               
               {/* Titanium frame exterior with subtle high-contrast rim */}
               <div className="relative bg-[#1f1d29] border-[1.5px] border-zinc-700 rounded-[38px] shadow-[0_25px_50px_-8px_rgba(0,0,0,1)] p-[6px]">
