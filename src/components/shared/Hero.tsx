@@ -309,8 +309,9 @@ export const HeroSection = () => {
               {/* High fidelity interactive mockup representation */}
               <motion.div
                 animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-[576px] shrink-0 max-w-none relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible"
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                style={{ backfaceVisibility: "hidden", WebkitFontSmoothing: "antialiased" }}
+                className="w-[576px] shrink-0 max-w-none relative bg-[#0b0818]/90 border border-purple-800/30 rounded-2xl shadow-[var(--shadow-glow)] overflow-visible transform-gpu"
               >
               {/* EMR Mockup Header */}
               <div className="bg-[#120d22] rounded-t-2xl border-b border-purple-950/50 pt-[10px] pb-[10px] pl-[15px] pr-[15px] flex items-center justify-between relative">
