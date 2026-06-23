@@ -13,11 +13,6 @@ export const Signup = () => {
   const urlPlan = searchParams.get("plan") as PlanType | null;
   const urlBilling = searchParams.get("billing") as BillingCycle | null;
 
-  // Calculate 60 days expiry
-  const expiryDate = new Date();
-  expiryDate.setDate(expiryDate.getDate() + 60);
-  const formattedExpiry = expiryDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
   // Form State
   const [formData, setFormData] = useState({
     contactPerson: "",
@@ -35,6 +30,15 @@ export const Signup = () => {
   const calculatedAmount = formData.billingCycle === "Annual" ? currentPlanConfig.priceAnnual : currentPlanConfig.priceMonthly;
   const displayAmount = `KES ${calculatedAmount.toLocaleString()} /mo ${formData.billingCycle === "Annual" ? "(Billed Annually)" : ""}`;
   const hiddenPayload = `${formData.planType} Plan - ${formData.billingCycle} Billing - KES ${calculatedAmount.toLocaleString()}/mo (Total: KES ${(formData.billingCycle === "Annual" ? calculatedAmount * 12 : calculatedAmount).toLocaleString()}/${formData.billingCycle === "Annual" ? 'yr' : 'mo'})`;
+
+  // Calculate plan expiry dynamically based on billing cycle + 1 month grace
+  const expiryDate = new Date();
+  if (formData.billingCycle === "Annual") {
+    expiryDate.setMonth(expiryDate.getMonth() + 13);
+  } else {
+    expiryDate.setMonth(expiryDate.getMonth() + 2);
+  }
+  const formattedExpiry = expiryDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
   const [initialsManuallyEdited, setInitialsManuallyEdited] = useState(false);
   
@@ -104,7 +108,7 @@ export const Signup = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ 
-        "form-name": "initialize-workspace",
+        "form-name": "signup",
         ...formData,
         fullSubdomain: `${formData.subdomain}.therapy.ke`,
         subscriptionDetails: hiddenPayload,
@@ -158,7 +162,7 @@ export const Signup = () => {
             {!isSubmitted ? (
               <motion.form 
                 key="workspace-form"
-                name="initialize-workspace"
+                name="signup"
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
@@ -177,7 +181,7 @@ export const Signup = () => {
                 )}
 
                 {/* Hidden fields for Netlify */}
-                <input type="hidden" name="form-name" value="initialize-workspace" />
+                <input type="hidden" name="form-name" value="signup" />
                 <div className="hidden" aria-hidden="true">
                   <label>
                     Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} />
@@ -334,7 +338,7 @@ export const Signup = () => {
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1 h-[18px] md:h-auto md:mb-1">Trial Expiry</span>
+                      <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold block mb-1 h-[18px] md:h-auto md:mb-1">Plan Expiry</span>
                       <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
                         <CalendarDays className="w-3 h-3 text-[var(--primary-light)]" />
                         {formattedExpiry}
