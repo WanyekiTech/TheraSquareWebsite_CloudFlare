@@ -268,7 +268,7 @@ export const HowItLooks = () => {
           <div className="flex-grow grid grid-cols-12 gap-1.5 sm:gap-3.5 mt-1 sm:mt-2 min-h-0 overflow-hidden">
             
             {/* 1. Standard Interactive Calendar Grid Box (reproduced precisely from mockup) */}
-            <div className="col-span-12 sm:col-span-8 bg-white border border-slate-100 rounded-lg p-1.5 sm:p-2.5 flex flex-col min-h-0 shadow-2xs">
+            <div className="col-span-8 bg-white border border-slate-100 rounded-lg p-1.5 sm:p-2.5 flex flex-col min-h-0 shadow-2xs">
               
               {/* Month bar */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-1.5 shrink-0">
@@ -368,7 +368,7 @@ export const HowItLooks = () => {
             </div>
 
             {/* 2. Right schedule column details */}
-            <div className="hidden sm:flex sm:col-span-4 flex-col min-h-0">
+            <div className="flex col-span-4 flex-col min-h-0">
               
               <div className="mb-2 shrink-0">
                 <span className="text-[9.5px] font-black text-slate-800 block">
