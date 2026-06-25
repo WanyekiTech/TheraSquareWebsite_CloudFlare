@@ -30,11 +30,11 @@ export const SolutionSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.15)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
-        {/* Main Flex Container */}
-        <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-16 items-center w-full">
+        {/* Main Grid Container (40/60 Split) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           
-          {/* Left Column (Content) */}
-          <div className="w-full lg:w-1/2 flex flex-col">
+          {/* Left Column (Content - 7/12) */}
+          <div className="order-2 lg:order-1 col-span-1 lg:col-span-7 flex flex-col">
             
             {/* Header Block */}
             <div className="text-left mb-10">
@@ -55,18 +55,18 @@ export const SolutionSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-3"
             >
               {SOLUTION_FEATURES.map((feature) => (
                 <motion.div 
                   key={feature.id}
                   variants={itemVariants}
-                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-4 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-5"
+                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl py-3 px-4 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
-                    <feature.icon className="w-6 h-6 text-brand-light" />
+                  <div className="w-10 h-10 rounded-xl bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
+                    <feature.icon className="w-5 h-5 text-brand-light" />
                   </div>
-                  <h3 className="text-lg font-bold text-white m-0">
+                  <h3 className="text-sm font-normal text-white/90 m-0">
                     {feature.title}
                   </h3>
                 </motion.div>
@@ -74,13 +74,13 @@ export const SolutionSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Column (Image) */}
+          {/* Right Column (Image - 5/12) */}
           <motion.div 
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="w-full lg:w-1/2"
+            className="order-1 lg:order-2 col-span-1 lg:col-span-5"
           >
             <img 
               src="/images/home/solution.jpg" 

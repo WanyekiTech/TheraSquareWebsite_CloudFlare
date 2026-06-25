@@ -29,16 +29,16 @@ export const ProblemStatement = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,74,86,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
-        {/* Main Flex Container */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center w-full">
+        {/* Main Grid Container (40/60 Split) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           
-          {/* Left Column (Image) */}
+          {/* Left Column (Image - 5/12) */}
           <motion.div 
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="w-full lg:w-1/2"
+            className="col-span-1 lg:col-span-5"
           >
             <img 
               src="/images/home/challenge.jpg" 
@@ -48,8 +48,8 @@ export const ProblemStatement = () => {
             />
           </motion.div>
 
-          {/* Right Column (Content) */}
-          <div className="w-full lg:w-1/2 flex flex-col">
+          {/* Right Column (Content - 7/12) */}
+          <div className="col-span-1 lg:col-span-7 flex flex-col">
             
             {/* Header Block */}
             <div className="text-left mb-10">
@@ -70,18 +70,18 @@ export const ProblemStatement = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-3"
             >
               {PROBLEM_STATEMENTS.map((prob) => (
                 <motion.div 
                   key={prob.id}
                   variants={itemVariants}
-                  className="bg-surface border border-destructive/20 rounded-2xl p-4 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-5"
+                  className="bg-surface border border-destructive/20 rounded-2xl py-3 px-4 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-4"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
-                    <prob.icon className="w-6 h-6 text-destructive" />
+                  <div className="w-10 h-10 rounded-xl bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
+                    <prob.icon className="w-5 h-5 text-destructive" />
                   </div>
-                  <p className="text-text-muted font-medium leading-relaxed m-0">
+                  <p className="text-sm text-text-muted/90 font-normal leading-relaxed m-0">
                     {prob.title}
                   </p>
                 </motion.div>
