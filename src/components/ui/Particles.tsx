@@ -15,6 +15,7 @@ interface ParticlesProps {
   disableRotation?: boolean;
   pixelRatio?: number;
   className?: string;
+  distribution?: 'sphere' | 'uniform';
 }
 
 const defaultColors: string[] = ['#ffffff', '#10B981', '#1D6B6E'];
@@ -108,7 +109,8 @@ export const Particles: React.FC<ParticlesProps> = ({
   cameraDistance = 20,
   disableRotation = false,
   pixelRatio = 1,
-  className = ""
+  className = "",
+  distribution = 'sphere'
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -156,16 +158,35 @@ export const Particles: React.FC<ParticlesProps> = ({
     const colors = new Float32Array(count * 3);
     const palette = particleColors && particleColors.length > 0 ? particleColors : defaultColors;
 
+    const gridDim = distribution === 'uniform' ? Math.ceil(Math.cbrt(count)) : 0;
+    const cellWidth = distribution === 'uniform' ? 2 / gridDim : 0;
+
     for (let i = 0; i < count; i++) {
-      let x: number, y: number, z: number, len: number;
-      do {
-        x = Math.random() * 2 - 1;
-        y = Math.random() * 2 - 1;
-        z = Math.random() * 2 - 1;
-        len = x * x + y * y + z * z;
-      } while (len > 1 || len === 0);
-      const r = Math.cbrt(Math.random());
-      positions.set([x * r, y * r, z * r], i * 3);
+      let finalX: number, finalY: number, finalZ: number;
+
+      if (distribution === 'uniform') {
+        const gx = i % gridDim;
+        const gy = Math.floor(i / gridDim) % gridDim;
+        const gz = Math.floor(i / (gridDim * gridDim));
+        
+        finalX = -1 + (gx * cellWidth) + (Math.random() * cellWidth);
+        finalY = -1 + (gy * cellWidth) + (Math.random() * cellWidth);
+        finalZ = -1 + (gz * cellWidth) + (Math.random() * cellWidth);
+      } else {
+        let x: number, y: number, z: number, len: number;
+        do {
+          x = Math.random() * 2 - 1;
+          y = Math.random() * 2 - 1;
+          z = Math.random() * 2 - 1;
+          len = x * x + y * y + z * z;
+        } while (len > 1 || len === 0);
+        const r = Math.cbrt(Math.random());
+        finalX = x * r;
+        finalY = y * r;
+        finalZ = z * r;
+      }
+
+      positions.set([finalX, finalY, finalZ], i * 3);
       randoms.set([Math.random(), Math.random(), Math.random(), Math.random()], i * 4);
       const col = hexToRgb(palette[Math.floor(Math.random() * palette.length)]);
       colors.set(col, i * 3);

@@ -14,6 +14,7 @@ export const Footer = () => {
           speed={0} 
           disableRotation={true} 
           moveParticlesOnHover={false} 
+          distribution="uniform"
           className="opacity-40"
         />
       </div>

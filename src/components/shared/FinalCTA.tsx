@@ -27,6 +27,7 @@ export const FinalCTA = () => {
           speed={0} 
           disableRotation={true}
           moveParticlesOnHover={false}
+          distribution="uniform"
         />
       </div>
 
