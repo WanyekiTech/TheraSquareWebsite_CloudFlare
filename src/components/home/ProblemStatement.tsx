@@ -90,7 +90,7 @@ export const ProblemStatement = () => {
                   variants={itemVariants}
                   className="bg-surface border border-destructive/20 rounded-2xl py-3 px-4 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-4"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
                     <prob.icon className="w-4 h-4 text-destructive" />
                   </div>
                   <p className="text-sm text-text-muted/90 font-medium leading-relaxed m-0">
@@ -103,7 +103,7 @@ export const ProblemStatement = () => {
         </div>
 
         {/* Emotional Close */}
-        <div className="text-center pt-12 mt-12 w-full">
+        <div className="text-center pt-8 mt-8 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(217,74,86,0.3)]">
             Your time should be spent in sessions — <span className="text-destructive">not systems.</span>
           </h3>

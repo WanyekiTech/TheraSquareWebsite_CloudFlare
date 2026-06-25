@@ -720,7 +720,7 @@ export const HowItLooks = () => {
     <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Dynamic Brand Spotlight & Grid Floor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
       
       {/* Glowing horizontal laser backdrop */}
       <div className="absolute top-[68%] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-brand/30 to-transparent pointer-events-none z-0" />

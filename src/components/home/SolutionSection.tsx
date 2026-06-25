@@ -91,7 +91,7 @@ export const SolutionSection = () => {
                   variants={itemVariants}
                   className="bg-white/[0.02] border border-white/[0.05] rounded-2xl py-3 px-4 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
                     <feature.icon className="w-4 h-4 text-brand-light" />
                   </div>
                   <p className="text-sm font-medium text-white/90 m-0 leading-relaxed">
@@ -104,7 +104,7 @@ export const SolutionSection = () => {
         </div>
 
         {/* Positive Close */}
-        <div className="text-center pt-12 mt-12 w-full">
+        <div className="text-center pt-8 mt-8 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(29,107,110,0.3)]">
             Get back to what you do best — <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">healing your clients.</span>
           </h3>
