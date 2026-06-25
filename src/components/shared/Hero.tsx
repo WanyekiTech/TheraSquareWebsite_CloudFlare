@@ -1,7 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@components/ui";
+import { Button, Particles } from "@components/ui";
 import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, X, Building2 } from "lucide-react";
 
 interface CountUpProps {
@@ -193,17 +193,20 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen pt-20 pb-12 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden">
-      {/* Background ambient blobs (position: absolute, z-index: 0) */}
+      {/* Background ambient blobs (position: absolute, z-index: -10) */}
       <motion.div
-        className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-25 bg-brand pointer-events-none z-0"
+        className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-25 bg-brand pointer-events-none -z-10"
         animate={{ scale: [1, 1.1, 1], x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-15 bg-brand-light pointer-events-none z-0"
+        className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-15 bg-brand-light pointer-events-none -z-10"
         animate={{ scale: [1, 1.15, 1], x: [0, -20, 0], y: [0, 15, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
+
+      {/* WebGL Interactive Particles */}
+      <Particles className="z-0" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
