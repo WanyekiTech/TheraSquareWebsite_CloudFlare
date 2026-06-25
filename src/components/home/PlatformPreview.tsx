@@ -720,8 +720,7 @@ export const PlatformPreview = () => {
   return (
     <section className="pt-16 md:pt-20 lg:pt-24 pb-32 md:pb-48 lg:pb-64 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
-      {/* Dynamic Brand Spotlight & Grid Floor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
+
       
       {/* Animated Particles Backdrop */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)' }}>
@@ -729,7 +728,7 @@ export const PlatformPreview = () => {
           particleCount={250}
           speed={0.05}
           alphaParticles={true}
-          className="opacity-80"
+          className="opacity-100"
         />
       </div>
       
