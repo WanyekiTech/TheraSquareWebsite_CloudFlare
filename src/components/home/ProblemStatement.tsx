@@ -82,16 +82,16 @@ export const ProblemStatement = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-2"
             >
               {PROBLEM_STATEMENTS.map((prob) => (
                 <motion.div 
                   key={prob.id}
                   variants={itemVariants}
-                  className="bg-surface border border-destructive/20 rounded-2xl p-4 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-4"
+                  className="bg-surface border border-destructive/20 rounded-2xl py-2.5 px-3 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-3.5"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
-                    <prob.icon className="w-5 h-5 text-destructive" />
+                  <div className="w-8 h-8 rounded-lg bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
+                    <prob.icon className="w-4 h-4 text-destructive" />
                   </div>
                   <p className="text-sm text-text-muted/90 font-medium leading-relaxed m-0">
                     {prob.title}
