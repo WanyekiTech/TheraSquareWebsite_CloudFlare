@@ -156,49 +156,57 @@ export const Contact = () => {
 
                       {/* Name */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
+                        <label htmlFor="name" className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Your Full Name
                         </label>
                         <input 
+                          id="name"
                           type="text" 
                           name="name"
+                          autoComplete="name"
                           required
+                          disabled={isSubmitting}
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Dr. Jane Doe / Clinic Name"
-                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors"
+                          className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         />
                       </div>
 
                       {/* Email */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
+                        <label htmlFor="email" className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Email Address
                         </label>
                         <input 
+                          id="email"
                           type="email" 
                           name="email"
+                          autoComplete="email"
                           required
+                          disabled={isSubmitting}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="jane@clinic.ke"
-                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors"
+                          className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         />
                       </div>
 
                       {/* Message */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
+                        <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Inquiry Details & Clinic Requirements
                         </label>
                         <textarea 
+                          id="message"
                           rows={4}
                           name="message"
                           required
+                          disabled={isSubmitting}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder="Tell us about your practice, size, and which features you want to migrate or trial..."
-                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors resize-none leading-relaxed"
+                          className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed resize-none leading-relaxed"
                         />
                       </div>
 

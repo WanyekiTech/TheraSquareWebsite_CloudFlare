@@ -192,32 +192,37 @@ export const Signup = () => {
                   {/* Grid for Contact Person & Clinic Name */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="contactPerson" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <User className="w-3.5 h-3.5 text-brand-light" /> Contact Person
                       </label>
                       <input 
+                        id="contactPerson"
                         type="text"
                         name="contactPerson"
+                        autoComplete="name"
                         required
+                        disabled={isSubmitting}
                         value={formData.contactPerson}
                         onChange={handleInputChange}
                         placeholder="Dr. Mary Wanjiku"
-                        className="bg-surface border border-brand/30 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors w-full"
+                        className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="clinicName" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Building2 className="w-3.5 h-3.5 text-brand-light" /> Clinic / Practice Name
                       </label>
                       <input 
+                        id="clinicName"
                         type="text"
                         name="clinicName"
                         required
+                        disabled={isSubmitting}
                         value={formData.clinicName}
                         onChange={handleInputChange}
                         placeholder="Harmony Clinic"
-                        className="bg-surface border border-brand/30 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors w-full"
+                        className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -225,33 +230,40 @@ export const Signup = () => {
                   {/* Grid for Email & Phone */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Mail className="w-3.5 h-3.5 text-brand-light" /> Professional Email
                       </label>
                       <input 
+                        id="email"
                         type="email"
                         name="email"
+                        autoComplete="email"
                         required
+                        disabled={isSubmitting}
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="mary@clinic.ke"
-                        className="bg-surface border border-brand/30 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors w-full"
+                        className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
 
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="phone" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Phone className="w-3.5 h-3.5 text-brand-light" /> Phone Number
                       </label>
                       <input 
+                        id="phone"
                         type="tel"
                         name="phone"
+                        inputMode="tel"
+                        autoComplete="tel"
                         required
+                        disabled={isSubmitting}
                         pattern="^\+?[0-9\s]{9,15}$"
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+254 700 000000"
-                        className="bg-surface border border-brand/30 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors w-full"
+                        className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -259,38 +271,42 @@ export const Signup = () => {
                   {/* Grid for Subdomain & Initials */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="flex flex-col md:col-span-2">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="subdomain" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Globe className="w-3.5 h-3.5 text-brand-light" /> Preferred Subdomain
                       </label>
-                      <div className="flex items-stretch rounded-xl border border-brand/30 bg-surface overflow-hidden focus-within:border-brand transition-colors">
+                      <div className={`flex items-stretch rounded-xl border border-white/10 bg-white/5 overflow-hidden focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20 focus-within:bg-white/10 hover:border-white/20 transition-all duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
                         <input 
+                          id="subdomain"
                           type="text"
                           name="subdomain"
                           required
+                          disabled={isSubmitting}
                           value={formData.subdomain}
                           onChange={handleInputChange}
                           placeholder="yourname"
-                          className="bg-transparent px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none w-full"
+                          className="bg-transparent px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none w-full disabled:cursor-not-allowed"
                         />
-                        <div className="bg-brand/30 px-4 py-3 text-xs text-text-muted border-l border-brand/30 flex items-center shrink-0 select-none">
+                        <div className="bg-white/5 px-4 py-3 text-xs text-text-muted border-l border-white/10 flex items-center shrink-0 select-none">
                           .therapy.ke
                         </div>
                       </div>
                     </div>
 
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
+                      <label htmlFor="initials" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Fingerprint className="w-3.5 h-3.5 text-brand-light" /> User ID (Initials)
                       </label>
                       <input 
+                        id="initials"
                         type="text"
                         name="initials"
                         required
+                        disabled={isSubmitting}
                         value={formData.initials}
                         onChange={handleInputChange}
                         placeholder="HAP"
                         maxLength={3}
-                        className="bg-surface border border-brand/30 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors w-full uppercase font-mono tracking-widest text-center"
+                        className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full uppercase font-mono tracking-widest text-center disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -314,14 +330,16 @@ export const Signup = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold block mb-1">Plan Type</span>
+                      <label htmlFor="planType" className="text-[10px] text-text-muted uppercase tracking-wider font-semibold block mb-1">Plan Type</label>
                       <div className="relative">
                         <select
+                          id="planType"
                           name="planType"
                           aria-label="Select Plan Type"
+                          disabled={isSubmitting}
                           value={formData.planType}
                           onChange={handleInputChange}
-                          className="bg-surface border border-brand/30 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand transition-colors w-full appearance-none cursor-pointer"
+                          className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {PRICING_PLANS.map(plan => (
                             <option key={plan.name} value={plan.name}>{plan.name}</option>
