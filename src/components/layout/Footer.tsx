@@ -10,7 +10,7 @@ export const Footer = () => {
       {/* Frozen Stardust Texture Backdrop */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)' }}>
         <Particles 
-          particleCount={500} 
+          particleCount={1000} 
           speed={0} 
           disableRotation={true} 
           moveParticlesOnHover={false} 

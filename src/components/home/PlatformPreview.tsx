@@ -724,9 +724,9 @@ export const PlatformPreview = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
       
       {/* Frozen Stardust Texture Backdrop */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)' }}>
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)' }}>
         <Particles 
-          particleCount={500} 
+          particleCount={1000} 
           speed={0} 
           disableRotation={true} 
           moveParticlesOnHover={false} 

@@ -13,23 +13,7 @@ export const FinalCTA = () => {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Full-Screen WebGL Particles with Safari-safe fade mask */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ 
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)'
-        }}
-      >
-        <Particles 
-          className="z-0" 
-          particleCount={500} 
-          speed={0} 
-          disableRotation={true}
-          moveParticlesOnHover={false}
-          distribution="uniform"
-        />
-      </div>
+
 
       <div className="container mx-auto px-6 max-w-5xl">
         
