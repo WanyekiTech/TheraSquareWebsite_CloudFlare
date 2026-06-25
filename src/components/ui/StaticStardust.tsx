@@ -21,7 +21,7 @@ export const StaticStardust: React.FC<StaticStardustProps> = ({
     if (!ctx) return;
 
     // We store the particles array outside the draw function so they don't randomly teleport on resize
-    let particles: { x: number; y: number; r: number; color: string; alpha: number }[] = [];
+    let particles: { x: number; y: number; r: number; color: string; alpha: number; isShiny: boolean }[] = [];
     
     const initParticles = (width: number, height: number) => {
       particles = [];
@@ -43,8 +43,9 @@ export const StaticStardust: React.FC<StaticStardustProps> = ({
           const radius = Math.random() * 1.5 + 0.5; // Random size between 0.5 and 2.0
           const color = colors[Math.floor(Math.random() * colors.length)];
           const alpha = Math.random() * 0.6 + 0.2; // Opacity between 0.2 and 0.8
+          const isShiny = Math.random() > 0.85; // 15% chance to be a shiny, glowing star
           
-          particles.push({ x: px, y: py, r: radius, color, alpha });
+          particles.push({ x: px, y: py, r: radius, color, alpha, isShiny });
         }
       }
     };
@@ -70,8 +71,18 @@ export const StaticStardust: React.FC<StaticStardustProps> = ({
       particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
+        
+        if (p.isShiny) {
+          ctx.shadowBlur = p.r * 10; // Intense glow
+          ctx.shadowColor = p.color; // Colored glow aura
+          ctx.fillStyle = '#ffffff'; // Super-bright white core
+          ctx.globalAlpha = Math.min(1, p.alpha * 1.8); // Boost opacity for shiny stars
+        } else {
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha;
+        }
+        
         ctx.fill();
       });
     };
