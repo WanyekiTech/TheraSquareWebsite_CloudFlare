@@ -75,11 +75,11 @@ export const HowItWorksSteps = () => {
           {/* Desktop Horizontal Connector Line with looping flow glow */}
           <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[2px] pointer-events-none z-0 overflow-hidden">
             {/* Base Line structure: ~2px on desktop with beautiful low-opacity structure */}
-            <div className="absolute inset-0 bg-[#8B5CF6]/25 rounded-full" />
+            <div className="absolute inset-0 bg-brand/25 rounded-full" />
             
             {/* Dynamic Thick Glow Layer */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 h-[8px] w-[20%] bg-gradient-to-r from-transparent via-[#8B5CF6] to-transparent blur-[4px] opacity-80"
+              className="absolute top-1/2 -translate-y-1/2 h-[8px] w-[20%] bg-gradient-to-r from-transparent via-brand to-transparent blur-[4px] opacity-80"
               animate={{
                 left: ["-20%", "120%"]
               }}

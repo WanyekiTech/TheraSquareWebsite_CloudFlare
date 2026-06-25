@@ -199,7 +199,7 @@ export const HowItLooks = () => {
                   <Activity size={10} className="text-slate-400" />
                   <span>Overview</span>
                 </button>
-                <button className="w-full flex items-center gap-2 px-1.5 py-1.2 rounded text-[8px] font-bold bg-[#f5efff] text-brand transition-all">
+                <button className="w-full flex items-center gap-2 px-1.5 py-1.2 rounded text-[8px] font-bold bg-brand/5 text-brand transition-all">
                   <CalendarIcon size={10} className="text-brand" />
                   <span>My Calendar</span>
                 </button>
@@ -320,7 +320,7 @@ export const HowItLooks = () => {
                       onClick={() => setSelectedDay(day)}
                       className={`bg-white p-0.5 text-left flex flex-col justify-between cursor-pointer group transition-all relative ${
                         isCurrentSelected 
-                          ? "ring-1 ring-brand z-10 bg-[#fbfaff]" 
+                          ? "ring-1 ring-brand z-10 bg-brand/5" 
                           : "hover:bg-slate-50"
                       }`}
                     >
@@ -566,7 +566,7 @@ export const HowItLooks = () => {
                       onClick={() => setSelectedDay(day)}
                       className={`bg-white p-0.5 pt-1 pb-1 flex flex-col items-center justify-between cursor-pointer rounded transition-all min-h-[18px] ${
                         isSelected 
-                          ? "ring-[1.2px] ring-brand bg-[#faf9ff] z-10" 
+                          ? "ring-[1.2px] ring-brand bg-brand/5 z-10" 
                           : "hover:bg-slate-50"
                       }`}
                     >
@@ -719,7 +719,7 @@ export const HowItLooks = () => {
   return (
     <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
-      {/* Dynamic Purple Spotlight & Grid Floor */}
+      {/* Dynamic Brand Spotlight & Grid Floor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
       
       {/* Glowing horizontal laser backdrop */}
@@ -736,7 +736,7 @@ export const HowItLooks = () => {
             How it <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Looks</span>
           </h2>
           <p className="body-muted max-w-lg mx-auto">
-            Run your practice with clarity and confidence. Manage appointments, records, billing, and reporting in one unified workspace.
+            Run your practice with clarity. Manage appointments, records, billing, and reporting in one unified workspace.
           </p>
         </div>
 

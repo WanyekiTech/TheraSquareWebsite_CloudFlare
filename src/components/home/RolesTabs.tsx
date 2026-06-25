@@ -125,7 +125,7 @@ export const RolesTabs = () => {
   };
 
   return (
-    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-background relative z-10 border-t border-brand/20">
+    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-background relative z-10">
       <div className="container mx-auto px-6">
         
         {/* Header */}

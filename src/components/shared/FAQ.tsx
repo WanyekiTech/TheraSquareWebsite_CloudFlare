@@ -42,7 +42,7 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-background border-t border-brand/20 z-10 relative">
+    <section className="py-16 md:pt-20 lg:pt-24 pb-12 bg-background border-t border-brand/20 z-10 relative">
       <div className="container mx-auto px-6 max-w-4xl">
         
         {/* Header */}
