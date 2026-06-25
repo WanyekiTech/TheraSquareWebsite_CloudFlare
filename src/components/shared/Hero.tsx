@@ -295,7 +295,7 @@ export const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-brand-light" />
-                <span>Built for Therapists & Clinics</span>
+                <span>Built for Private Practices & Clinics</span>
               </div>
             </motion.div>
           </motion.div>
