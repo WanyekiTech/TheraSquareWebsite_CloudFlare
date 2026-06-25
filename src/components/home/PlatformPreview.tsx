@@ -717,7 +717,7 @@ export const PlatformPreview = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
+    <section className="pt-16 md:pt-20 lg:pt-24 pb-32 md:pb-48 lg:pb-64 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Dynamic Brand Spotlight & Grid Floor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />

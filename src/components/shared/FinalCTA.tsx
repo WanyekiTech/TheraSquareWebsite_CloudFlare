@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Button } from "@components/ui";
+import { Button, Particles } from "@components/ui";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const FinalCTA = () => {
@@ -17,6 +17,14 @@ export const FinalCTA = () => {
 
         {/* Content Box */}
         <div className="bg-gradient-to-b from-surface to-background/80 border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
+          
+          {/* Contained WebGL Particles */}
+          <Particles 
+            className="z-0 opacity-40" 
+            particleCount={100} 
+            speed={0.03} 
+          />
+
           <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
             
             {/* badge */}
