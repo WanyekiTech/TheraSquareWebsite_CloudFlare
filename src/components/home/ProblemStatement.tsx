@@ -23,7 +23,7 @@ const itemVariants = {
 
 export const ProblemStatement = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center border-b border-destructive/20">
       
       {/* Subtle Crimson Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,74,86,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
@@ -103,7 +103,7 @@ export const ProblemStatement = () => {
         </div>
 
         {/* Emotional Close */}
-        <div className="text-center pt-12 mt-12 border-t border-destructive/30 w-full">
+        <div className="text-center pt-12 mt-12 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(217,74,86,0.3)]">
             Your time should be spent in sessions — <span className="text-destructive">not systems.</span>
           </h3>

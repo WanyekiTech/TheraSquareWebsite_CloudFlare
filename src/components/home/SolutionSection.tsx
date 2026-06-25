@@ -24,7 +24,7 @@ const itemVariants = {
 
 export const SolutionSection = () => {
   return (
-    <section className="pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-14 lg:pb-16 relative overflow-hidden bg-background flex flex-col justify-center items-center">
+    <section className="pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-14 lg:pb-16 relative overflow-hidden bg-background flex flex-col justify-center items-center border-b border-brand/20">
       
       {/* Subtle Primary Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.15)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
@@ -104,7 +104,7 @@ export const SolutionSection = () => {
         </div>
 
         {/* Positive Close */}
-        <div className="text-center pt-12 mt-12 border-t border-brand/30 w-full">
+        <div className="text-center pt-12 mt-12 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(29,107,110,0.3)]">
             Get back to what you do best — <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">healing your clients.</span>
           </h3>
