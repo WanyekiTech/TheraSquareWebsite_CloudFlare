@@ -125,7 +125,7 @@ export const RolesTabs = () => {
   };
 
   return (
-    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-[#090712] relative z-10 border-t border-purple-950/20">
+    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-[#090712] relative z-10 border-t border-brand/20">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -134,12 +134,12 @@ export const RolesTabs = () => {
             FOR YOUR WORKFLOW
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-            Built for Every Role in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Your Practice</span>
+            Built for Every Role in <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Your Practice</span>
           </h2>
 
           {/* Tab Selection Capsule - directly beneath the title */}
           <div className="flex justify-center mb-6">
-            <div className="bg-[#120F24] p-1.5 rounded-2xl md:rounded-full border border-purple-900/30 flex flex-wrap md:inline-flex justify-center items-center gap-1">
+            <div className="bg-[#120F24] p-1.5 rounded-2xl md:rounded-full border border-brand/20 flex flex-wrap md:inline-flex justify-center items-center gap-1">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab;
                 return (
@@ -147,13 +147,13 @@ export const RolesTabs = () => {
                     key={tab}
                     onClick={() => setActiveTab(tab)}
                     className={`relative px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                      isActive ? "text-white" : "text-gray-400 hover:text-white"
+                      isActive ? "text-white" : "text-text-muted hover:text-white"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeRoleTab"
-                        className="absolute inset-0 bg-[var(--primary)] rounded-full -z-10 shadow-md"
+                        className="absolute inset-0 bg-brand rounded-full -z-10 shadow-md"
                         transition={{ type: "spring", stiffness: 350, damping: 25 }}
                       />
                     )}
@@ -173,7 +173,7 @@ export const RolesTabs = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 4 }}
                 transition={{ duration: 0.15 }}
-                className="body-muted max-w-lg mx-auto text-gray-400"
+                className="body-muted max-w-lg mx-auto text-text-muted"
               >
                 {tabSubheadings[activeTab]}
               </motion.p>
@@ -203,12 +203,12 @@ export const RolesTabs = () => {
                     className="bg-[#151724] border border-[#24273A] p-6 rounded-[var(--radius-card)] hover:-translate-y-1 hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.25)] transition-all duration-300 ease-out group pr-6"
                   >
                     <div className="bg-[#1E1938] w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-5 h-5 text-[var(--primary-light)]" />
+                      <IconComponent className="w-5 h-5 text-brand-light" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed font-light">
+                    <p className="text-sm text-text-muted leading-relaxed font-light">
                       {item.description}
                     </p>
                   </motion.div>

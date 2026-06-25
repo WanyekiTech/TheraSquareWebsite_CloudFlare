@@ -10,7 +10,7 @@ export const MetricsBar = () => {
   ];
 
   return (
-    <section className="bg-[#05040a]/80 py-4 border-y border-[#181335]/20 relative z-10">
+    <section className="bg-background/80 py-4 border-y border-brand/20 relative z-10">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-wrap items-center justify-center gap-y-3 gap-x-5 md:gap-x-7 text-center select-none">
           {stats.map((stat, i) => (
@@ -26,12 +26,12 @@ export const MetricsBar = () => {
                 <span className="font-bold text-white tracking-tight">
                   {stat.number}
                 </span>
-                <span className="text-zinc-400 font-normal">
+                <span className="text-text-muted font-normal">
                   {stat.label}
                 </span>
               </div>
               {i < stats.length - 1 && (
-                <span className="text-zinc-805/85 text-zinc-800 font-light text-sm md:text-base select-none leading-none" aria-hidden="true">|</span>
+                <span className="text-brand/50 font-light text-sm md:text-base select-none leading-none" aria-hidden="true">|</span>
               )}
             </motion.div>
           ))}

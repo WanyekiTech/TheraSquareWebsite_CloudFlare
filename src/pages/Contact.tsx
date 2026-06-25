@@ -60,7 +60,7 @@ export const Contact = () => {
   return (
     <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden text-left relative">
       {/* Background Blobs */}
-      <div className="absolute top-20 right-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--primary)] blur-[120px] opacity-15 pointer-events-none -z-10" />
+      <div className="absolute top-20 right-[-10%] w-[500px] h-[500px] rounded-full bg-brand blur-[120px] opacity-15 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-12 gap-12 items-start mt-8">
@@ -70,7 +70,7 @@ export const Contact = () => {
             <div>
               <span className="label-uppercase mb-3 block">Get InTouch</span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-                Let's Modernize <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Your Clinic</span>
+                Let's Modernize <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Your Clinic</span>
               </h1>
               <p className="body-muted max-w-md text-sm leading-relaxed font-light">
                 Have questions about custom migrations, HIPAA compliance, or pricing tiers? Our Nairobi-based support team is here to help you step-by-step.
@@ -78,36 +78,36 @@ export const Contact = () => {
             </div>
 
             {/* Direct Contact indicators */}
-            <div className="space-y-6 pt-4 font-light text-sm text-gray-300">
+            <div className="space-y-6 pt-4 font-light text-sm text-text-muted">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-950/40 border border-purple-900/30 flex items-center justify-center text-[var(--primary-light)] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-brand/20 border border-brand/20 flex items-center justify-center text-brand-light shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-1">Direct Call Support</h4>
-                  <a href="tel:+254722446138" className="hover:text-white transition-colors block text-gray-400 font-mono">+254 722 446 138</a>
-                  <p className="text-[10px] text-gray-500 mt-0.5">Mon - Sat: 8:00 AM - 6:00 PM</p>
+                  <a href="tel:+254722446138" className="hover:text-white transition-colors block text-text-muted font-mono">+254 722 446 138</a>
+                  <p className="text-[10px] text-text-muted mt-0.5">Mon - Sat: 8:00 AM - 6:00 PM</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-950/40 border border-purple-900/30 flex items-center justify-center text-[var(--primary-light)] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-brand/20 border border-brand/20 flex items-center justify-center text-brand-light shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-1">Email Inquiries</h4>
-                  <a href="mailto:info@therapy.ke" className="hover:text-white transition-colors block text-gray-400 font-mono">info@therapy.ke</a>
-                  <p className="text-[10px] text-gray-500 mt-0.5">Response within 2 hours</p>
+                  <a href="mailto:info@therapy.ke" className="hover:text-white transition-colors block text-text-muted font-mono">info@therapy.ke</a>
+                  <p className="text-[10px] text-text-muted mt-0.5">Response within 2 hours</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-950/40 border border-purple-900/30 flex items-center justify-center text-[var(--primary-light)] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-brand/20 border border-brand/20 flex items-center justify-center text-brand-light shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-1">Headquarters</h4>
-                  <p className="text-gray-400 block font-sans">Nairobi, Kenya</p>
+                  <p className="text-text-muted block font-sans">Nairobi, Kenya</p>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@ export const Contact = () => {
           {/* Right Column: Contact form */}
           <div className="lg:col-span-7">
             <AnimatedSection>
-              <div className="bg-[#120F22] border border-purple-950/50 p-8 rounded-3xl relative overflow-hidden shadow-2xl">
+              <div className="bg-surface border border-brand/20 p-8 rounded-3xl relative overflow-hidden shadow-2xl">
                 
                 <AnimatePresence mode="wait">
                   {!isSubmitted ? (
@@ -132,13 +132,13 @@ export const Contact = () => {
                       transition={{ duration: 0.2 }}
                     >
                       <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                        <MessageSquareHeart className="w-5 h-5 text-[var(--primary-light)]" />
+                        <MessageSquareHeart className="w-5 h-5 text-brand-light" />
                         Send an Inquiry Message
                       </h2>
 
                       {errorMsg && (
-                        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-xl text-xs flex items-center gap-2">
-                          <ShieldAlert className="w-4 h-4 text-red-400 shrink-0" />
+                        <div className="bg-destructive/10 border border-destructive/20 text-destructive p-3 rounded-xl text-xs flex items-center gap-2">
+                          <ShieldAlert className="w-4 h-4 text-destructive shrink-0" />
                           <span>{errorMsg}</span>
                         </div>
                       )}
@@ -156,7 +156,7 @@ export const Contact = () => {
 
                       {/* Name */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">
+                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Your Full Name
                         </label>
                         <input 
@@ -166,13 +166,13 @@ export const Contact = () => {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Dr. Jane Doe / Clinic Name"
-                          className="bg-[#0b0818] border border-purple-950/70 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors"
                         />
                       </div>
 
                       {/* Email */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">
+                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Email Address
                         </label>
                         <input 
@@ -182,13 +182,13 @@ export const Contact = () => {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="jane@clinic.ke"
-                          className="bg-[#0b0818] border border-purple-950/70 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-[var(--primary)] transition-colors"
+                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors"
                         />
                       </div>
 
                       {/* Message */}
                       <div className="text-left flex flex-col">
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">
+                        <label className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
                           Inquiry Details & Clinic Requirements
                         </label>
                         <textarea 
@@ -198,7 +198,7 @@ export const Contact = () => {
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder="Tell us about your practice, size, and which features you want to migrate or trial..."
-                          className="bg-[#0b0818] border border-purple-950/70 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-[var(--primary)] transition-colors resize-none leading-relaxed"
+                          className="bg-surface border border-brand/30 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors resize-none leading-relaxed"
                         />
                       </div>
 
@@ -226,7 +226,7 @@ export const Contact = () => {
                         <CheckCircle2 className="w-8 h-8" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3">Inquiry Sent Successfully</h3>
-                      <p className="text-xs text-gray-400 leading-relaxed max-w-sm font-light mb-8">
+                      <p className="text-xs text-text-muted leading-relaxed max-w-sm font-light mb-8">
                         Thank you for reaching out to TheraSquare! We have flagged your request and our clinical onboarding specialists will email you back within 2 hours.
                       </p>
                       

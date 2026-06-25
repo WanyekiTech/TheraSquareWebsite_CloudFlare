@@ -11,7 +11,7 @@ interface CardProps {
 export const Card = ({ children, className = "", hoverEffect = true, glow = false }: CardProps) => {
   const hoverProps = hoverEffect
     ? {
-        whileHover: { y: -6, boxShadow: glow ? "var(--shadow-glow)" : "0 8px 32px rgba(124,58,237,0.15)" },
+        whileHover: { y: -6, boxShadow: glow ? "var(--shadow-glow)" : "0 8px 32px rgba(29,107,110,0.15)" },
         transition: { duration: 0.25 }
       }
     : {};
@@ -19,7 +19,7 @@ export const Card = ({ children, className = "", hoverEffect = true, glow = fals
   return (
     <motion.div
       {...hoverProps}
-      className={`bg-[var(--bg-card)] border border-purple-950/40 rounded-[var(--radius-card)] p-6 shadow-[var(--shadow-card)] relative overflow-hidden ${className}`}
+      className={`bg-surface border border-brand/20 rounded-[var(--radius-card)] p-6 shadow-[var(--shadow-card)] relative overflow-hidden ${className}`}
     >
       {children}
     </motion.div>

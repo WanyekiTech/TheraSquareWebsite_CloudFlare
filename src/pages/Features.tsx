@@ -19,13 +19,13 @@ const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
   <motion.div
     whileHover={{ y: -5, borderColor: "var(--primary)" }}
     transition={{ duration: 0.2 }}
-    className="bg-[#120F22] border border-purple-950/40 p-6 rounded-2xl text-left flex flex-col items-start hover:shadow-[var(--shadow-glow)] group"
+    className="bg-surface border border-brand/20 p-6 rounded-2xl text-left flex flex-col items-start hover:shadow-[var(--shadow-glow)] group"
   >
-    <div className="w-10 h-10 rounded-lg bg-[#1E1938] flex items-center justify-center text-purple-400 group-hover:text-white transition-colors mb-4">
+    <div className="w-10 h-10 rounded-lg bg-[#1E1938] flex items-center justify-center text-brand-light group-hover:text-white transition-colors mb-4">
       <Icon className="w-5 h-5" />
     </div>
     <h3 className="text-base font-bold text-white mb-2">{title}</h3>
-    <p className="text-xs text-gray-400 font-light leading-relaxed">{description}</p>
+    <p className="text-xs text-text-muted font-light leading-relaxed">{description}</p>
   </motion.div>
 );
 
@@ -140,7 +140,7 @@ export const Features = () => {
   return (
     <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden relative">
       {/* Decorative Blob */}
-      <div className="absolute top-10 right-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--primary)] blur-[130px] opacity-15 pointer-events-none -z-10" />
+      <div className="absolute top-10 right-[-10%] w-[500px] h-[500px] rounded-full bg-brand blur-[130px] opacity-15 pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-[-10%] w-[400px] h-[400px] rounded-full bg-indigo-500 blur-[120px] opacity-10 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6">
@@ -149,7 +149,7 @@ export const Features = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="label-uppercase mb-3 block">Complete Feature Suite</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            The Complete EMR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Operating System</span>
+            The Complete EMR <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Operating System</span>
           </h1>
           <p className="body-muted max-w-xl mx-auto text-sm md:text-base">
             Configure every detail of your therapy workspace. TheraSquare supports scheduling, payments, transcription, and client journals in a single high-security dashboard.
@@ -160,11 +160,11 @@ export const Features = () => {
         <div className="space-y-20">
           {categories.map((category, catIdx) => (
             <AnimatedSection key={catIdx} delay={0.05 * catIdx}>
-              <div className="text-left mb-8 pb-4 border-b border-purple-950/20">
+              <div className="text-left mb-8 pb-4 border-b border-brand/20">
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
                   {category.title}
                 </h2>
-                <p className="text-xs md:text-sm text-gray-400 font-light">
+                <p className="text-xs md:text-sm text-text-muted font-light">
                   {category.description}
                 </p>
               </div>

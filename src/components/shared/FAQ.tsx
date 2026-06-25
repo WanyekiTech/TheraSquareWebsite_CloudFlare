@@ -42,14 +42,14 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-[#06040D] border-t border-purple-950/20 z-10 relative">
+    <section className="py-16 md:py-20 lg:py-24 bg-background border-t border-brand/20 z-10 relative">
       <div className="container mx-auto px-6 max-w-4xl">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="label-uppercase mb-3 block">Got Questions?</span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Questions</span>
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Questions</span>
           </h2>
           <p className="body-muted max-w-lg mx-auto">
             Everything you need to know about the TheraSquare onboarding, billing, security, and clinical features.
@@ -63,7 +63,7 @@ export const FAQ = () => {
             return (
               <div 
                 key={index}
-                className="bg-[#120F22] border border-purple-950/45 rounded-xl overflow-hidden transition-colors duration-150"
+                className="bg-surface border border-brand/20 rounded-xl overflow-hidden transition-colors duration-150"
               >
                 {/* Trigger Button */}
                 <button
@@ -74,7 +74,7 @@ export const FAQ = () => {
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="text-purple-400 shrink-0"
+                    className="text-brand-light shrink-0"
                   >
                     <ChevronDown className="w-5 h-5" />
                   </motion.div>
@@ -88,9 +88,9 @@ export const FAQ = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden bg-[#0d091e]/50 border-t border-purple-950/20"
+                      className="overflow-hidden bg-[#0d091e]/50 border-t border-brand/20"
                     >
-                      <div className="px-6 py-5 text-sm font-light text-gray-400 leading-relaxed text-left">
+                      <div className="px-6 py-5 text-sm font-light text-text-muted leading-relaxed text-left">
                         {faq.answer}
                       </div>
                     </motion.div>

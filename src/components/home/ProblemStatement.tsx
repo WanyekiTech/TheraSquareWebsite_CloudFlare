@@ -23,10 +23,10 @@ const itemVariants = {
 
 export const ProblemStatement = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Subtle Crimson Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,27,27,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,74,86,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
         
@@ -36,7 +36,7 @@ export const ProblemStatement = () => {
             THE CHALLENGE
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Running a therapy practice shouldn’t feel like <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">administration work</span>
+            Running a therapy practice shouldn’t feel like <span className="text-destructive">administration work</span>
           </h2>
           <p className="body-muted max-w-lg mx-auto">
             Most mental health professionals lose valuable time managing operations instead of focusing on clients.
@@ -55,12 +55,12 @@ export const ProblemStatement = () => {
             <motion.div 
               key={prob.id}
               variants={itemVariants}
-              className="bg-[#120F22] border border-red-900/20 rounded-2xl p-6 shadow-[0_4px_24px_rgba(153,27,27,0.05)] hover:border-red-900/40 transition-colors flex flex-col items-start gap-4"
+              className="bg-surface border border-destructive/20 rounded-2xl p-6 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-col items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-red-950/40 border border-red-900/30 flex items-center justify-center shrink-0">
-                <prob.icon className="w-6 h-6 text-red-400" />
+              <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
+                <prob.icon className="w-6 h-6 text-destructive" />
               </div>
-              <p className="text-gray-300 font-medium leading-relaxed">
+              <p className="text-text-muted font-medium leading-relaxed">
                 {prob.title}
               </p>
             </motion.div>
@@ -68,9 +68,9 @@ export const ProblemStatement = () => {
         </motion.div>
 
         {/* Emotional Close */}
-        <div className="text-center pt-8 border-t border-red-950/30">
-          <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(248,113,113,0.3)]">
-            Your time should be spent in sessions — <span className="text-red-400">not systems.</span>
+        <div className="text-center pt-8 border-t border-destructive/30">
+          <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(217,74,86,0.3)]">
+            Your time should be spent in sessions — <span className="text-destructive">not systems.</span>
           </h3>
         </div>
 

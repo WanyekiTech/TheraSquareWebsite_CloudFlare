@@ -11,12 +11,12 @@ export const Badge = ({ children, variant = "primary", className = "" }: BadgePr
   
   let variantStyles = "";
   if (variant === "primary") {
-    variantStyles = "bg-[var(--primary)]/10 text-[var(--primary-light)] border border-[var(--primary)]/20";
+    variantStyles = "bg-brand/10 text-brand-light border border-brand/20";
   } else if (variant === "secondary") {
-    variantStyles = "bg-white/5 text-gray-300 border border-white/10";
+    variantStyles = "bg-surface text-text-muted border border-brand/20";
   } else if (variant === "accent") {
-    // Glowing medical/technical indicator (teal)
-    variantStyles = "bg-teal-500/10 text-teal-300 border border-teal-500/20";
+    // Glowing medical/technical indicator (accent)
+    variantStyles = "bg-accent/10 text-accent border border-accent/20";
   }
 
   return (

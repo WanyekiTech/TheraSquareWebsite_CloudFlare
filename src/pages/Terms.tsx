@@ -8,23 +8,23 @@ export const Terms = () => {
   }, []);
 
   return (
-    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 relative overflow-hidden text-left bg-[#06040D]">
+    <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 relative overflow-hidden text-left bg-background">
       {/* Subtle Background Glow */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[var(--primary)] blur-[120px] opacity-10 pointer-events-none -z-10" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-brand blur-[120px] opacity-10 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
-        <div className="mb-12 border-b border-purple-950/40 pb-8 text-center md:text-left">
-          <span className="label-uppercase mb-3 block text-[var(--primary-light)]">Legal Documentation</span>
+        <div className="mb-12 border-b border-brand/20 pb-8 text-center md:text-left">
+          <span className="label-uppercase mb-3 block text-brand-light">Legal Documentation</span>
           <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
             Terms of Service
           </h1>
-          <p className="text-sm font-mono text-gray-500 flex items-center justify-center md:justify-start gap-2">
+          <p className="text-sm font-mono text-text-muted flex items-center justify-center md:justify-start gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             Last Updated: June 23, 2026
           </p>
         </div>
 
-        <div className="prose prose-invert max-w-none text-gray-300 text-sm md:text-base leading-relaxed font-light space-y-8">
+        <div className="prose prose-invert max-w-none text-text-muted text-sm md:text-base leading-relaxed font-light space-y-8">
           <section>
             <h2 className="text-xl font-bold text-white mb-3">1. Introduction</h2>
             <p>
@@ -72,27 +72,27 @@ export const Terms = () => {
             </p>
           </section>
 
-          <section className="bg-[#120F22] border border-purple-950/50 p-6 md:p-8 rounded-2xl mt-12">
+          <section className="bg-surface border border-brand/20 p-6 md:p-8 rounded-2xl mt-12">
             <h2 className="text-lg font-bold text-white mb-4">Contact Information</h2>
             <p className="mb-4">
               If you have any questions or concerns regarding these Terms of Service, please contact our legal and support team:
             </p>
             <div className="space-y-3 font-mono text-sm">
               <p className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-[var(--primary)]/20 flex items-center justify-center border border-[var(--primary)]/30">
-                  <Mail className="w-4 h-4 text-[var(--primary-light)]" />
+                <span className="w-8 h-8 rounded-lg bg-brand/20 flex items-center justify-center border border-brand/30">
+                  <Mail className="w-4 h-4 text-brand-light" />
                 </span>
                 <a href="mailto:info@therapy.ke" className="hover:text-white transition-colors">info@therapy.ke</a>
               </p>
               <p className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-[var(--primary)]/20 flex items-center justify-center border border-[var(--primary)]/30">
-                  <Phone className="w-4 h-4 text-[var(--primary-light)]" />
+                <span className="w-8 h-8 rounded-lg bg-brand/20 flex items-center justify-center border border-brand/30">
+                  <Phone className="w-4 h-4 text-brand-light" />
                 </span>
                 <a href="tel:0722446138" className="hover:text-white transition-colors">0722446138</a>
               </p>
               <p className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-[var(--primary)]/20 flex items-center justify-center border border-[var(--primary)]/30">
-                  <MapPin className="w-4 h-4 text-[var(--primary-light)]" />
+                <span className="w-8 h-8 rounded-lg bg-brand/20 flex items-center justify-center border border-brand/30">
+                  <MapPin className="w-4 h-4 text-brand-light" />
                 </span>
                 <span>Therasquare Solutions</span>
               </p>

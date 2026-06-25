@@ -5,23 +5,23 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/25 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background border-t border-brand/30/25 z-10">
       <div className="container mx-auto px-6 max-w-5xl">
         
         {/* Animated Background Pulse Blob */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-[var(--primary)] blur-[120px] opacity-20 pointer-events-none -z-10"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-brand blur-[120px] opacity-20 pointer-events-none -z-10"
           animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
         {/* Content Box */}
-        <div className="bg-gradient-to-b from-[#16122c] to-[#0e0b1c] border border-purple-800/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
+        <div className="bg-gradient-to-b from-[#16122c] to-[#0e0b1c] border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
           <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
             
             {/* badge */}
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-[var(--primary-light)] bg-[var(--primary)]/10 border border-[var(--primary)]/20 uppercase mb-6">
-              <Sparkles className="w-3 h-3 text-[var(--primary-light)]" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-brand-light bg-brand/10 border border-brand/20 uppercase mb-6">
+              <Sparkles className="w-3 h-3 text-brand-light" />
               30-DAY FREE ACCESS OFFERED
             </span>
 
@@ -44,7 +44,7 @@ export const FinalCTA = () => {
                 </Button>
               </Link>
               <Link to="/contact" className="w-full sm:w-auto">
-                <Button variant="secondary" size="lg" className="w-full border border-purple-900/40">
+                <Button variant="secondary" size="lg" className="w-full border border-brand/20">
                   Book a Demo
                 </Button>
               </Link>

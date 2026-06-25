@@ -50,14 +50,14 @@ export const HowItWorksSteps = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#06040D] border-t border-purple-950/20 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background border-t border-brand/20 z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-20">
           <span className="label-uppercase mb-3 block">Simple Setup</span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Works</span>
+            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Works</span>
           </h2>
           <p className="body-muted max-w-lg mx-auto">
             Get your practice running on TheraSquare in four simple steps and transform your clinical workflow.
@@ -163,19 +163,19 @@ export const HowItWorksSteps = () => {
                 </div>
                 {/* Step number badge */}
                 <div className="flex items-center justify-between w-full mb-6 z-10">
-                  <div className="w-10 h-10 rounded-full bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 font-mono text-sm font-extrabold shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-brand/20 border border-purple-500/30 flex items-center justify-center text-brand-light font-mono text-sm font-extrabold shadow-sm">
                     {step.num}
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-[#24273A]/50 flex items-center justify-center border border-[#24273A] text-purple-400 group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-[#24273A]/50 flex items-center justify-center border border-[#24273A] text-brand-light group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-300">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-base font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-base font-bold text-white mb-3 group-hover:text-brand-light transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+                <p className="text-xs text-text-muted leading-relaxed font-normal">
                   {step.description}
                 </p>
               </motion.div>

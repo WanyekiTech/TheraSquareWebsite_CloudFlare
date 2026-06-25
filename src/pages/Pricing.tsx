@@ -99,7 +99,7 @@ export const Pricing = () => {
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
-              Detailed Plan <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-purple-400">Comparison</span>
+              Detailed Plan <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Comparison</span>
             </h2>
             <p className="body-muted max-w-lg mx-auto text-xs md:text-sm">
               Review fine-grained details to decide which operating tier matches your mental health practice requirements.
@@ -108,18 +108,18 @@ export const Pricing = () => {
 
           {/* Table container wrapping */}
           <AnimatedSection>
-            <div className="bg-[#120F22] border border-purple-950/40 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-surface border border-brand/20 rounded-2xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse min-w-[600px]">
                   <thead>
-                    <tr className="border-b border-purple-950/40 bg-[#0c0919] text-xs font-bold uppercase tracking-wider text-purple-300">
+                    <tr className="border-b border-brand/20 bg-surface text-xs font-bold uppercase tracking-wider text-brand-light">
                       <th className="p-6 w-[40%]">PLAN FEATURES</th>
                       <th className="p-6 text-center w-[20%]">STARTER</th>
-                      <th className="p-6 text-center text-[var(--primary-light)] w-[20%]">PROFESSIONAL</th>
+                      <th className="p-6 text-center text-brand-light w-[20%]">PROFESSIONAL</th>
                       <th className="p-6 text-center w-[20%]">ENTERPRISE</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-purple-950/20 text-xs sm:text-sm">
+                  <tbody className="divide-y divide-brand/20 text-xs sm:text-sm">
                     {comparisonData.map((group, groupIdx) => {
                       const isCollapsed = collapsedCategories[group.category] ?? groupIdx > 0;
                       return (
@@ -127,14 +127,14 @@ export const Pricing = () => {
                           {/* Category Row header divider */}
                           <tr 
                             onClick={() => toggleCategory(group.category)}
-                            className="bg-purple-950/15 cursor-pointer hover:bg-purple-950/25 transition-colors select-none"
+                            className="bg-brand/15 cursor-pointer hover:bg-brand/25 transition-colors select-none"
                           >
                             <td colSpan={4} className="p-4">
                               <div className="flex items-center justify-between">
-                                <span className="font-bold text-white uppercase text-[10px] tracking-widest text-[#A78BFA]">
+                                <span className="font-bold text-white uppercase text-[10px] tracking-widest text-brand-light">
                                   {group.category}
                                 </span>
-                                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-purple-950/30 border border-purple-500/10 text-[#A78BFA]">
+                                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-brand/30 border border-brand-light/10 text-brand-light">
                                   {isCollapsed ? (
                                     <Plus className="w-3 h-3" />
                                   ) : (
@@ -156,7 +156,7 @@ export const Pricing = () => {
                                 opacity: 1
                               }}
                               transition={{ duration: 0.25, ease: "easeInOut" }}
-                              className={`hover:bg-purple-950/10 border-b border-purple-950/20 overflow-hidden transition-all duration-300 ${isCollapsed ? 'border-none' : ''}`}
+                              className={`hover:bg-brand/10 border-b border-brand/20 overflow-hidden transition-all duration-300 ${isCollapsed ? 'border-none' : ''}`}
                             >
                               <td className="p-0 font-normal text-gray-200">
                                 <motion.div
@@ -168,7 +168,7 @@ export const Pricing = () => {
                                   {feature.name}
                                 </motion.div>
                               </td>
-                              <td className="p-0 text-center text-gray-400 font-light">
+                              <td className="p-0 text-center text-text-muted font-light">
                                 <motion.div
                                   initial={false}
                                   animate={isCollapsed ? { height: 0, opacity: 0, paddingBottom: 0, paddingTop: 0 } : { height: "auto", opacity: 1, paddingBottom: 20, paddingTop: 20 }}
@@ -176,7 +176,7 @@ export const Pricing = () => {
                                   className="px-5 overflow-hidden flex items-center justify-center"
                                 >
                                   {feature.starter === "Included" ? (
-                                    <span className="inline-block bg-purple-500/10 p-1 rounded text-purple-400 border border-purple-500/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
+                                    <span className="inline-block bg-brand-light/10 p-1 rounded text-brand-light border border-brand-light/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
                                   ) : feature.starter === "—" ? (
                                     <Minus className="w-4 h-4 mx-auto text-gray-700" />
                                   ) : (
@@ -184,7 +184,7 @@ export const Pricing = () => {
                                   )}
                                 </motion.div>
                               </td>
-                              <td className="p-0 text-center text-[var(--primary-light)] font-medium bg-purple-950/5">
+                              <td className="p-0 text-center text-brand-light font-medium bg-brand/5">
                                 <motion.div
                                   initial={false}
                                   animate={isCollapsed ? { height: 0, opacity: 0, paddingBottom: 0, paddingTop: 0 } : { height: "auto", opacity: 1, paddingBottom: 20, paddingTop: 20 }}
@@ -192,13 +192,13 @@ export const Pricing = () => {
                                   className="px-5 overflow-hidden flex items-center justify-center"
                                 >
                                   {feature.professional === "Included" ? (
-                                    <span className="inline-block bg-purple-500/10 p-1 rounded text-purple-400 border border-purple-500/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
+                                    <span className="inline-block bg-brand-light/10 p-1 rounded text-brand-light border border-brand-light/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
                                   ) : (
                                     feature.professional
                                   )}
                                 </motion.div>
                               </td>
-                              <td className="p-0 text-center text-gray-400 font-light">
+                              <td className="p-0 text-center text-text-muted font-light">
                                 <motion.div
                                   initial={false}
                                   animate={isCollapsed ? { height: 0, opacity: 0, paddingBottom: 0, paddingTop: 0 } : { height: "auto", opacity: 1, paddingBottom: 20, paddingTop: 20 }}
@@ -206,7 +206,7 @@ export const Pricing = () => {
                                   className="px-5 overflow-hidden flex items-center justify-center"
                                 >
                                   {feature.enterprise === "Included" ? (
-                                    <span className="inline-block bg-purple-500/10 p-1 rounded text-purple-400 border border-purple-500/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
+                                    <span className="inline-block bg-brand-light/10 p-1 rounded text-brand-light border border-brand-light/15"><Check className="w-3.5 h-3.5 mx-auto" /></span>
                                   ) : (
                                     feature.enterprise
                                   )}
@@ -225,12 +225,12 @@ export const Pricing = () => {
 
           {/* CTA Section */}
           <AnimatedSection delay={0.1}>
-            <div className="mt-16 bg-gradient-to-br from-[#16122d] to-[#110e21] border border-purple-950/40 rounded-2xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden">
+            <div className="mt-16 bg-gradient-to-br from-surface to-background border border-brand/20 rounded-2xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(124,58,237,0.03),transparent_60%)] pointer-events-none"></div>
               
               <div className="relative z-10 max-w-2xl mx-auto">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 text-[10px] md:text-xs font-semibold text-[var(--primary-light)] border border-purple-500/15 uppercase tracking-wider mb-6">
-                  <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-light/10 text-[10px] md:text-xs font-semibold text-brand-light border border-brand-light/15 uppercase tracking-wider mb-6">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-light" />
                   GET 30-DAY FREE ACCESS
                 </span>
                 
@@ -238,7 +238,7 @@ export const Pricing = () => {
                   Ready to transform your practice?
                 </h3>
                 
-                <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed mb-8 max-w-lg mx-auto">
+                <p className="text-text-muted text-xs md:text-sm font-light leading-relaxed mb-8 max-w-lg mx-auto">
                   Get full access to AI voice-to-clinical notes, custom templates, a secure client portal, and end-to-end practice automation. Request an account in less than a minute.
                 </p>
                 
@@ -249,13 +249,13 @@ export const Pricing = () => {
                     </Button>
                   </Link>
                   <Link to="/contact" className="w-full sm:w-auto">
-                    <Button variant="secondary" size="lg" className="w-full sm:w-auto font-medium text-gray-300">
+                    <Button variant="secondary" size="lg" className="w-full sm:w-auto font-medium text-text-muted">
                       Contact Sales
                     </Button>
                   </Link>
                 </div>
                 
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-gray-500 font-mono">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-text-muted font-mono">
                   <span className="flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                     No credit card required

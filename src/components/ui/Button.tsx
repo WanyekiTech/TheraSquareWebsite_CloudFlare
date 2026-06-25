@@ -10,18 +10,18 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant = "primary", size = "md", className = "", ...props }, ref) => {
-    let baseStyles = "inline-flex items-center justify-center font-medium rounded-full cursor-pointer transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--primary-light)] focus:ring-offset-2 focus:ring-offset-[var(--bg)]";
+    let baseStyles = "inline-flex items-center justify-center font-medium rounded-full cursor-pointer transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background";
     
     let variantStyles = "";
     if (variant === "primary") {
-      variantStyles = "bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white shadow-[0_4px_16px_rgba(124,58,237,0.3)] border border-transparent";
+      variantStyles = "bg-accent hover:brightness-110 text-background shadow-[0_4px_16px_rgba(99,216,245,0.2)] border border-transparent";
     } else if (variant === "secondary") {
-      variantStyles = "bg-[#1E1938] hover:bg-[#2A234B] text-[var(--primary-light)] border border-purple-900/40";
+      variantStyles = "bg-surface hover:bg-brand/10 text-brand border border-brand/30";
     } else if (variant === "ghost") {
-      variantStyles = "bg-transparent text-gray-300 hover:text-white hover:bg-white/5 border border-transparent";
+      variantStyles = "bg-transparent text-text-muted hover:text-text-primary hover:bg-white/5 border border-transparent";
     } else if (variant === "accent") {
-      // Teal gradient highlighter for EMR feel
-      variantStyles = "bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-slate-950 font-semibold shadow-md";
+      // Premium gradient highlighter
+      variantStyles = "bg-premium-gradient text-background font-semibold shadow-[0_4px_16px_rgba(29,107,110,0.3)] hover:brightness-110 border border-transparent";
     }
 
     let sizeStyles = "";

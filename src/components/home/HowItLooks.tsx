@@ -717,7 +717,7 @@ export const HowItLooks = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#070512] flex flex-col justify-center items-center">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Dynamic Purple Spotlight & Grid Floor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(58,18,105,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
@@ -733,7 +733,7 @@ export const HowItLooks = () => {
             Seamless Management
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            How it <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-cyan-400">Looks</span>
+            How it <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">Looks</span>
           </h2>
           <p className="body-muted max-w-lg mx-auto">
             Run your practice with clarity and confidence. Manage appointments, records, billing, and reporting in one unified workspace.
@@ -767,7 +767,7 @@ export const HowItLooks = () => {
                 
                 {/* Aluminum Screen Stand Bezel - center with "MacBook Pro" signature */}
                 <div className="absolute bottom-0 left-[10px] right-[10px] h-[16px] bg-[#06060c] flex items-center justify-center border-t border-white/[0.03]">
-                  <span className="text-[7.5px] font-sans text-gray-500 font-medium tracking-[0.2em] uppercase opacity-75">
+                  <span className="text-[7.5px] font-sans text-text-muted font-medium tracking-[0.2em] uppercase opacity-75">
                     MacBook Pro
                   </span>
                 </div>

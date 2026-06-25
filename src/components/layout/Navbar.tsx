@@ -40,7 +40,7 @@ export const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#06040d]/90 backdrop-blur-xl border-b border-purple-950/40 py-4 shadow-[0_4px_30px_rgba(3,2,6,0.8)]"
+            ? "bg-background/90 backdrop-blur-xl border-b border-brand/20 py-4 shadow-[0_4px_30px_rgba(6,18,20,0.8)]"
             : "bg-transparent py-6"
         }`}
       >
@@ -50,9 +50,9 @@ export const Navbar = () => {
             <Logo className="w-10 h-10 shadow-lg group-hover:rotate-6 transition-transform duration-300" />
             <div>
               <span className="font-extrabold text-base md:text-lg text-white font-display tracking-tight leading-none block">
-                Thera<span className="text-[var(--primary-light)]">Square</span>
+                Thera<span className="text-brand-light">Square</span>
               </span>
-              <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase block mt-0.5">
+              <span className="text-[9px] text-text-muted font-mono tracking-widest uppercase block mt-0.5">
                 PRACTICE EMR
               </span>
             </div>
@@ -67,14 +67,14 @@ export const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={`relative text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
-                    isActive ? "text-[var(--primary-light)]" : "text-gray-400 hover:text-white"
+                    isActive ? "text-brand-light" : "text-text-muted hover:text-text-primary"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span
                       layoutId="activeNavIndicator"
-                      className="absolute left-0 right-0 bottom-[-6px] h-0.5 bg-[var(--primary-light)] rounded-full"
+                      className="absolute left-0 right-0 bottom-[-6px] h-0.5 bg-brand-light rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -95,7 +95,7 @@ export const Navbar = () => {
           {/* Mobile hamburger toggle button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-400 hover:text-white self-center transition-colors focus:outline-none"
+            className="lg:hidden p-2 text-text-muted hover:text-text-primary self-center transition-colors focus:outline-none"
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -112,7 +112,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 left-0 right-0 z-40 bg-[#06040d] border-b border-purple-950/60 pt-24 pb-8 px-6 shadow-2xl lg:hidden flex flex-col"
+            className="fixed top-0 left-0 right-0 z-40 bg-background border-b border-brand/20 pt-24 pb-8 px-6 shadow-2xl lg:hidden flex flex-col"
           >
             <div className="flex flex-col gap-5 text-left mb-8">
               {navLinks.map((link) => {
@@ -121,8 +121,8 @@ export const Navbar = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`py-2 text-base font-semibold tracking-wide border-b border-purple-950/20 ${
-                      isActive ? "text-[var(--primary-light)]" : "text-gray-300"
+                    className={`py-2 text-base font-semibold tracking-wide border-b border-brand/10 ${
+                      isActive ? "text-brand-light" : "text-text-muted"
                     }`}
                   >
                     {link.label}

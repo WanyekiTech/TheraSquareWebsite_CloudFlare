@@ -20,7 +20,7 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 // Simple fallback loader during chunk loading
 const Loader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
-    <div className="w-10 h-10 border-4 border-purple-900 border-t-[var(--primary-light)] rounded-full animate-spin"></div>
+    <div className="w-10 h-10 border-4 border-brand border-t-[var(--primary-light)] rounded-full animate-spin"></div>
   </div>
 );
 
@@ -41,7 +41,7 @@ function AppContent() {
   const isAuthPage = ["/signup"].includes(location.pathname);
 
   return (
-    <div className="flex flex-col min-h-screen relative bg-[#06040D] text-white">
+    <div className="flex flex-col min-h-screen relative bg-background text-white">
       {/* Reset view scroll state */}
       <ScrollToTop />
 
