@@ -55,18 +55,18 @@ export const SolutionSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-2"
             >
               {SOLUTION_FEATURES.map((feature) => (
                 <motion.div 
                   key={feature.id}
                   variants={itemVariants}
-                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl py-3 px-4 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
+                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl py-2.5 px-3 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
-                    <feature.icon className="w-5 h-5 text-brand-light" />
+                  <div className="w-8 h-8 rounded-lg bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
+                    <feature.icon className="w-4 h-4 text-brand-light" />
                   </div>
-                  <h3 className="text-sm font-normal text-white/90 m-0">
+                  <h3 className="text-[13px] font-normal text-white/90 m-0 leading-relaxed">
                     {feature.title}
                   </h3>
                 </motion.div>
@@ -86,7 +86,7 @@ export const SolutionSection = () => {
               src="/images/home/solution.jpg" 
               alt="Calm and organized therapist using TheraSquare dashboard"
               loading="lazy"
-              className="w-full h-auto aspect-[4/3] object-cover rounded-2xl shadow-2xl border border-white/[0.05]"
+              className="w-full h-auto aspect-square object-cover rounded-2xl shadow-2xl border border-white/[0.05]"
             />
           </motion.div>
 

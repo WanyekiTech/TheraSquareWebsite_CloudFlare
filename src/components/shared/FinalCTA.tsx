@@ -16,7 +16,7 @@ export const FinalCTA = () => {
         />
 
         {/* Content Box */}
-        <div className="bg-gradient-to-b from-[#16122c] to-[#0e0b1c] border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
+        <div className="bg-gradient-to-b from-surface to-background/80 border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
           <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
             
             {/* badge */}
