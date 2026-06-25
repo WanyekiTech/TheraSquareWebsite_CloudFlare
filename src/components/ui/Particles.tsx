@@ -112,6 +112,7 @@ export const Particles: React.FC<ParticlesProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const isVisible = useRef(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -196,8 +197,19 @@ export const Particles: React.FC<ParticlesProps> = ({
     let lastTime = performance.now();
     let elapsed = 0;
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible.current = entry.isIntersecting;
+      });
+    });
+    observer.observe(container);
+
     const update = (t: number) => {
       animationFrameId = requestAnimationFrame(update);
+      if (!isVisible.current) {
+        lastTime = t; // prevent elapsed time jump when resumed
+        return;
+      }
       const delta = t - lastTime;
       lastTime = t;
       elapsed += delta * speed;
@@ -224,6 +236,7 @@ export const Particles: React.FC<ParticlesProps> = ({
     animationFrameId = requestAnimationFrame(update);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       if (moveParticlesOnHover) {
         window.removeEventListener('mousemove', handleMouseMove);

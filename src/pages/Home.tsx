@@ -13,57 +13,77 @@ export const Home = () => {
       {/* Metrics Bar */}
       <MetricsBar />
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* Trusted Partner Logo Strip */}
       <TrustedBy />
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* The Challenge */}
       <AnimatedSection>
         <ChallengeSection />
       </AnimatedSection>
 
-      <SectionDivider colorClass="via-destructive/30" />
+      <AnimatedSection>
+        <SectionDivider colorClass="via-destructive/30" />
+      </AnimatedSection>
 
       {/* The Solution */}
       <AnimatedSection>
         <SolutionSection />
       </AnimatedSection>
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* For Clients, Therapists, & Admins Grid */}
       <AnimatedSection>
         <WorkflowTabs />
       </AnimatedSection>
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* How it works visual showcase */}
       <AnimatedSection>
         <PlatformPreview />
       </AnimatedSection>
 
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
+
       {/* Numbered setup stages */}
       <SetupSteps />
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* Interactive Pricing Cards */}
       <AnimatedSection>
         <PricingSection />
       </AnimatedSection>
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* FAQ Accordion component */}
       <AnimatedSection>
         <FAQ />
       </AnimatedSection>
 
-      <SectionDivider />
+      <AnimatedSection>
+        <SectionDivider />
+      </AnimatedSection>
 
       {/* Conversion Banner Section */}
       <AnimatedSection>

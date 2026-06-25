@@ -18,6 +18,7 @@ import {
   Activity,
   Home
 } from "lucide-react";
+import { SectionDivider, Particles } from "@components/ui";
 
 export const PlatformPreview = () => {
   const [selectedDay, setSelectedDay] = useState<number>(18);
@@ -722,8 +723,19 @@ export const PlatformPreview = () => {
       {/* Dynamic Brand Spotlight & Grid Floor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
       
+      {/* Frozen Stardust Texture Backdrop */}
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)' }}>
+        <Particles 
+          particleCount={200} 
+          speed={0} 
+          disableRotation={true} 
+          moveParticlesOnHover={false} 
+          className="opacity-40"
+        />
+      </div>
+      
       {/* Glowing horizontal laser backdrop */}
-      <div className="absolute top-[68%] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-brand/30 to-transparent pointer-events-none z-0" />
+      <SectionDivider className="absolute top-[68%] left-1/2 -translate-x-1/2 pointer-events-none z-0" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
         

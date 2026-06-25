@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { AnimatedSection } from "@components/wrappers";
+import { SectionDivider } from "@components/ui";
 import { 
   FileText, Mic, ClipboardCheck, History, 
   Calendar, MessageSquareCode, Clock, BellRing, 
@@ -157,10 +158,11 @@ export const Features = () => {
         </div>
 
         {/* Feature Categories Wrapper */}
-        <div className="space-y-20">
+        <div className="flex flex-col">
           {categories.map((category, catIdx) => (
-            <AnimatedSection key={catIdx} delay={0.05 * catIdx}>
-              <div className="text-left mb-8 pb-4 border-b border-brand/20">
+            <div key={catIdx} className="flex flex-col">
+              <AnimatedSection delay={0.05 * catIdx}>
+                <div className="text-left mb-8">
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
                   {category.title}
                 </h2>
@@ -180,7 +182,14 @@ export const Features = () => {
                   />
                 ))}
               </div>
-            </AnimatedSection>
+              </AnimatedSection>
+              
+              {catIdx !== categories.length - 1 && (
+                <AnimatedSection>
+                  <SectionDivider className="my-16 md:my-24 opacity-60" />
+                </AnimatedSection>
+              )}
+            </div>
           ))}
         </div>
 

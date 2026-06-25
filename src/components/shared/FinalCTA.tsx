@@ -6,25 +6,34 @@ import { ArrowRight, Sparkles } from "lucide-react";
 export const FinalCTA = () => {
   return (
     <section className="pt-12 pb-16 md:pb-20 lg:pb-24 relative overflow-hidden bg-background z-10">
+      {/* Animated Background Pulse Blob */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-brand blur-[120px] opacity-20 pointer-events-none -z-10"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Full-Screen WebGL Particles with Safari-safe fade mask */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ 
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)'
+        }}
+      >
+        <Particles 
+          className="z-0" 
+          particleCount={200} 
+          speed={0} 
+          disableRotation={true}
+          moveParticlesOnHover={false}
+        />
+      </div>
+
       <div className="container mx-auto px-6 max-w-5xl">
         
-        {/* Animated Background Pulse Blob */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-brand blur-[120px] opacity-20 pointer-events-none -z-10"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-
         {/* Content Box */}
-        <div className="bg-gradient-to-b from-surface to-background/80 border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)]">
-          
-          {/* Contained WebGL Particles */}
-          <Particles 
-            className="z-0 opacity-40" 
-            particleCount={100} 
-            speed={0.03} 
-          />
-
+        <div className="bg-gradient-to-b from-surface to-background/80 border border-brand/20 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden shadow-[var(--shadow-glow)] z-10">
           <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
             
             {/* badge */}
