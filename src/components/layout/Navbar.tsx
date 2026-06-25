@@ -46,7 +46,11 @@ export const Navbar = () => {
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1 -ml-1">
+          <Link 
+            to="/" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2.5 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1 -ml-1"
+          >
             <Logo className="w-10 h-10 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
             <div>
               <span className="font-extrabold text-base md:text-lg text-white group-hover:text-accent transition-colors duration-300 font-display tracking-tight leading-none block">

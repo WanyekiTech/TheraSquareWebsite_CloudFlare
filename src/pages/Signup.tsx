@@ -141,7 +141,11 @@ export const Signup = () => {
           
           {/* Header */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-2 mb-4 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1">
+            <Link 
+              to="/" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 mb-4 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1"
+            >
               <Logo className="w-10 h-10 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
               <span className="font-bold text-lg text-white group-hover:text-accent transition-colors duration-300">
                 Thera<span className="text-brand-light">Square</span>

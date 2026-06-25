@@ -21,7 +21,11 @@ export const Footer = () => {
           
           {/* Column 1: Logo & details with Socials */}
           <div className="lg:col-span-5 space-y-5 flex flex-col items-center md:items-start text-center md:text-left">
-            <Link to="/" className="flex items-center gap-2.5 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1 -ml-1">
+            <Link 
+              to="/" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2.5 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1 -ml-1"
+            >
               <Logo className="w-8 h-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
               <span className="font-bold text-lg text-white group-hover:text-accent transition-colors duration-300 tracking-tight">
                 Thera<span className="text-brand-light">Square</span>
