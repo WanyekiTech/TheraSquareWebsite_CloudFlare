@@ -3,5 +3,6 @@ export * from './BillingToggle';
 export * from './Button';
 export * from './Card';
 export * from './Logo';
+export * from './CustomCursor';
 export * from './SectionDivider';
 export * from './Particles';

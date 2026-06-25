@@ -6,6 +6,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { Navbar, Footer } from "@components/layout";
+import { CustomCursor } from "@components/ui";
 
 // Lazy loaded routes for performance (code-splitting)
 const Home = lazy(() => import("./pages/Home"));
@@ -44,6 +45,9 @@ function AppContent() {
     <div className="flex flex-col min-h-screen relative bg-background text-white">
       {/* Reset view scroll state */}
       <ScrollToTop />
+
+      {/* Global Interactive Elements */}
+      <CustomCursor />
 
       {/* Conditionally display translucent navigation Header */}
       {!isAuthPage && <Navbar />}
