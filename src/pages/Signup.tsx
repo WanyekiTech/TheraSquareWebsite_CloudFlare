@@ -2,7 +2,7 @@ import { useState, FormEvent, useEffect, ChangeEvent } from "react";
 import { PRICING_PLANS, PlanType, BillingCycle } from "../config/pricingData";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Button } from "@components/ui";
+import { Button, Logo, BillingToggle } from "@components/ui";
 import { ShieldCheck, User, Mail, Building2, Phone, Globe, Fingerprint, CheckCircle2, ShieldAlert, Home, CreditCard, CalendarDays, Sparkles } from "lucide-react";
 
 export const Signup = () => {
@@ -142,10 +142,8 @@ export const Signup = () => {
           
           {/* Header */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-brand flex items-center justify-center shadow-lg">
-                <span className="text-white font-black text-lg">T</span>
-              </div>
+            <Link to="/" className="inline-flex items-center gap-2 mb-4 group">
+              <Logo className="w-10 h-10 shadow-lg group-hover:rotate-6 transition-transform duration-300" />
               <span className="font-bold text-lg text-white">
                 Thera<span className="text-brand-light">Square</span>
               </span>
@@ -306,6 +304,12 @@ export const Signup = () => {
                     Subscription Summary
                     <span className="ml-auto bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold">Includes 30 Days Free!</span>
                   </h3>
+
+                  <BillingToggle 
+                    cycle={formData.billingCycle} 
+                    onChange={(cycle) => setFormData(p => ({...p, billingCycle: cycle}))} 
+                    className="mb-6"
+                  />
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
@@ -328,11 +332,7 @@ export const Signup = () => {
                     </div>
                     <div>
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">Amount</span>
-                        <div className="flex bg-surface rounded overflow-hidden border border-brand/20">
-                          <button type="button" onClick={() => setFormData(p => ({...p, billingCycle: 'Monthly'}))} className={`px-2 py-0.5 text-[9px] font-bold transition-colors ${formData.billingCycle === 'Monthly' ? 'bg-brand text-white' : 'text-text-muted hover:text-text-muted'}`}>MO</button>
-                          <button type="button" onClick={() => setFormData(p => ({...p, billingCycle: 'Annual'}))} className={`px-2 py-0.5 text-[9px] font-bold transition-colors ${formData.billingCycle === 'Annual' ? 'bg-brand text-white' : 'text-text-muted hover:text-text-muted'}`}>YR</button>
-                        </div>
+                        <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">Amount ({formData.billingCycle})</span>
                       </div>
                       <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
                         <CreditCard className="w-3 h-3 text-brand-light" />

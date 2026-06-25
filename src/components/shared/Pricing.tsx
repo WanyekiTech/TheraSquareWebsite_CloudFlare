@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { Button } from "@components/ui";
+import { Button, BillingToggle, BillingCycle } from "@components/ui";
 import { Check, Info, Sparkles } from "lucide-react";
 import { PRICING_PLANS } from "../../config/pricingData";
 
 export const PricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>('Monthly');
 
   const plans = PRICING_PLANS;
 
@@ -26,32 +26,12 @@ export const PricingSection = () => {
         </div>
 
         {/* Billing Period Toggle */}
-        <div className="flex items-center justify-center gap-4 mb-16 select-none">
-          <span className={`text-sm font-medium ${!isAnnual ? "text-white" : "text-text-muted"}`}>
-            Monthly
-          </span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            className="w-12 h-6 rounded-full bg-brand/30 p-1 flex items-center border border-brand/20 relative cursor-pointer"
-          >
-            <motion.div
-              layout
-              className="w-4 h-4 rounded-full bg-brand"
-              animate={{ x: isAnnual ? 24 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            />
-          </button>
-          <span className={`text-sm font-medium flex items-center gap-1.5 ${isAnnual ? "text-brand-light" : "text-text-muted"}`}>
-            Annual
-            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 text-[10px] uppercase font-bold px-1.5 py-0.5 rounded">
-              Save 20%
-            </span>
-          </span>
-        </div>
+        <BillingToggle cycle={billingCycle} onChange={setBillingCycle} />
 
         {/* Pricing Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto mt-6">
           {plans.map((plan, index) => {
+            const isAnnual = billingCycle === 'Annual';
             const price = isAnnual ? plan.priceAnnual : plan.priceMonthly;
             
             return (
@@ -61,14 +41,14 @@ export const PricingSection = () => {
                 transition={{ duration: 0.25 }}
                 className={`relative rounded-[var(--radius-card)] p-8 text-left flex flex-col justify-between ${
                   plan.recommended
-                    ? "bg-surface border-2 border-brand md:scale-105 shadow-[var(--shadow-glow)] z-20"
+                    ? "md:scale-105 shadow-2xl z-20 border border-transparent [background:linear-gradient(var(--color-surface),var(--color-surface))_padding-box,linear-gradient(to_bottom_right,var(--color-brand),#10b981)_border-box]"
                     : "bg-surface/75 border border-brand/20 z-10"
                 }`}
               >
                 {/* Center plan decoration */}
                 {plan.recommended && (
-                  <div className="absolute top-0 right-8 -translate-y-1/2 bg-brand text-white text-[10px] font-bold tracking-wider uppercase px-3.5 py-1 rounded-full shadow-lg flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-yellow-300" />
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand/90 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase px-4 py-1.5 rounded-full shadow-[var(--shadow-glow)] flex items-center gap-1.5 whitespace-nowrap">
+                    <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
                     Most Popular
                   </div>
                 )}

@@ -21,7 +21,7 @@ const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
     transition={{ duration: 0.2 }}
     className="bg-surface border border-brand/20 p-6 rounded-2xl text-left flex flex-col items-start hover:shadow-[var(--shadow-glow)] group"
   >
-    <div className="w-10 h-10 rounded-lg bg-[#1E1938] flex items-center justify-center text-brand-light group-hover:text-white transition-colors mb-4">
+    <div className="w-10 h-10 rounded-lg bg-brand-light/10 border border-brand-light/20 flex items-center justify-center text-brand-light group-hover:bg-brand-light group-hover:text-white transition-all duration-300 mb-4">
       <Icon className="w-5 h-5" />
     </div>
     <h3 className="text-base font-bold text-white mb-2">{title}</h3>

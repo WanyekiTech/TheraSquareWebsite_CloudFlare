@@ -109,10 +109,10 @@ export const Pricing = () => {
           {/* Table container wrapping */}
           <AnimatedSection>
             <div className="bg-surface border border-brand/20 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse min-w-[600px]">
-                  <thead>
-                    <tr className="border-b border-brand/20 bg-surface text-xs font-bold uppercase tracking-wider text-brand-light">
+              <div className="overflow-x-auto overflow-y-auto max-h-[75vh]">
+                <table className="w-full text-left border-collapse min-w-[600px] relative">
+                  <thead className="sticky top-0 z-20">
+                    <tr className="border-b border-brand/20 bg-surface/90 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-brand-light shadow-sm">
                       <th className="p-6 w-[40%]">PLAN FEATURES</th>
                       <th className="p-6 text-center w-[20%]">STARTER</th>
                       <th className="p-6 text-center text-brand-light w-[20%]">PROFESSIONAL</th>
@@ -184,7 +184,8 @@ export const Pricing = () => {
                                   )}
                                 </motion.div>
                               </td>
-                              <td className="p-0 text-center text-brand-light font-medium bg-brand/5">
+                              <td className="p-0 text-center text-brand-light font-medium relative">
+                                <div className="absolute inset-0 bg-brand/5 pointer-events-none" />
                                 <motion.div
                                   initial={false}
                                   animate={isCollapsed ? { height: 0, opacity: 0, paddingBottom: 0, paddingTop: 0 } : { height: "auto", opacity: 1, paddingBottom: 20, paddingTop: 20 }}

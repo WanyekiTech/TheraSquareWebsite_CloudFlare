@@ -30,6 +30,9 @@ export const Home = () => {
         <WorkflowTabs />
       </AnimatedSection>
 
+      {/* Section Divider */}
+      <div className="w-full max-w-7xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
+
       {/* How it works visual showcase */}
       <AnimatedSection>
         <PlatformPreview />

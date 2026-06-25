@@ -139,7 +139,7 @@ export const WorkflowTabs = () => {
 
           {/* Tab Selection Capsule - directly beneath the title */}
           <div className="flex justify-center mb-6">
-            <div className="bg-surface p-1.5 rounded-2xl md:rounded-full border border-brand/20 flex flex-wrap md:inline-flex justify-center items-center gap-1">
+            <div className="bg-black/40 shadow-inner p-1.5 rounded-2xl md:rounded-full border border-brand/20 flex flex-wrap md:inline-flex justify-center items-center gap-1">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab;
                 return (
@@ -147,7 +147,7 @@ export const WorkflowTabs = () => {
                     key={tab}
                     onClick={() => setActiveTab(tab)}
                     className={`relative px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                      isActive ? "text-white" : "text-text-muted hover:text-white"
+                      isActive ? "text-white" : "text-text-muted hover:text-white hover:bg-white/5"
                     }`}
                   >
                     {isActive && (
