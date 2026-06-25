@@ -2,7 +2,7 @@ import { useState, FormEvent, useEffect, ChangeEvent } from "react";
 import { PRICING_PLANS, PlanType, BillingCycle } from "../config/pricingData";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Button, Logo, BillingToggle } from "@components/ui";
+import { Button, Logo, BillingToggle, Select } from "@components/ui";
 import { ShieldCheck, User, Mail, Building2, Phone, Globe, Fingerprint, CheckCircle2, ShieldAlert, Home, CreditCard, CalendarDays, Sparkles } from "lucide-react";
 
 export const Signup = () => {
@@ -29,7 +29,7 @@ export const Signup = () => {
   // Calculate dynamic pricing
   const currentPlanConfig = PRICING_PLANS.find(p => p.name === formData.planType) || PRICING_PLANS[0];
   const calculatedAmount = formData.billingCycle === "Annual" ? currentPlanConfig.priceAnnual : currentPlanConfig.priceMonthly;
-  const displayAmount = `KES ${calculatedAmount.toLocaleString()} /mo ${formData.billingCycle === "Annual" ? "(Billed Annually)" : ""}`;
+  const displayAmount = formData.billingCycle === "Annual" ? `KES ${(calculatedAmount * 12).toLocaleString()} /yr (Includes 1 Free Month)` : `KES ${calculatedAmount.toLocaleString()} /mo`;
   const hiddenPayload = `${formData.planType} Plan - ${formData.billingCycle} Billing - KES ${calculatedAmount.toLocaleString()}/mo (Total: KES ${(formData.billingCycle === "Annual" ? calculatedAmount * 12 : calculatedAmount).toLocaleString()}/${formData.billingCycle === "Annual" ? 'yr' : 'mo'})`;
 
   // Calculate plan expiry dynamically based on billing cycle + 1 month grace
@@ -331,24 +331,14 @@ export const Signup = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <label htmlFor="planType" className="text-[10px] text-text-muted uppercase tracking-wider font-semibold block mb-1">Plan Type</label>
-                      <div className="relative">
-                        <select
+                        <Select
                           id="planType"
                           name="planType"
-                          aria-label="Select Plan Type"
-                          disabled={isSubmitting}
+                          options={PRICING_PLANS.map(plan => ({ label: plan.name, value: plan.name }))}
                           value={formData.planType}
-                          onChange={handleInputChange}
-                          className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          {PRICING_PLANS.map(plan => (
-                            <option key={plan.name} value={plan.name}>{plan.name}</option>
-                          ))}
-                        </select>
-                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                      </div>
+                          onChange={(val) => setFormData(p => ({ ...p, planType: val as PlanType }))}
+                          disabled={isSubmitting}
+                        />
                     </div>
                     <div>
                       <div className="flex justify-between items-center mb-1">
