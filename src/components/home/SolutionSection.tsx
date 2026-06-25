@@ -103,6 +103,13 @@ export const SolutionSection = () => {
           </div>
         </div>
 
+        {/* Positive Close */}
+        <div className="text-center pt-12 mt-12 border-t border-brand/30 w-full">
+          <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(29,107,110,0.3)]">
+            Get back to what you do best — <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">healing your clients.</span>
+          </h3>
+        </div>
+
       </div>
     </section>
   );

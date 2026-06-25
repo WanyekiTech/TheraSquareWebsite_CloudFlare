@@ -59,7 +59,7 @@ export const SOLUTION_FEATURES: FeatureItem[] = [
   },
   {
     id: "sol-3",
-    title: "AI-Powered Clinical Notes (Voice, SOAP)",
+    title: "AI-Powered Clinical Notes (Voice Dictation, SOAP, BIRP, DAP)",
     icon: FileText,
   },
   {

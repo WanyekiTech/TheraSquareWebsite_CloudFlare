@@ -44,7 +44,7 @@ export const ProblemStatement = () => {
               THE CHALLENGE
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
-              Running a therapy practice shouldn’t feel like <span className="text-destructive">administration work</span>
+              Running your practice shouldn’t feel like <span className="text-destructive">administration work</span>
             </h2>
           </motion.div>
 
