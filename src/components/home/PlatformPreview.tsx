@@ -148,7 +148,7 @@ export const PlatformPreview = () => {
 
   // MacBook Screen Replica containing Happy Clinic UI
   const RecreatedLaptopScreen = () => (
-    <div className="w-full h-full bg-[#f8fafc] text-slate-800 flex flex-col justify-between overflow-hidden select-none text-[8.5px] font-sans">
+    <div className="w-full h-full bg-[#f8fafc] text-slate-800 flex flex-col justify-between overflow-hidden select-none text-[8.5px] font-sans brightness-[0.85]">
       
       {/* Top Main Workspace Header (Logo, Search, Alerts) */}
       <div className="bg-white px-3.5 py-1.5 flex items-center justify-between border-b border-slate-100 shrink-0">
@@ -437,7 +437,7 @@ export const PlatformPreview = () => {
     const activeDayAppts = appointmentsData[selectedDay] || [];
 
     return (
-      <div className="w-full h-full bg-[#f5f7fa] text-slate-800 flex flex-col justify-between overflow-hidden select-none text-[8px] font-sans">
+      <div className="w-full h-full bg-[#f5f7fa] text-slate-800 flex flex-col justify-between overflow-hidden select-none text-[8px] font-sans brightness-[0.85]">
         
         {/* Native Android / iOS Style Purple Status Bar */}
         <div className="bg-brand h-[18px] px-2.5 flex items-center justify-between shrink-0 text-white font-medium text-[7px]">
