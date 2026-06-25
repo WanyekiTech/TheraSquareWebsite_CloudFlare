@@ -95,7 +95,7 @@ export const Navbar = () => {
           {/* Mobile hamburger toggle button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-text-muted hover:text-text-primary self-center transition-colors focus:outline-none"
+            className="lg:hidden p-2 text-text-muted hover:text-text-primary active:scale-90 active:text-brand-light focus:text-brand-light self-center transition-all focus:outline-none"
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -121,8 +121,8 @@ export const Navbar = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`py-2 text-base font-semibold tracking-wide border-b border-brand/10 ${
-                      isActive ? "text-brand-light" : "text-text-muted"
+                    className={`py-2 text-base font-semibold tracking-wide border-b border-brand/10 active:bg-brand/5 active:pl-2 focus:bg-brand/5 focus:pl-2 focus:text-brand-light transition-all duration-200 outline-none ${
+                      isActive ? "text-brand-light" : "text-text-muted active:text-brand-light"
                     }`}
                   >
                     {link.label}

@@ -38,16 +38,16 @@ export const Footer = () => {
 
             {/* Social Icons row moved to far left */}
             <div className="flex justify-center md:justify-start items-center gap-3 pt-2">
-              <a href="https://www.linkedin.com/company/therasquare/" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 transition-all">
+              <a href="https://www.linkedin.com/company/therasquare/" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 active:scale-95 active:bg-brand/20 active:text-brand-light focus:bg-brand/20 focus:text-brand-light focus:border-brand/50 transition-all outline-none">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="https://www.instagram.com/therasquare_ke/" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 transition-all">
+              <a href="https://www.instagram.com/therasquare_ke/" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 active:scale-95 active:bg-brand/20 active:text-brand-light focus:bg-brand/20 focus:text-brand-light focus:border-brand/50 transition-all outline-none">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://www.youtube.com/@therasquare" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 transition-all">
+              <a href="https://www.youtube.com/@therasquare" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 active:scale-95 active:bg-brand/20 active:text-brand-light focus:bg-brand/20 focus:text-brand-light focus:border-brand/50 transition-all outline-none">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="https://www.tiktok.com/@therasquare" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 transition-all">
+              <a href="https://www.tiktok.com/@therasquare" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-surface/50 border border-brand/10 flex items-center justify-center text-text-muted hover:bg-brand/10 hover:text-text-primary hover:border-brand/30 active:scale-95 active:bg-brand/20 active:text-brand-light focus:bg-brand/20 focus:text-brand-light focus:border-brand/50 transition-all outline-none">
                 <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 1 1-4-4" />
                 </svg>
@@ -61,10 +61,10 @@ export const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3 text-sm font-light text-text-muted">
-              <li><Link to="/features" className="hover:text-text-primary transition-colors">Features</Link></li>
-              <li><Link to="/for-therapists" className="hover:text-text-primary transition-colors">For Therapists</Link></li>
-              <li><Link to="/pricing" className="hover:text-text-primary transition-colors">Pricing</Link></li>
-              <li><Link to="/contact" className="hover:text-text-primary transition-colors">Contact</Link></li>
+              <li><Link to="/features" className="hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">Features</Link></li>
+              <li><Link to="/for-therapists" className="hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">For Therapists</Link></li>
+              <li><Link to="/pricing" className="hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">Pricing</Link></li>
+              <li><Link to="/contact" className="hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">Contact</Link></li>
             </ul>
           </div>
 
@@ -74,11 +74,11 @@ export const Footer = () => {
               Contact
             </h4>
             <div className="space-y-3.5 text-sm font-light text-text-muted flex flex-col items-center md:items-start">
-              <a href="mailto:info@therapy.ke" className="flex items-center gap-2.5 hover:text-text-primary transition-colors">
+              <a href="mailto:info@therapy.ke" className="flex items-center gap-2.5 hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">
                 <Mail className="w-4 h-4 text-brand-light shrink-0" />
                 <span>info@therapy.ke</span>
               </a>
-              <a href="tel:+254722446138" className="flex items-center gap-2.5 hover:text-text-primary transition-colors">
+              <a href="tel:+254722446138" className="flex items-center gap-2.5 hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none">
                 <Phone className="w-4 h-4 text-brand-light shrink-0" />
                 <span>+254 722 446 138</span>
               </a>
@@ -88,7 +88,7 @@ export const Footer = () => {
                 href="https://wa.me/254722446138" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-2.5 hover:text-text-primary transition-colors"
+                className="flex items-center gap-2.5 hover:text-text-primary active:text-brand-light active:scale-95 focus:text-brand-light transition-all outline-none"
                 id="footer-whatsapp-link"
               >
                 <MessageCircle className="w-4 h-4 text-brand-light shrink-0" />
