@@ -75,7 +75,7 @@ export const TrustedBy = () => {
   const triplePractices = [...practiceTypes, ...practiceTypes, ...practiceTypes];
 
   return (
-    <section className="relative overflow-hidden w-full py-8 bg-background border-b border-brand/20 select-none">
+    <section className="relative overflow-hidden w-full py-8 bg-background select-none">
       {/* Container to enforce exact desktop-first precision and limits */}
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Subtle non-intrusive label */}

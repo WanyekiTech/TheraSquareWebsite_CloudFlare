@@ -10,7 +10,7 @@ export const MetricsBar = () => {
   ];
 
   return (
-    <section className="bg-background/80 py-4 border-y border-brand/20 relative z-10">
+    <section className="bg-background/80 py-4 relative z-10">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-wrap items-center justify-center gap-y-3 gap-x-5 md:gap-x-7 text-center select-none">
           {stats.map((stat, i) => (

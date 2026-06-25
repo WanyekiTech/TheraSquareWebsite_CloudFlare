@@ -50,7 +50,7 @@ export const SetupSteps = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background border-t border-brand/20 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}

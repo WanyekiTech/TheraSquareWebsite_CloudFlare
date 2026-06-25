@@ -23,7 +23,7 @@ const itemVariants = {
 
 export const ChallengeSection = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center border-b border-destructive/20">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Subtle Crimson Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,74,86,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
