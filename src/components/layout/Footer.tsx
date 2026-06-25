@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import { MessageSquare, MessageCircle, Linkedin, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import { Logo } from "@components/ui";
+import { Logo, Particles } from "@components/ui";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background pt-20 pb-8 border-t border-brand/15 relative z-10 text-left">
-      <div className="container mx-auto px-6">
+    <footer className="bg-background pt-20 pb-8 border-t border-brand/15 relative z-10 text-left overflow-hidden">
+      {/* Frozen Stardust Texture Backdrop */}
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)' }}>
+        <Particles 
+          particleCount={500} 
+          speed={0} 
+          disableRotation={true} 
+          moveParticlesOnHover={false} 
+          className="opacity-40"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Column 1: Logo & details with Socials */}

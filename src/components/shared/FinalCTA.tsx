@@ -23,7 +23,7 @@ export const FinalCTA = () => {
       >
         <Particles 
           className="z-0" 
-          particleCount={200} 
+          particleCount={500} 
           speed={0} 
           disableRotation={true}
           moveParticlesOnHover={false}
