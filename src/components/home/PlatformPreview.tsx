@@ -18,7 +18,7 @@ import {
   Activity,
   Home
 } from "lucide-react";
-import { SectionDivider, Particles } from "@components/ui";
+import { SectionDivider, StaticStardust } from "@components/ui";
 
 export const PlatformPreview = () => {
   const [selectedDay, setSelectedDay] = useState<number>(18);
@@ -725,12 +725,8 @@ export const PlatformPreview = () => {
       
       {/* Frozen Stardust Texture Backdrop */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 65%, transparent 68%)' }}>
-        <Particles 
-          particleCount={1000} 
-          speed={0} 
-          disableRotation={true} 
-          moveParticlesOnHover={false} 
-          distribution="uniform"
+        <StaticStardust 
+          count={1000} 
           className="opacity-40"
         />
       </div>

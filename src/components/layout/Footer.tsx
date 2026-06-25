@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MessageSquare, MessageCircle, Linkedin, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import { Logo, Particles } from "@components/ui";
+import { Logo, StaticStardust } from "@components/ui";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,12 +9,8 @@ export const Footer = () => {
     <footer className="bg-background pt-20 pb-8 border-t border-brand/15 relative z-10 text-left overflow-hidden">
       {/* Frozen Stardust Texture Backdrop */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 100%)' }}>
-        <Particles 
-          particleCount={1000} 
-          speed={0} 
-          disableRotation={true} 
-          moveParticlesOnHover={false} 
-          distribution="uniform"
+        <StaticStardust 
+          count={1000} 
           className="opacity-40"
         />
       </div>
