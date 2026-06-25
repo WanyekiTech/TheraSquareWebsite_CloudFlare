@@ -29,7 +29,6 @@ export const Signup = () => {
   // Calculate dynamic pricing
   const currentPlanConfig = PRICING_PLANS.find(p => p.name === formData.planType) || PRICING_PLANS[0];
   const calculatedAmount = formData.billingCycle === "Annual" ? currentPlanConfig.priceAnnual : currentPlanConfig.priceMonthly;
-  const displayAmount = formData.billingCycle === "Annual" ? `KES ${(calculatedAmount * 12).toLocaleString()} /yr (Includes 1 Free Month)` : `KES ${calculatedAmount.toLocaleString()} /mo`;
   const hiddenPayload = `${formData.planType} Plan - ${formData.billingCycle} Billing - KES ${calculatedAmount.toLocaleString()}/mo (Total: KES ${(formData.billingCycle === "Annual" ? calculatedAmount * 12 : calculatedAmount).toLocaleString()}/${formData.billingCycle === "Annual" ? 'yr' : 'mo'})`;
 
   // Calculate plan expiry dynamically based on billing cycle + 1 month grace
@@ -142,9 +141,9 @@ export const Signup = () => {
           
           {/* Header */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-2 mb-4 group">
-              <Logo className="w-10 h-10 shadow-lg group-hover:rotate-6 transition-transform duration-300" />
-              <span className="font-bold text-lg text-white">
+            <Link to="/" className="inline-flex items-center gap-2 mb-4 group hover:drop-shadow-[0_0_12px_rgba(99,216,245,0.4)] focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-background rounded-lg active:scale-95 transition-all duration-300 p-1">
+              <Logo className="w-10 h-10 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
+              <span className="font-bold text-lg text-white group-hover:text-accent transition-colors duration-300">
                 Thera<span className="text-brand-light">Square</span>
               </span>
             </Link>
@@ -313,8 +312,10 @@ export const Signup = () => {
                 </div>
 
                 {/* Interactive Subscription Section */}
-                <div className="bg-surface border border-brand-light/20 rounded-2xl p-5 relative overflow-hidden mt-6">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+                <div className="bg-surface border border-brand-light/20 rounded-2xl p-5 relative mt-6">
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4" />
+                  </div>
                   
                   <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-brand-light" />
@@ -345,8 +346,15 @@ export const Signup = () => {
                         <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">Amount ({formData.billingCycle})</span>
                       </div>
                       <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
-                        <CreditCard className="w-3 h-3 text-brand-light" />
-                        {displayAmount}
+                        <CreditCard className="w-3 h-3 text-brand-light shrink-0" />
+                        {formData.billingCycle === "Annual" ? (
+                          <>
+                            KES {(calculatedAmount * 12).toLocaleString()} /yr
+                            <span className="text-[10px] text-text-muted font-light ml-1">(payable annually)</span>
+                          </>
+                        ) : (
+                          `KES ${calculatedAmount.toLocaleString()} /mo`
+                        )}
                       </span>
                     </div>
                     <div>

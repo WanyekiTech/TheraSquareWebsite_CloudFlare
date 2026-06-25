@@ -63,12 +63,21 @@ export const PricingSection = () => {
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-baseline gap-1.5 mb-8 pb-6 border-b border-brand/20">
-                    <span className="text-xs font-mono text-text-muted font-semibold">KES</span>
-                    <span className="text-4xl font-extrabold text-white">
-                      {price.toLocaleString()}
-                    </span>
-                    <span className="text-xs font-mono text-text-muted font-semibold">/mo</span>
+                  <div className="mb-8 pb-6 border-b border-brand/20">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-xs font-mono text-text-muted font-semibold">KES</span>
+                      <span className="text-4xl font-extrabold text-white">
+                        {price.toLocaleString()}
+                      </span>
+                      <span className="text-xs font-mono text-text-muted font-semibold">/mo</span>
+                    </div>
+                    {isAnnual ? (
+                      <div className="text-[10px] text-text-muted mt-1 font-light opacity-70">
+                        (KES {(price * 12).toLocaleString()} payable annually)
+                      </div>
+                    ) : (
+                      <div className="h-4 mt-1" aria-hidden="true" />
+                    )}
                   </div>
 
                   {/* Features List */}
