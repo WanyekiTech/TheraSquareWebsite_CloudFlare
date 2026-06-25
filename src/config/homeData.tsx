@@ -4,13 +4,11 @@ import {
   Clock,
   Wallet,
   TrendingDown,
-  Settings,
   Users,
   CalendarCheck,
   FileText,
   CreditCard,
   BarChart,
-  Building,
   LucideIcon
 } from "lucide-react";
 
@@ -23,65 +21,55 @@ export interface FeatureItem {
 export const PROBLEM_STATEMENTS: FeatureItem[] = [
   {
     id: "prob-1",
-    title: "Client records and follow-ups easily fall through the cracks",
+    title: "Client records and critical follow-ups easily fall through the cracks",
     icon: FolderSearch,
   },
   {
     id: "prob-2",
-    title: "Scheduling conflicts and missed appointments disrupt workflow",
+    title: "Scheduling conflicts and missed appointments disrupt your daily workflow",
     icon: CalendarX,
   },
   {
     id: "prob-3",
-    title: "Session notes take too long and are often delayed",
+    title: "Writing session notes takes too much time and delays your day",
     icon: Clock,
   },
   {
     id: "prob-4",
-    title: "Manual billing and payments create inconsistencies",
+    title: "Manual billing and payment collection create frustrating inconsistencies",
     icon: Wallet,
   },
   {
     id: "prob-5",
-    title: "Tracking practice revenue and growth feels like a guessing game",
+    title: "Managing a growing practice and tracking revenue becomes chaotic",
     icon: TrendingDown,
-  },
-  {
-    id: "prob-6",
-    title: "Managing operations across a growing clinic becomes chaotic",
-    icon: Settings,
   }
 ];
 
 export const SOLUTION_FEATURES: FeatureItem[] = [
   {
     id: "sol-1",
-    title: "Client management",
+    title: "Centralized Client Management",
     icon: Users,
   },
   {
     id: "sol-2",
-    title: "Appointment scheduling",
+    title: "Smart Appointment Scheduling",
     icon: CalendarCheck,
   },
   {
     id: "sol-3",
-    title: "Smart Clinical Notes (Voice, AI, SOAP)",
+    title: "AI-Powered Clinical Notes (Voice, SOAP)",
     icon: FileText,
   },
   {
     id: "sol-4",
-    title: "Billing & payments (M-Pesa, Card)",
+    title: "Integrated Billing & Payments (M-Pesa, Card)",
     icon: CreditCard,
   },
   {
     id: "sol-5",
-    title: "Practice analytics",
+    title: "Practice Analytics & Multi-User Management",
     icon: BarChart,
-  },
-  {
-    id: "sol-6",
-    title: "Multi-user clinic management",
-    icon: Building,
   }
 ];

@@ -30,57 +30,32 @@ export const SolutionSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.15)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
-        {/* Main Grid Container (40/60 Split) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+        {/* Main Grid Container (Offset Headings + 40/60 Split) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-6 lg:gap-y-8 items-center w-full">
           
-          {/* Left Column (Content - 7/12) */}
-          <div className="order-2 lg:order-1 col-span-1 lg:col-span-7 flex flex-col">
-            
-            {/* Header Block */}
-            <div className="text-left mb-10">
-              <span className="label-uppercase mb-3 block">
-                THE SOLUTION
-              </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-                Everything you need to run your practice — <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">in one place</span>
-              </h2>
-              <p className="body-muted max-w-lg">
-                TheraSquare is a unified EMR platform built specifically for mental health professionals.
-              </p>
-            </div>
-
-            {/* Premium List (Glassmorphic) */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col gap-2"
-            >
-              {SOLUTION_FEATURES.map((feature) => (
-                <motion.div 
-                  key={feature.id}
-                  variants={itemVariants}
-                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl py-2.5 px-3 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
-                    <feature.icon className="w-4 h-4 text-brand-light" />
-                  </div>
-                  <h3 className="text-[13px] font-normal text-white/90 m-0 leading-relaxed">
-                    {feature.title}
-                  </h3>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right Column (Image - 5/12) */}
+          {/* ROW 1: Headings (Offset to left) */}
           <motion.div 
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="order-1 lg:order-2 col-span-1 lg:col-span-5"
+            className="col-span-1 lg:col-span-7 lg:col-start-1 lg:row-start-1 text-left"
+          >
+            <span className="label-uppercase mb-3 block">
+              THE SOLUTION
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+              Everything you need to run your practice — <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-accent">in one place</span>
+            </h2>
+          </motion.div>
+
+          {/* ROW 2: Image (Right 5/12) */}
+          <motion.div 
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="col-span-1 lg:col-span-5 lg:col-start-8 lg:row-start-2"
           >
             <img 
               src="/images/home/solution.jpg" 
@@ -90,6 +65,42 @@ export const SolutionSection = () => {
             />
           </motion.div>
 
+          {/* ROW 2: Paragraph + Cards (Left 7/12) */}
+          <div className="col-span-1 lg:col-span-7 lg:col-start-1 lg:row-start-2 flex flex-col">
+            <motion.p 
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="body-muted max-w-lg mb-8"
+            >
+              TheraSquare is a unified EMR platform built specifically for mental health professionals.
+            </motion.p>
+
+            {/* Premium List (Glassmorphic) */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col gap-3"
+            >
+              {SOLUTION_FEATURES.map((feature) => (
+                <motion.div 
+                  key={feature.id}
+                  variants={itemVariants}
+                  className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-4 shadow-lg backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all flex flex-row items-center gap-4"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
+                    <feature.icon className="w-5 h-5 text-brand-light" />
+                  </div>
+                  <h3 className="text-sm font-medium text-white/90 m-0 leading-relaxed">
+                    {feature.title}
+                  </h3>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
       </div>
