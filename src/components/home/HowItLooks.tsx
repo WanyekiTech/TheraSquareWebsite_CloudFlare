@@ -158,7 +158,7 @@ export const HowItLooks = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-[#ffbd2e] block" />
             <span className="w-1.5 h-1.5 rounded-full bg-[#27c93f] block" />
           </div>
-          <div className="ml-1 bg-slate-50 px-2 py-0.5 rounded text-[7.5px] text-[#7c3aed] font-medium tracking-tight">
+          <div className="ml-1 bg-slate-50 px-2 py-0.5 rounded text-[7.5px] text-brand font-medium tracking-tight">
             ◆ happyclinic.therapy.ke
           </div>
         </div>
@@ -199,8 +199,8 @@ export const HowItLooks = () => {
                   <Activity size={10} className="text-slate-400" />
                   <span>Overview</span>
                 </button>
-                <button className="w-full flex items-center gap-2 px-1.5 py-1.2 rounded text-[8px] font-bold bg-[#f5efff] text-[#7c3aed] transition-all">
-                  <CalendarIcon size={10} className="text-[#7c3aed]" />
+                <button className="w-full flex items-center gap-2 px-1.5 py-1.2 rounded text-[8px] font-bold bg-[#f5efff] text-brand transition-all">
+                  <CalendarIcon size={10} className="text-brand" />
                   <span>My Calendar</span>
                 </button>
                 <button className="w-full flex items-center gap-2 px-1.5 py-1.2 rounded text-[8px] font-semibold text-slate-500 hover:text-slate-800 hover:bg-slate-50">
@@ -273,7 +273,7 @@ export const HowItLooks = () => {
               {/* Month bar */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-1.5 shrink-0">
                 <div className="flex items-center gap-1">
-                  <span className="text-[#7c3aed] font-bold text-[9px] mr-1">📅</span>
+                  <span className="text-brand font-bold text-[9px] mr-1">📅</span>
                   <span className="font-extrabold text-slate-800 text-[9.5px]">Jun 2026</span>
                 </div>
                 
@@ -282,7 +282,7 @@ export const HowItLooks = () => {
                   <button className="p-0.5 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">
                     <ChevronLeft size={9} />
                   </button>
-                  <button className="px-2.5 py-0.5 rounded border border-slate-200 hover:border-indigo-400 hover:bg-[#faf9ff] text-[#7c3aed] text-[7.5px] font-bold transition-all">
+                  <button className="px-2.5 py-0.5 rounded border border-slate-200 hover:border-brand/40 hover:bg-brand/5 text-brand text-[7.5px] font-bold transition-all">
                     Today
                   </button>
                   <button className="p-0.5 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">
@@ -320,23 +320,23 @@ export const HowItLooks = () => {
                       onClick={() => setSelectedDay(day)}
                       className={`bg-white p-0.5 text-left flex flex-col justify-between cursor-pointer group transition-all relative ${
                         isCurrentSelected 
-                          ? "ring-1 ring-[#7c3aed] z-10 bg-[#fbfaff]" 
+                          ? "ring-1 ring-brand z-10 bg-[#fbfaff]" 
                           : "hover:bg-slate-50"
                       }`}
                     >
                       {/* Day Number Label */}
                       <div className="flex items-center justify-between">
                         {day === 16 ? (
-                          <span className="w-3.5 h-3.5 rounded-full bg-[#7c3aed] text-white flex items-center justify-center text-[7.5px] font-black">
+                          <span className="w-3.5 h-3.5 rounded-full bg-brand text-white flex items-center justify-center text-[7.5px] font-black">
                             16
                           </span>
                         ) : (
-                          <span className={`text-[7.5px] font-bold ${isCurrentSelected ? "text-[#7c3aed]" : "text-slate-500"}`}>
+                          <span className={`text-[7.5px] font-bold ${isCurrentSelected ? "text-brand" : "text-slate-500"}`}>
                             {day}
                           </span>
                         )}
                         {hasAppts && !isCurrentSelected && (
-                          <span className="w-1 h-1 rounded-full bg-indigo-500" />
+                          <span className="w-1 h-1 rounded-full bg-accent" />
                         )}
                       </div>
 
@@ -348,7 +348,7 @@ export const HowItLooks = () => {
                             className={`px-1 py-[0.5px] rounded-[1.5px] text-[5.5px] font-medium leading-none block truncate ${
                               appt.patient === "Mark Peters" 
                                 ? "bg-amber-50 text-amber-600 border-l-[1px] border-amber-400" 
-                                : "bg-purple-50 text-purple-600 border-l-[1px] border-purple-400"
+                                : "bg-brand/10 text-brand border-l-[1px] border-brand/50"
                             }`}
                           >
                             {appt.time.split(" ")[0]} {appt.patient}
@@ -404,7 +404,7 @@ export const HowItLooks = () => {
                         <div className="text-left">
                           <span className="text-[8.5px] font-bold text-slate-800 block">{appt.patient}</span>
                           <span className="text-[7.5px] text-slate-500 font-medium flex items-center gap-1 mt-0.5">
-                            <Video size={8} className="text-[#7c3aed]" />
+                            <Video size={8} className="text-brand" />
                             {appt.method}
                           </span>
                         </div>
@@ -439,7 +439,7 @@ export const HowItLooks = () => {
       <div className="w-full h-full bg-[#f5f7fa] text-slate-800 flex flex-col justify-between overflow-hidden select-none text-[8px] font-sans">
         
         {/* Native Android / iOS Style Purple Status Bar */}
-        <div className="bg-[#612184] h-[18px] px-2.5 flex items-center justify-between shrink-0 text-white font-medium text-[7px]">
+        <div className="bg-brand h-[18px] px-2.5 flex items-center justify-between shrink-0 text-white font-medium text-[7px]">
           <span className="font-semibold text-white/95">16:04</span>
           <div className="flex items-center gap-1.5 opacity-90">
             {/* Custom high-fidelity Wifi, Cellular Bars and Battery Level */}
@@ -489,7 +489,7 @@ export const HowItLooks = () => {
               {/* Header month & controls inside Box */}
               <div className="flex items-center justify-between border-b border-slate-100/60 pb-1.5 shrink-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[#7c3aed] text-[8.5px]">📅</span>
+                  <span className="text-brand text-[8.5px]">📅</span>
                   <span className="font-extrabold text-slate-800 text-[8.5px]">Jun 2026</span>
                 </div>
                 
@@ -533,31 +533,31 @@ export const HowItLooks = () => {
                   if (day === 10) {
                     dots = <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#94a3b8]" />;
                   } else if (day === 17) {
-                    dots = <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />;
+                    dots = <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />;
                   } else if (day === 18) {
                     dots = (
                       <div className="flex gap-[1.5px] justify-center mt-[0.5px]">
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
                       </div>
                     );
                   } else if (day === 19) {
                     dots = (
                       <div className="flex gap-[1.5px] justify-center mt-[0.5px]">
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
                       </div>
                     );
                   } else if (day === 24) {
                     dots = (
                       <div className="flex gap-[1.5px] justify-center mt-[0.5px]">
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
-                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
+                        <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />
                       </div>
                     );
                   } else if (day === 25) {
-                    dots = <span className="w-[2.5px] h-[2.5px] rounded-full bg-[#7c3aed]" />;
+                    dots = <span className="w-[2.5px] h-[2.5px] rounded-full bg-brand" />;
                   }
 
                   return (
@@ -566,16 +566,16 @@ export const HowItLooks = () => {
                       onClick={() => setSelectedDay(day)}
                       className={`bg-white p-0.5 pt-1 pb-1 flex flex-col items-center justify-between cursor-pointer rounded transition-all min-h-[18px] ${
                         isSelected 
-                          ? "ring-[1.2px] ring-[#7c3aed] bg-[#faf9ff] z-10" 
+                          ? "ring-[1.2px] ring-brand bg-[#faf9ff] z-10" 
                           : "hover:bg-slate-50"
                       }`}
                     >
                       {day === 16 ? (
-                        <span className="w-3.5 h-3.5 rounded-full bg-[#7c3aed] text-white flex items-center justify-center text-[7px] font-black leading-none">
+                        <span className="w-3.5 h-3.5 rounded-full bg-brand text-white flex items-center justify-center text-[7px] font-black leading-none">
                           16
                         </span>
                       ) : (
-                        <span className={`text-[7px] font-bold ${isSelected ? "text-[#7c3aed]" : "text-slate-700"}`}>
+                        <span className={`text-[7px] font-bold ${isSelected ? "text-brand" : "text-slate-700"}`}>
                           {day}
                         </span>
                       )}
@@ -629,7 +629,7 @@ export const HowItLooks = () => {
                         <div className="text-left">
                           <span className="text-[8.5px] font-extrabold text-slate-800 block leading-tight">{appt.patient}</span>
                           <span className="text-[7px] text-slate-500 font-semibold flex items-center gap-1 mt-0.5 leading-none">
-                            <Video size={7.5} className="text-[#7c3aed] stroke-[2.2]" />
+                            <Video size={7.5} className="text-brand stroke-[2.2]" />
                             {appt.method}
                           </span>
                         </div>
@@ -659,11 +659,11 @@ export const HowItLooks = () => {
 
             {/* Tab 2: Calendar - Active in photo with purple dot below label */}
             <div className="flex flex-col items-center justify-center flex-1 py-0.5 cursor-pointer transition-all relative">
-              <CalendarIcon size={11} className="text-[#7c3aed] stroke-[2.2]" />
-              <span className="text-[5.5px] font-extrabold text-[#7c3aed] mt-0.5">Calendar</span>
+              <CalendarIcon size={11} className="text-brand stroke-[2.2]" />
+              <span className="text-[5.5px] font-extrabold text-brand mt-0.5">Calendar</span>
               
               {/* Active purple dot located below calendar label */}
-              <span className="w-1 h-1 rounded-full bg-[#7c3aed] mt-[1.5px]" />
+              <span className="w-1 h-1 rounded-full bg-brand mt-[1.5px]" />
             </div>
 
             {/* Tab 3: Bookings */}
@@ -720,10 +720,10 @@ export const HowItLooks = () => {
     <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center">
       
       {/* Dynamic Purple Spotlight & Grid Floor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(58,18,105,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,107,110,0.4)_0%,rgba(7,5,18,1)_70%)] pointer-events-none" />
       
       {/* Glowing horizontal laser backdrop */}
-      <div className="absolute top-[68%] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-[68%] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-brand/30 to-transparent pointer-events-none z-0" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
         
@@ -786,7 +786,7 @@ export const HowItLooks = () => {
               <div className="hidden lg:block absolute top-[100%] left-0 right-0 pointer-events-none opacity-30 scale-y-[-1] select-none [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8)_0%,transparent_35%)] z-0">
                 {/* Reflected Screen Bezel */}
                 <div className="relative bg-[#000000] rounded-t-[20px] rounded-b-[4px] p-[10px] pb-[16px] blur-[1px]">
-                  <div className="relative w-full aspect-[16/10] bg-[#0c0a1a] rounded-[10px] overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] bg-surface rounded-[10px] overflow-hidden">
                     <RecreatedLaptopScreen />
                   </div>
                 </div>

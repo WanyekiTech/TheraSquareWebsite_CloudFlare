@@ -111,7 +111,7 @@ export const HowItWorksSteps = () => {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="relative z-10 bg-[#151724] border border-[#24273A] p-6 rounded-2xl shadow-lg hover:-translate-y-1 hover:border-[#8B5CF6]/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.15)] transition-all duration-300 ease-out group text-left flex flex-col items-start"
+                className="relative z-10 bg-surface border border-brand/20 p-6 rounded-2xl shadow-lg hover:-translate-y-1 hover:border-brand-light/40 hover:shadow-[var(--shadow-glow)] transition-all duration-300 ease-out group text-left flex flex-col items-start"
               >
                 {/* Subtle glowing border tracing around the card edges on hover */}
                 <div className="absolute inset-0 pointer-events-none rounded-2xl z-20 overflow-visible">
@@ -123,9 +123,9 @@ export const HowItWorksSteps = () => {
                   >
                     <defs>
                       <linearGradient id={`glow-grad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.8" />
+                        <stop offset="0%" stopColor="var(--color-brand)" stopOpacity="0.8" />
                         <stop offset="50%" stopColor="#22D3EE" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="var(--color-brand)" stopOpacity="0.8" />
                       </linearGradient>
                     </defs>
                     {/* Soft ambient glow tracking path */}
@@ -163,10 +163,10 @@ export const HowItWorksSteps = () => {
                 </div>
                 {/* Step number badge */}
                 <div className="flex items-center justify-between w-full mb-6 z-10">
-                  <div className="w-10 h-10 rounded-full bg-brand/20 border border-purple-500/30 flex items-center justify-center text-brand-light font-mono text-sm font-extrabold shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-brand/20 border border-brand/30 flex items-center justify-center text-brand-light font-mono text-sm font-extrabold shadow-sm">
                     {step.num}
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-[#24273A]/50 flex items-center justify-center border border-[#24273A] text-brand-light group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-brand/20 text-brand-light group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all duration-300">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>

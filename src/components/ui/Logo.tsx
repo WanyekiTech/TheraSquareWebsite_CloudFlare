@@ -7,7 +7,7 @@ interface LogoProps {
 export const Logo = ({ className = "w-10 h-10" }: LogoProps) => {
   return (
     <img 
-      src="/therasquare-logo.png" 
+      src="/images/brand/therasquare-logo.png" 
       alt="TheraSquare Logo" 
       className={`${className} select-none object-contain`} 
     />

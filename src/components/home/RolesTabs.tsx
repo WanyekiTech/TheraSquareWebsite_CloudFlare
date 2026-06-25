@@ -125,7 +125,7 @@ export const RolesTabs = () => {
   };
 
   return (
-    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-[#090712] relative z-10 border-t border-brand/20">
+    <section className="pt-12 md:pt-14 lg:pt-16 pb-16 md:pb-20 lg:pb-24 bg-background relative z-10 border-t border-brand/20">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -139,7 +139,7 @@ export const RolesTabs = () => {
 
           {/* Tab Selection Capsule - directly beneath the title */}
           <div className="flex justify-center mb-6">
-            <div className="bg-[#120F24] p-1.5 rounded-2xl md:rounded-full border border-brand/20 flex flex-wrap md:inline-flex justify-center items-center gap-1">
+            <div className="bg-surface p-1.5 rounded-2xl md:rounded-full border border-brand/20 flex flex-wrap md:inline-flex justify-center items-center gap-1">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab;
                 return (
@@ -200,9 +200,9 @@ export const RolesTabs = () => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="bg-[#151724] border border-[#24273A] p-6 rounded-[var(--radius-card)] hover:-translate-y-1 hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.25)] transition-all duration-300 ease-out group pr-6"
+                    className="bg-surface border border-brand/20 p-6 rounded-[var(--radius-card)] hover:-translate-y-1 hover:border-brand-light hover:shadow-[var(--shadow-glow)] transition-all duration-300 ease-out group pr-6"
                   >
-                    <div className="bg-[#1E1938] w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <div className="bg-brand/20 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                       <IconComponent className="w-5 h-5 text-brand-light" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 leading-tight">

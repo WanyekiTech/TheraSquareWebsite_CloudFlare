@@ -11,7 +11,7 @@ export const PricingSection = () => {
   const plans = PRICING_PLANS;
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#090712] border-t border-brand/20 z-10">
+    <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background border-t border-brand/20 z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}
@@ -61,8 +61,8 @@ export const PricingSection = () => {
                 transition={{ duration: 0.25 }}
                 className={`relative rounded-[var(--radius-card)] p-8 text-left flex flex-col justify-between ${
                   plan.recommended
-                    ? "bg-[#120F24] border-2 border-brand md:scale-105 shadow-[var(--shadow-glow)] z-20"
-                    : "bg-[#110e21]/75 border border-brand/20 z-10"
+                    ? "bg-surface border-2 border-brand md:scale-105 shadow-[var(--shadow-glow)] z-20"
+                    : "bg-surface/75 border border-brand/20 z-10"
                 }`}
               >
                 {/* Center plan decoration */}

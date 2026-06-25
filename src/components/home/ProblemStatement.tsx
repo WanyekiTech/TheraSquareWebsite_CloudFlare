@@ -29,46 +29,69 @@ export const ProblemStatement = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,74,86,0.1)_0%,rgba(7,5,18,0)_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full">
-        
-        {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="label-uppercase-alert mb-3 block">
-            THE CHALLENGE
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Running a therapy practice shouldn’t feel like <span className="text-destructive">administration work</span>
-          </h2>
-          <p className="body-muted max-w-lg mx-auto">
-            Most mental health professionals lose valuable time managing operations instead of focusing on clients.
-          </p>
+        {/* Main Flex Container */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center w-full">
+          
+          {/* Left Column (Image) */}
+          <motion.div 
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full lg:w-1/2"
+          >
+            <img 
+              src="/images/home/challenge.jpg" 
+              alt="Therapist overwhelmed by administration work"
+              loading="lazy"
+              className="w-full h-auto aspect-[4/3] object-cover rounded-2xl shadow-2xl border border-destructive/20"
+            />
+          </motion.div>
+
+          {/* Right Column (Content) */}
+          <div className="w-full lg:w-1/2 flex flex-col">
+            
+            {/* Header Block */}
+            <div className="text-left mb-10">
+              <span className="label-uppercase-alert mb-3 block">
+                THE CHALLENGE
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+                Running a therapy practice shouldn’t feel like <span className="text-destructive">administration work</span>
+              </h2>
+              <p className="body-muted max-w-lg">
+                Most mental health professionals lose valuable time managing operations instead of focusing on clients.
+              </p>
+            </div>
+
+            {/* Premium List */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col gap-4"
+            >
+              {PROBLEM_STATEMENTS.map((prob) => (
+                <motion.div 
+                  key={prob.id}
+                  variants={itemVariants}
+                  className="bg-surface border border-destructive/20 rounded-2xl p-4 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-row items-center gap-5"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
+                    <prob.icon className="w-6 h-6 text-destructive" />
+                  </div>
+                  <p className="text-text-muted font-medium leading-relaxed m-0">
+                    {prob.title}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        {/* Premium Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 lg:mb-16"
-        >
-          {PROBLEM_STATEMENTS.map((prob) => (
-            <motion.div 
-              key={prob.id}
-              variants={itemVariants}
-              className="bg-surface border border-destructive/20 rounded-2xl p-6 shadow-[0_4px_24px_rgba(217,74,86,0.05)] hover:border-destructive/40 transition-colors flex flex-col items-start gap-4"
-            >
-              <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 flex items-center justify-center shrink-0">
-                <prob.icon className="w-6 h-6 text-destructive" />
-              </div>
-              <p className="text-text-muted font-medium leading-relaxed">
-                {prob.title}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Emotional Close */}
-        <div className="text-center pt-8 border-t border-destructive/30">
+        <div className="text-center pt-12 mt-12 border-t border-destructive/30 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(217,74,86,0.3)]">
             Your time should be spent in sessions — <span className="text-destructive">not systems.</span>
           </h3>
