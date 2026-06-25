@@ -19,7 +19,7 @@ import {
   Home
 } from "lucide-react";
 
-export const HowItLooks = () => {
+export const PlatformPreview = () => {
   const [selectedDay, setSelectedDay] = useState<number>(18);
 
   // Recreated dataset exactly matching the Happy Clinic mockup image
@@ -845,4 +845,4 @@ export const HowItLooks = () => {
   );
 };
 
-export default HowItLooks;
+export default PlatformPreview;

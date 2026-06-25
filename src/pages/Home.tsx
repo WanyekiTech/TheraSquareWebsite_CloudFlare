@@ -1,6 +1,6 @@
 
 import { HeroSection, TrustedBy, PricingSection, FAQ, FinalCTA } from "@components/shared";
-import { MetricsBar, HowItLooks, RolesTabs, HowItWorksSteps, ProblemStatement, SolutionSection } from "@components/home";
+import { MetricsBar, PlatformPreview, WorkflowTabs, SetupSteps, ChallengeSection, SolutionSection } from "@components/home";
 import { AnimatedSection } from "@components/wrappers";
 
 export const Home = () => {
@@ -17,7 +17,7 @@ export const Home = () => {
 
       {/* The Challenge */}
       <AnimatedSection>
-        <ProblemStatement />
+        <ChallengeSection />
       </AnimatedSection>
 
       {/* The Solution */}
@@ -27,16 +27,16 @@ export const Home = () => {
 
       {/* For Clients, Therapists, & Admins Grid */}
       <AnimatedSection>
-        <RolesTabs />
+        <WorkflowTabs />
       </AnimatedSection>
 
       {/* How it works visual showcase */}
       <AnimatedSection>
-        <HowItLooks />
+        <PlatformPreview />
       </AnimatedSection>
 
       {/* Numbered setup stages */}
-      <HowItWorksSteps />
+      <SetupSteps />
 
       {/* Interactive Pricing Cards */}
       <AnimatedSection>

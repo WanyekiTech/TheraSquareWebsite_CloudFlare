@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowLeftRight, ClipboardSignature, UserPlus, CreditCard, Award, Check } from "lucide-react";
 
-export const HowItWorksSteps = () => {
+export const SetupSteps = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const steps = [
     {
@@ -188,4 +188,4 @@ export const HowItWorksSteps = () => {
   );
 };
 
-export default HowItWorksSteps;
+export default SetupSteps;

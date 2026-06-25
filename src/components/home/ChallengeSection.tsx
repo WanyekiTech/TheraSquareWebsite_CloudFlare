@@ -21,7 +21,7 @@ const itemVariants = {
   }
 };
 
-export const ProblemStatement = () => {
+export const ChallengeSection = () => {
   return (
     <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden bg-background flex flex-col justify-center items-center border-b border-destructive/20">
       

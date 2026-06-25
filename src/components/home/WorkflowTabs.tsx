@@ -14,7 +14,7 @@ interface FeatureItem {
   description: string;
 }
 
-export const RolesTabs = () => {
+export const WorkflowTabs = () => {
   const [activeTab, setActiveTab] = useState<RoleType>("For Therapists");
 
   const tabContent: Record<RoleType, FeatureItem[]> = {
@@ -223,4 +223,4 @@ export const RolesTabs = () => {
   );
 };
 
-export default RolesTabs;
+export default WorkflowTabs;
