@@ -14,14 +14,14 @@ export const BillingToggle = ({ cycle, onChange, className = "mb-16" }: BillingT
       <div 
         role="radiogroup" 
         aria-label="Billing Cycle"
-        className="bg-black/40 backdrop-blur-md border border-brand/20 p-1.5 rounded-full flex flex-wrap sm:flex-nowrap items-center shadow-inner relative"
+        className="bg-black/40 backdrop-blur-md border border-brand/20 p-1.5 rounded-full flex items-center shadow-inner relative max-w-full overflow-hidden"
       >
         <button
           type="button"
           role="radio"
           aria-checked={cycle === 'Monthly'}
           onClick={() => onChange('Monthly')}
-          className={`relative px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 cursor-pointer w-full sm:w-auto ${
+          className={`relative px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 cursor-pointer flex-1 sm:flex-none whitespace-nowrap ${
             cycle === 'Monthly' ? "text-white" : "text-text-muted hover:text-white hover:bg-white/5"
           }`}
         >
@@ -40,7 +40,7 @@ export const BillingToggle = ({ cycle, onChange, className = "mb-16" }: BillingT
           role="radio"
           aria-checked={cycle === 'Annual'}
           onClick={() => onChange('Annual')}
-          className={`relative px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2 w-full sm:w-auto ${
+          className={`relative px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 flex-1 sm:flex-none whitespace-nowrap ${
             cycle === 'Annual' ? "text-white" : "text-text-muted hover:text-white hover:bg-white/5"
           }`}
         >
