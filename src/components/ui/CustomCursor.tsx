@@ -57,21 +57,21 @@ export const CustomCursor = () => {
       height: 32,
       borderRadius: '50%',
       backgroundColor: 'transparent',
-      border: '1.5px solid #fff',
+      border: '1.5px solid rgba(99, 216, 245, 0.6)',
     },
     hover: {
       width: 64,
       height: 64,
       borderRadius: '50%',
-      backgroundColor: '#fff',
-      border: '0px solid #fff',
+      backgroundColor: 'rgba(99, 216, 245, 0.15)',
+      border: '1.5px solid rgba(99, 216, 245, 0.8)',
     },
     text: {
       width: 4,
       height: 32,
       borderRadius: '2px',
-      backgroundColor: '#fff',
-      border: '0px solid #fff',
+      backgroundColor: 'rgba(99, 216, 245, 0.8)',
+      border: '0px solid transparent',
     }
   };
 
@@ -85,7 +85,7 @@ export const CustomCursor = () => {
     <>
       {/* Trailer Wrapper */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:block"
         style={{ x: cursorXSpring, y: cursorYSpring }}
       >
         {/* Trailer Element */}
@@ -99,12 +99,13 @@ export const CustomCursor = () => {
 
       {/* Dot Wrapper */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:block"
         style={{ x: cursorX, y: cursorY }}
       >
         {/* Dot Element */}
         <motion.div
-          className="w-2 h-2 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
+          className="w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(99,216,245,0.8)]"
+          style={{ backgroundColor: '#63D8F5' }}
           variants={dotVariants}
           animate={cursorVariant}
           transition={{ duration: 0.2 }}

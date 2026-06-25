@@ -49,24 +49,6 @@ body {
   padding: 0;
 }
 
-/* Custom Cursor Setup for fine pointers (desktops) */
-@media (pointer: fine) {
-  body,
-  a,
-  button,
-  [role="button"],
-  input,
-  textarea {
-    cursor: none !important;
-  }
-
-  /* Preserve critical UX context for disabled elements */
-  *:disabled,
-  [aria-disabled="true"],
-  [disabled] {
-    cursor: not-allowed !important;
-  }
-}
 
 .bg-premium-gradient {
   background: linear-gradient(135deg, #061214 0%, #102327 35%, #1D6B6E 75%, #63D8F5 100%);
