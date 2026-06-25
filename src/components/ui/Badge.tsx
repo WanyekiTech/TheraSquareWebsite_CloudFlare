@@ -7,7 +7,7 @@ interface BadgeProps {
 }
 
 export const Badge = ({ children, variant = "primary", className = "" }: BadgeProps) => {
-  let baseStyles = "inline-flex items-center px-3.py-1 text-xs font-semibold uppercase tracking-wider rounded-full";
+  const baseStyles = "inline-flex items-center px-3.py-1 text-xs font-semibold uppercase tracking-wider rounded-full";
   
   let variantStyles = "";
   if (variant === "primary") {

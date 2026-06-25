@@ -88,12 +88,12 @@ const getBarVariants = (height: number) => ({
   visible: { 
     height, 
     opacity: 0.85, 
-    transition: { duration: 1.2, ease: "easeOut" } 
+    transition: { duration: 1.2, ease: "easeOut" as const } 
   },
   hover: { 
     height: [0, height * 1.12, height], 
     opacity: [0.6, 1, 0.95],
-    transition: { duration: 1.1, ease: "easeOut" } 
+    transition: { duration: 1.1, ease: "easeOut" as const } 
   }
 });
 
@@ -108,13 +108,13 @@ const donutSlice1Variants = {
   visible: { 
     strokeDashoffset: 7,
     strokeWidth: 3,
-    transition: { duration: 1.8, ease: "easeOut" }
+    transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
     strokeDashoffset: [81, 7],
     strokeWidth: 4.2,
     transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" },
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
       strokeWidth: { duration: 0.3 }
     }
   }
@@ -125,13 +125,13 @@ const donutSlice2Variants = {
   visible: { 
     strokeDashoffset: 75,
     strokeWidth: 3,
-    transition: { duration: 1.8, ease: "easeOut" }
+    transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
     strokeDashoffset: [81, 75],
     strokeWidth: 4.2,
     transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" },
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
       strokeWidth: { duration: 0.3 }
     }
   }
@@ -142,13 +142,13 @@ const pieSlice1Variants = {
   visible: { 
     strokeDashoffset: 18,
     strokeWidth: 3,
-    transition: { duration: 1.8, ease: "easeOut" }
+    transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
     strokeDashoffset: [81, 18],
     strokeWidth: 4.2,
     transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" },
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
       strokeWidth: { duration: 0.3 }
     }
   }
@@ -159,13 +159,13 @@ const pieSlice2Variants = {
   visible: { 
     strokeDashoffset: 63,
     strokeWidth: 3,
-    transition: { duration: 1.8, ease: "easeOut" }
+    transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
     strokeDashoffset: [81, 63],
     strokeWidth: 4.2,
     transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" },
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
       strokeWidth: { duration: 0.3 }
     }
   }
@@ -187,7 +187,7 @@ export const HeroSection = () => {
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } 
     }
   };
 

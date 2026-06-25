@@ -65,7 +65,7 @@ export const Signup = () => {
     }
   }, [formData.clinicName, formData.contactPerson, initialsManuallyEdited]);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
     if (name === "subdomain") {
@@ -247,6 +247,7 @@ export const Signup = () => {
                         type="tel"
                         name="phone"
                         required
+                        pattern="^\+?[0-9\s]{9,15}$"
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+254 700 000000"
@@ -317,6 +318,7 @@ export const Signup = () => {
                       <div className="relative">
                         <select
                           name="planType"
+                          aria-label="Select Plan Type"
                           value={formData.planType}
                           onChange={handleInputChange}
                           className="bg-surface border border-brand/30 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand transition-colors w-full appearance-none cursor-pointer"
