@@ -13,7 +13,7 @@ export const Footer = () => {
           particleCount={250} 
           speed={0.05}
           alphaParticles={true}
-          className="opacity-40"
+          className="opacity-80"
         />
       </div>
 
