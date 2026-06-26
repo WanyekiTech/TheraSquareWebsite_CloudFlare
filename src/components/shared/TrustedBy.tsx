@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { motion } from "motion/react";
+import { Hospital } from "lucide-react";
 
 interface LogoItem {
   name: string;
@@ -9,64 +10,27 @@ interface LogoItem {
 const practiceTypes: LogoItem[] = [
   {
     name: "Solo practices",
-    // Symbolizes an individual focal point (the single dot) supported by care
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2c5 5 5 15-5 20-10-5-10-15-5-20z" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   },
   {
     name: "Group practices",
-    // Symbolizes multiple paths intersecting and working together
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 8v8M8 12h8" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   },
   {
     name: "Private clinics",
-    // Symbolizes structural stability, precision, and clinical foundation
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L9 22h6L12 2z" />
-        <path d="M12 6v4" />
-        <circle cx="12" cy="8" r="1.5" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   },
   {
     name: "Counseling centers",
-    // Symbolizes a soft, empathetic, flowing path of wellness
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 22C2 12 10 4 22 4c0 10-8 18-20 18z" />
-        <path d="M9 13l4-4" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   },
   {
     name: "Enterprise clinics",
-    // Symbolizes a large, complex, and highly structured corporate entity
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M2 12h20M5.6 5.6l12.8 12.8M5.6 18.4L18.4 5.6" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   },
   {
     name: "NGOs & public services",
-    // Symbolizes a distributed network, community connection, and widespread reach
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="6" cy="6" r="3" />
-        <circle cx="18" cy="18" r="3" />
-        <path d="M9 6h4a5 5 0 0 1 5 5v4" />
-      </svg>
-    )
+    icon: <Hospital className="w-5 h-5" />
   }
 ];
 
@@ -80,7 +44,7 @@ export const TrustedBy = () => {
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Subtle non-intrusive label */}
         <p className="text-xs tracking-wider uppercase font-semibold text-text-muted mb-6 text-center select-none antialiased">
-          Trusted by Mental Health Professionals
+          Trusted by mental health professionals
         </p>
 
         {/* Theme-aware responsive side-fades created via transparent gradient masks */}

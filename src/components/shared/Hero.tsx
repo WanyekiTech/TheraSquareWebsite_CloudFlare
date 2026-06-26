@@ -1,8 +1,8 @@
 import { motion, useInView } from "motion/react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button, Particles } from "@components/ui";
-import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, X, Building2 } from "lucide-react";
+import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, Building2 } from "lucide-react";
 
 interface CountUpProps {
   value: number;
@@ -16,53 +16,67 @@ const CountUp = ({ value, duration = 1.8, suffix = "", triggerReset = 0, delay =
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false });
+  const isAnimating = useRef(false);
+  const animationRef = useRef<number | null>(null);
+
+  const triggerAnimation = useCallback(() => {
+    if (isAnimating.current) return;
+    
+    isAnimating.current = true;
+    const end = value;
+    const durationMs = duration * 1000;
+    const startTime = performance.now();
+
+    const updateCount = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / durationMs, 1);
+      
+      const easeProgress = 1 - (1 - progress) * (1 - progress);
+      const currentVal = Math.floor(easeProgress * end);
+      
+      setCount(currentVal);
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(updateCount);
+      } else {
+        isAnimating.current = false;
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(updateCount);
+  }, [value, duration]);
 
   useEffect(() => {
     if (!isInView) {
       setCount(0);
+      isAnimating.current = false;
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
       return;
     }
 
-    let animationFrameId: number;
     let timeoutId: number;
 
-    const startAnimation = () => {
-      const end = value;
-      const durationMs = duration * 1000;
-      const startTime = performance.now();
-
-      const updateCount = (currentTime: number) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / durationMs, 1);
-        
-        // Elegant ease-out quad transition matching premium guidelines
-        const easeProgress = 1 - (1 - progress) * (1 - progress);
-        const currentVal = Math.floor(easeProgress * end);
-        
-        setCount(currentVal);
-
-        if (progress < 1) {
-          animationFrameId = requestAnimationFrame(updateCount);
-        }
-      };
-
-      animationFrameId = requestAnimationFrame(updateCount);
-    };
-
     if (delay > 0) {
-      timeoutId = window.setTimeout(startAnimation, delay * 1000);
+      timeoutId = window.setTimeout(triggerAnimation, delay * 1000);
     } else {
-      startAnimation();
+      triggerAnimation();
     }
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
       clearTimeout(timeoutId);
+      isAnimating.current = false;
     };
-  }, [isInView, value, duration, triggerReset, delay]);
+  }, [isInView, triggerAnimation, delay]);
+
+  useEffect(() => {
+    if (triggerReset > 0) {
+      triggerAnimation();
+    }
+  }, [triggerReset, triggerAnimation]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className="tabular-nums">
       {count}
       {suffix}
     </span>
@@ -91,9 +105,9 @@ const getBarVariants = (height: number) => ({
     transition: { duration: 1.2, ease: "easeOut" as const } 
   },
   hover: { 
-    height: [0, height * 1.12, height], 
-    opacity: [0.6, 1, 0.95],
-    transition: { duration: 1.1, ease: "easeOut" as const } 
+    scaleY: 1.05, 
+    opacity: 1,
+    transition: { duration: 0.3, ease: "easeOut" as const } 
   }
 });
 
@@ -111,12 +125,8 @@ const donutSlice1Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 7],
     strokeWidth: 4.2,
-    transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
-      strokeWidth: { duration: 0.3 }
-    }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -128,12 +138,8 @@ const donutSlice2Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 75],
     strokeWidth: 4.2,
-    transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
-      strokeWidth: { duration: 0.3 }
-    }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -145,12 +151,8 @@ const pieSlice1Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 18],
     strokeWidth: 4.2,
-    transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
-      strokeWidth: { duration: 0.3 }
-    }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -162,12 +164,8 @@ const pieSlice2Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 63],
     strokeWidth: 4.2,
-    transition: { 
-      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
-      strokeWidth: { duration: 0.3 }
-    }
+    transition: { duration: 0.3 }
   }
 };
 
@@ -176,6 +174,7 @@ export const HeroSection = () => {
   const [hover2, setHover2] = useState(0);
   const [hover3, setHover3] = useState(0);
   const [hover4, setHover4] = useState(0);
+  const [hoverBell, setHoverBell] = useState(0);
 
   const containerVariants = {
     hidden: {},
@@ -224,7 +223,7 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-brand-light bg-brand/10 border border-brand/20 w-fit mb-6 uppercase tracking-wider"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-light" />
-              Built for Modern Mental Health Practices
+              Mental Health EMR & Practice Management
             </motion.span>
 
             {/* headline */}
@@ -238,29 +237,10 @@ export const HeroSection = () => {
             {/* subheadline */}
             <motion.p 
               variants={itemVariants} 
-              className="text-lg md:text-xl text-text-muted font-light mb-6 max-w-xl leading-relaxed"
+              className="text-lg md:text-xl text-text-muted font-light mb-10 max-w-xl leading-relaxed"
             >
-              A complete EMR platform for mental health professionals — designed to simplify scheduling, notes, billing, and client management in one secure system.
+              Everything you need to run your practice—from scheduling and clinical notes to billing and client management—in one secure platform.
             </motion.p>
-
-            {/* Anti-features list */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-sm font-medium text-text-muted"
-            >
-              <div className="flex items-center gap-1.5">
-                <X className="w-3.5 h-3.5 text-destructive/80" strokeWidth={3} />
-                <span>No spreadsheets</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <X className="w-3.5 h-3.5 text-destructive/80" strokeWidth={3} />
-                <span>No scattered tools</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <X className="w-3.5 h-3.5 text-destructive/80" strokeWidth={3} />
-                <span>No manual chaos</span>
-              </div>
-            </motion.div>
 
             {/* buttons */}
             <motion.div 
@@ -286,16 +266,16 @@ export const HeroSection = () => {
               className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-12 pt-8 border-t border-brand/20 text-xs text-text-muted font-medium"
             >
               <div className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-emerald-400" />
-                <span>M-Pesa Supported</span>
+                <Shield className="w-4 h-4 text-cyan-400" />
+                <span>Secure & encrypted</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-cyan-400" />
-                <span>Secure & Encrypted</span>
+                <CreditCard className="w-4 h-4 text-emerald-400" />
+                <span>M-Pesa & card payments</span>
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-brand-light" />
-                <span>Built for Private Practices & Clinics</span>
+                <span>Built for mental health practices</span>
               </div>
             </motion.div>
           </motion.div>
@@ -351,10 +331,13 @@ export const HeroSection = () => {
                   <div className="h-6 w-[1px] bg-brand/50" />
 
                   {/* Notification Icon with 9+ badge */}
-                  <div className="relative cursor-pointer hover:opacity-80 transition-opacity p-1">
+                  <div 
+                    onMouseEnter={() => setHoverBell(prev => prev + 1)}
+                    className="relative cursor-pointer hover:opacity-80 transition-opacity p-1"
+                  >
                     <Bell className="w-4 h-4 text-brand-light" />
-                    <span className="absolute -top-0.5 -right-0.5 bg-[#f43f5e] text-white text-[7.5px] font-black w-3.5 h-3.5 rounded-full border border-[#120d22] flex items-center justify-center shadow-sm">
-                      9+
+                    <span className="absolute -top-0.5 -right-0.5 bg-[#f43f5e] text-white text-[7.5px] font-black w-3.5 h-3.5 rounded-full border border-[#120d22] flex items-center justify-center shadow-sm overflow-hidden">
+                      <CountUp value={9} duration={1.2} suffix="+" triggerReset={hoverBell} />
                     </span>
                   </div>
                 </div>
@@ -496,7 +479,7 @@ export const HeroSection = () => {
                     >
                       <div className="text-left">
                         <span className="text-[6.5px] font-bold text-text-muted block tracking-wide">Therapy Hours</span>
-                        <span className="text-sm font-black text-emerald-400 mt-0.5 block leading-none">
+                        <span className="text-sm font-black text-white mt-0.5 block leading-none">
                           <CountUp value={45} duration={2.2} delay={0.2} triggerReset={hover3} />
                         </span>
                         <span className="text-[6px] text-emerald-400 font-extrabold block mt-0.8 leading-none">Hours in range</span>
@@ -546,7 +529,7 @@ export const HeroSection = () => {
                           { day: "Mon", height: 12, bg: "bg-brand-light", transparent: false },
                           { day: "Tue", height: 1, bg: "bg-transparent", transparent: true },
                           { day: "Wed", height: 19, bg: "bg-brand-light", transparent: false },
-                          { day: "Thu", height: 25, bg: "bg-teal-400", transparent: false },
+                          { day: "Thu", height: 25, bg: "bg-accent", transparent: false },
                           { day: "Fri", height: 9, bg: "bg-brand-light", transparent: false },
                           { day: "Sat", height: 1, bg: "bg-transparent", transparent: true },
                         ].map((bar) => (
@@ -587,7 +570,7 @@ export const HeroSection = () => {
                             cx="16" 
                             cy="16" 
                             r="13" 
-                            stroke="#3b82f6" 
+                            stroke="#FFFFFF" 
                             fill="transparent" 
                             strokeDasharray="81" 
                             variants={donutSlice1Variants}
@@ -598,7 +581,7 @@ export const HeroSection = () => {
                             cx="16" 
                             cy="16" 
                             r="13" 
-                            stroke="#10b981" 
+                            stroke="#63D8F5" 
                             fill="transparent" 
                             strokeDasharray="81" 
                             variants={donutSlice2Variants}
@@ -614,10 +597,10 @@ export const HeroSection = () => {
 
                       <div className="flex items-center justify-center gap-1.5 shrink-0 text-[4.8px] font-bold text-text-muted">
                         <span className="flex items-center gap-0.5">
-                          <span className="w-0.8 h-0.8 rounded-full bg-emerald-500" /> Completed
+                          <span className="w-0.8 h-0.8 rounded-full bg-accent" /> Completed
                         </span>
                         <span className="flex items-center gap-0.5">
-                          <span className="w-0.8 h-0.8 rounded-full bg-blue-500" /> Scheduled
+                          <span className="w-0.8 h-0.8 rounded-full bg-white" /> Scheduled
                         </span>
                       </div>
                     </motion.div>
@@ -642,7 +625,7 @@ export const HeroSection = () => {
                             cx="16" 
                             cy="16" 
                             r="13" 
-                            stroke="var(--color-brand)" 
+                            stroke="#63D8F5" 
                             fill="transparent" 
                             strokeDasharray="81" 
                             variants={pieSlice1Variants}
@@ -653,7 +636,7 @@ export const HeroSection = () => {
                             cx="16" 
                             cy="16" 
                             r="13" 
-                            stroke="#14b8a6" 
+                            stroke="#FFFFFF" 
                             fill="transparent" 
                             strokeDasharray="81" 
                             variants={pieSlice2Variants}
@@ -668,10 +651,10 @@ export const HeroSection = () => {
 
                       <div className="flex items-center justify-center gap-1.5 shrink-0 text-[4.8px] font-bold text-text-muted">
                         <span className="flex items-center gap-0.5">
-                          <span className="w-0.8 h-0.8 rounded-full bg-teal-400" /> In-Person
+                          <span className="w-0.8 h-0.8 rounded-full bg-white" /> In-Person
                         </span>
                         <span className="flex items-center gap-0.5">
-                          <span className="w-0.8 h-0.8 rounded-full bg-brand-light" /> Virtual
+                          <span className="w-0.8 h-0.8 rounded-full bg-accent" /> Virtual
                         </span>
                       </div>
                     </motion.div>
