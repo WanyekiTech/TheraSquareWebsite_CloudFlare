@@ -1,4 +1,4 @@
-import { motion, useInView } from "motion/react";
+import { motion, useInView, useAnimation } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button, Particles } from "@components/ui";
@@ -83,6 +83,46 @@ const CountUp = ({ value, duration = 1.8, suffix = "", triggerReset = 0, delay =
   );
 };
 
+const AnimatedChartCard = ({ children, className, variants, initial }: any) => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false });
+  const isAnimating = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      isAnimating.current = true;
+      controls.start("visible").then(() => {
+        isAnimating.current = false;
+      });
+    } else {
+      controls.start("hidden");
+    }
+  }, [isInView, controls]);
+
+  const handleMouseEnter = () => {
+    if (isAnimating.current) return;
+    
+    isAnimating.current = true;
+    controls.start("hover").then(() => {
+      isAnimating.current = false;
+    });
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={variants}
+      initial={initial}
+      animate={controls}
+      onMouseEnter={handleMouseEnter}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const chartContainerVariants = {
   hidden: {},
   visible: {
@@ -105,9 +145,9 @@ const getBarVariants = (height: number) => ({
     transition: { duration: 1.2, ease: "easeOut" as const } 
   },
   hover: { 
-    scaleY: 1.05, 
-    opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut" as const } 
+    height: [0, height * 1.12, height], 
+    opacity: [0.6, 1, 0.95],
+    transition: { duration: 1.1, ease: "easeOut" as const } 
   }
 });
 
@@ -125,8 +165,12 @@ const donutSlice1Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
+    strokeDashoffset: [81, 7],
     strokeWidth: 4.2,
-    transition: { duration: 0.3 }
+    transition: { 
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
+      strokeWidth: { duration: 0.3 }
+    }
   }
 };
 
@@ -138,8 +182,12 @@ const donutSlice2Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
+    strokeDashoffset: [81, 75],
     strokeWidth: 4.2,
-    transition: { duration: 0.3 }
+    transition: { 
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
+      strokeWidth: { duration: 0.3 }
+    }
   }
 };
 
@@ -151,8 +199,12 @@ const pieSlice1Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
+    strokeDashoffset: [81, 18],
     strokeWidth: 4.2,
-    transition: { duration: 0.3 }
+    transition: { 
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
+      strokeWidth: { duration: 0.3 }
+    }
   }
 };
 
@@ -164,8 +216,12 @@ const pieSlice2Variants = {
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
+    strokeDashoffset: [81, 63],
     strokeWidth: 4.2,
-    transition: { duration: 0.3 }
+    transition: { 
+      strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
+      strokeWidth: { duration: 0.3 }
+    }
   }
 };
 
@@ -511,12 +567,9 @@ export const HeroSection = () => {
                   <div className="grid grid-cols-3 gap-2.5">
                     
                     {/* Widget 1: Weekly Activity Bar Chart */}
-                    <motion.div 
+                    <AnimatedChartCard 
                       variants={chartContainerVariants}
                       initial="hidden"
-                      whileInView="visible"
-                      whileHover="hover"
-                      viewport={{ once: false }}
                       className="bg-surface/70 border border-brand/20 rounded-xl p-2.5 text-left select-none cursor-default group"
                     >
                       <span className="text-[7.5px] font-extrabold text-white block uppercase tracking-wider">Weekly Activity</span>
@@ -547,15 +600,12 @@ export const HeroSection = () => {
                           </div>
                         ))}
                       </div>
-                    </motion.div>
+                    </AnimatedChartCard>
 
                     {/* Widget 2: Session Outcomes Donut Chart */}
-                    <motion.div 
+                    <AnimatedChartCard 
                       variants={pieContainerVariants}
                       initial="hidden"
-                      whileInView="visible"
-                      whileHover="hover"
-                      viewport={{ once: false }}
                       className="bg-surface/70 border border-brand/20 rounded-xl p-2.5 text-left flex flex-col justify-between select-none cursor-default"
                     >
                       <div>
@@ -603,15 +653,12 @@ export const HeroSection = () => {
                           <span className="w-0.8 h-0.8 rounded-full bg-white" /> Scheduled
                         </span>
                       </div>
-                    </motion.div>
+                    </AnimatedChartCard>
 
                     {/* Widget 3: Session Modality Pie Chart */}
-                    <motion.div 
+                    <AnimatedChartCard 
                       variants={pieContainerVariants}
                       initial="hidden"
-                      whileInView="visible"
-                      whileHover="hover"
-                      viewport={{ once: false }}
                       className="bg-surface/70 border border-brand/20 rounded-xl p-2.5 text-left flex flex-col justify-between select-none cursor-default"
                     >
                       <div>
@@ -657,7 +704,7 @@ export const HeroSection = () => {
                           <span className="w-0.8 h-0.8 rounded-full bg-accent" /> Virtual
                         </span>
                       </div>
-                    </motion.div>
+                    </AnimatedChartCard>
 
                   </div>
 
