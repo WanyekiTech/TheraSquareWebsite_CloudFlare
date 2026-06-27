@@ -2,7 +2,7 @@ import { motion, useInView, useAnimation } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button, Particles } from "@components/ui";
-import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, Building2 } from "lucide-react";
+import { Calendar, Users, Activity, Play, ArrowRight, Shield, Award, Sparkles, Clock, TrendingUp, Video, List, User, Settings, LogOut, Bell, CreditCard, HeartPulse } from "lucide-react";
 
 interface CountUpProps {
   value: number;
@@ -330,7 +330,7 @@ export const HeroSection = () => {
                 <span>M-Pesa & card payments</span>
               </div>
               <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-brand-light" />
+                <HeartPulse className="w-4 h-4 text-brand-light" />
                 <span>Designed for therapists</span>
               </div>
             </motion.div>
@@ -760,12 +760,7 @@ export const HeroSection = () => {
                     </div>
 
                     {/* List 2: Recent Bookings */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 2.0, duration: 0.6, ease: "easeOut" }}
-                      className="bg-surface/70 border border-brand/20 rounded-xl p-2 text-left"
-                    >
+                    <div className="bg-surface/70 border border-brand/20 rounded-xl p-2 text-left">
                       <div className="flex justify-between items-center mb-1.5 pb-0.8 border-b border-brand/20">
                         <span className="text-[7.5px] font-black text-white">Recent Bookings</span>
                         <span className="text-[5.8px] font-bold text-emerald-400 font-mono tracking-wider uppercase shrink-0">Upcoming</span>
@@ -805,14 +800,19 @@ export const HeroSection = () => {
                           <span className="text-[5.5px] font-mono text-brand-light">completed booking</span>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
 
                   </div>
                 </div>
               </div>
               
               {/* Overlapping Floating Element */}
-              <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left z-10 origin-bottom-right">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2.0, duration: 0.6, ease: "easeOut" }}
+                className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left z-10 origin-bottom-right"
+              >
                 <div className="flex items-center gap-2">
                   <div className="bg-emerald-950/50 p-1 rounded animate-pulse">
                     <CreditCard className="w-4 h-4 text-emerald-400" />
@@ -822,7 +822,7 @@ export const HeroSection = () => {
                     <span className="text-[11px] font-bold text-white">KES 2,000 received</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
             </motion.div>
             </div>
