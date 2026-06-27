@@ -1,4 +1,4 @@
-export type PlanType = "Starter" | "Professional" | "Enterprise";
+export type PlanType = "Solo" | "Professional" | "Enterprise";
 export type BillingCycle = "Monthly" | "Annual";
 
 export interface PlanConfig {
@@ -13,8 +13,8 @@ export interface PlanConfig {
 
 export const PRICING_PLANS: PlanConfig[] = [
   {
-    name: "Starter",
-    tagline: "Best for solo therapists & small practices",
+    name: "Solo",
+    tagline: "Best for solo therapists",
     priceMonthly: 2000,
     priceAnnual: 1600, // 20% savings
     features: [
@@ -31,7 +31,7 @@ export const PRICING_PLANS: PlanConfig[] = [
   },
   {
     name: "Professional",
-    tagline: "Best for growing clinics & group practices",
+    tagline: "Best for group practices",
     priceMonthly: 3000,
     priceAnnual: 2400,
     features: [
@@ -49,7 +49,7 @@ export const PRICING_PLANS: PlanConfig[] = [
   },
   {
     name: "Enterprise",
-    tagline: "Best for medical centers & clinics",
+    tagline: "Best for large therapy organizations",
     priceMonthly: 8000,
     priceAnnual: 6400,
     features: [

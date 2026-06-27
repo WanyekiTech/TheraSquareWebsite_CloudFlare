@@ -186,7 +186,7 @@ export const Features = () => {
               
               {catIdx !== categories.length - 1 && (
                 <AnimatedSection>
-                  <SectionDivider className="my-16 md:my-24 opacity-60" />
+                  <SectionDivider className="my-16 md:my-24" />
                 </AnimatedSection>
               )}
             </div>

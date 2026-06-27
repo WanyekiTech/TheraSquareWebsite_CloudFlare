@@ -21,7 +21,7 @@ export const Signup = () => {
     phone: "",
     subdomain: "",
     initials: "",
-    planType: (urlPlan && ["Starter", "Professional", "Enterprise"].includes(urlPlan) ? urlPlan : "Starter") as PlanType,
+    planType: (urlPlan && ["Solo", "Professional", "Enterprise"].includes(urlPlan) ? urlPlan : "Solo") as PlanType,
     billingCycle: (urlBilling && ["Monthly", "Annual"].includes(urlBilling) ? urlBilling : "Monthly") as BillingCycle,
     botField: "",
   });
@@ -349,17 +349,19 @@ export const Signup = () => {
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">Amount ({formData.billingCycle})</span>
                       </div>
-                      <span className="text-xs text-white font-mono flex items-center gap-1.5 h-8">
-                        <CreditCard className="w-3 h-3 text-brand-light shrink-0" />
-                        {formData.billingCycle === "Annual" ? (
-                          <>
-                            KES {(calculatedAmount * 12).toLocaleString()} /yr
-                            <span className="text-[10px] text-text-muted font-light ml-1">(payable annually)</span>
-                          </>
-                        ) : (
-                          `KES ${calculatedAmount.toLocaleString()} /mo`
-                        )}
-                      </span>
+                      <div className="flex items-start gap-1.5 min-h-[32px] pt-0.5">
+                        <CreditCard className="w-3 h-3 text-brand-light shrink-0 mt-0.5" />
+                        <div className="flex flex-col">
+                          <span className="text-xs text-white font-mono leading-none">
+                            KES {calculatedAmount.toLocaleString()} /mo
+                          </span>
+                          {formData.billingCycle === "Annual" && (
+                            <span className="text-[10px] text-text-muted mt-1 font-light opacity-70">
+                              (KES {(calculatedAmount * 12).toLocaleString()} payable annually)
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold block mb-1 h-[18px] md:h-auto md:mb-1">Plan Expiry</span>
@@ -412,8 +414,16 @@ export const Signup = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
         </div>
+        
+        {/* Footer */}
+        <div className="mt-8 text-center text-[10px] text-text-muted/60 font-light tracking-widest uppercase">
+          &copy; 2026 TheraSquare. All rights reserved &bull;{" "}
+          <Link to="/privacy" className="hover:text-brand-light transition-colors duration-200">Privacy</Link>
+          {" "}&bull;{" "}
+          <Link to="/terms" className="hover:text-brand-light transition-colors duration-200">Terms</Link>
+        </div>
+
       </div>
     </div>
   );

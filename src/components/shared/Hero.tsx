@@ -160,12 +160,12 @@ const pieContainerVariants = {
 const donutSlice1Variants = {
   hidden: { strokeDashoffset: 81, strokeWidth: 3 },
   visible: { 
-    strokeDashoffset: 7,
+    strokeDashoffset: 16,
     strokeWidth: 3,
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 7],
+    strokeDashoffset: [81, 16],
     strokeWidth: 4.2,
     transition: { 
       strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
@@ -177,12 +177,12 @@ const donutSlice1Variants = {
 const donutSlice2Variants = {
   hidden: { strokeDashoffset: 81, strokeWidth: 3 },
   visible: { 
-    strokeDashoffset: 75,
+    strokeDashoffset: 65,
     strokeWidth: 3,
     transition: { duration: 1.8, ease: "easeOut" as const }
   },
   hover: {
-    strokeDashoffset: [81, 75],
+    strokeDashoffset: [81, 65],
     strokeWidth: 4.2,
     transition: { 
       strokeDashoffset: { duration: 1.8, ease: "easeOut" as const },
@@ -295,7 +295,7 @@ export const HeroSection = () => {
               variants={itemVariants} 
               className="text-lg md:text-xl text-text-muted font-light mb-10 max-w-xl leading-relaxed"
             >
-              Everything you need to run your practice—from scheduling and clinical notes to billing and client management—in one secure platform.
+              Everything you need to run your practice—from scheduling and notes to billing and client records.
             </motion.p>
 
             {/* buttons */}
@@ -331,7 +331,7 @@ export const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-brand-light" />
-                <span>Built for mental health practices</span>
+                <span>Designed for therapists</span>
               </div>
             </motion.div>
           </motion.div>
@@ -362,7 +362,12 @@ export const HeroSection = () => {
                 </div>
                 
                 {/* AI-Powered Notes in the Middle of Top Bar */}
-                <div className="absolute left-[54%] -top-3 sm:-top-4 -translate-x-1/2 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left scale-[0.8] sm:scale-100 z-10 whitespace-nowrap origin-center">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5, duration: 0.6, ease: "easeOut" }}
+                  className="absolute left-[54%] -top-3 sm:-top-4 -translate-x-1/2 bg-[#0c1d17]/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] shadow-emerald-500/15 border border-emerald-500/30 text-left scale-[0.8] sm:scale-100 z-10 whitespace-nowrap origin-center"
+                >
                   <div className="flex items-center gap-2">
                     <div className="bg-emerald-950/50 p-1 rounded animate-pulse">
                       <Sparkles className="w-4 h-4 text-emerald-400" />
@@ -372,7 +377,7 @@ export const HeroSection = () => {
                       <span className="text-[11px] font-bold text-white block mt-0.5">SOAP note generated</span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 <div className="flex items-center gap-3">
                   {/* Stacked Date and System Status as shown in image */}
@@ -755,7 +760,12 @@ export const HeroSection = () => {
                     </div>
 
                     {/* List 2: Recent Bookings */}
-                    <div className="bg-surface/70 border border-brand/20 rounded-xl p-2 text-left">
+                    <motion.div 
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 2.0, duration: 0.6, ease: "easeOut" }}
+                      className="bg-surface/70 border border-brand/20 rounded-xl p-2 text-left"
+                    >
                       <div className="flex justify-between items-center mb-1.5 pb-0.8 border-b border-brand/20">
                         <span className="text-[7.5px] font-black text-white">Recent Bookings</span>
                         <span className="text-[5.8px] font-bold text-emerald-400 font-mono tracking-wider uppercase shrink-0">Upcoming</span>
@@ -795,7 +805,7 @@ export const HeroSection = () => {
                           <span className="text-[5.5px] font-mono text-brand-light">completed booking</span>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
 
                   </div>
                 </div>

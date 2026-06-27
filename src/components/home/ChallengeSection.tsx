@@ -105,7 +105,7 @@ export const ChallengeSection = () => {
         {/* Emotional Close */}
         <div className="text-center pt-8 mt-8 w-full">
           <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(217,74,86,0.3)]">
-            Your time should be spent in sessions — <span className="text-destructive">not systems.</span>
+            Spend more time with your clients—<span className="text-destructive">not your paperwork</span>
           </h3>
         </div>
 
