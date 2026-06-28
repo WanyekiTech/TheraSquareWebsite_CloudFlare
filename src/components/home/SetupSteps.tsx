@@ -79,7 +79,7 @@ export const SetupSteps = () => {
             
             {/* Dynamic Thick Glow Layer */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 h-[8px] w-[20%] bg-gradient-to-r from-transparent via-brand to-transparent blur-[4px] opacity-80"
+              className="absolute top-1/2 -translate-y-1/2 h-[12px] w-[25%] bg-gradient-to-r from-transparent via-cyan-400 to-transparent blur-[6px] opacity-100"
               animate={{
                 left: ["-20%", "120%"]
               }}
@@ -91,7 +91,7 @@ export const SetupSteps = () => {
             />
             {/* Sharp Cyan Core Accent for workflow kinetic energy */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 h-[2px] w-[15%] bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-95"
+              className="absolute top-1/2 -translate-y-1/2 h-[3px] w-[20%] bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-100 drop-shadow-[0_0_8px_rgba(34,211,238,1)]"
               animate={{
                 left: ["-20%", "120%"]
               }}
@@ -123,9 +123,9 @@ export const SetupSteps = () => {
                   >
                     <defs>
                       <linearGradient id={`glow-grad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="var(--color-brand)" stopOpacity="0.8" />
-                        <stop offset="50%" stopColor="#22D3EE" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="var(--color-brand)" stopOpacity="0.8" />
+                        <stop offset="0%" stopColor="#22D3EE" stopOpacity="1" />
+                        <stop offset="50%" stopColor="#67E8F9" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#22D3EE" stopOpacity="1" />
                       </linearGradient>
                     </defs>
                     {/* Soft ambient glow tracking path */}
@@ -138,8 +138,8 @@ export const SetupSteps = () => {
                       ry="16"
                       fill="none"
                       stroke={`url(#glow-grad-${idx})`}
-                      strokeWidth="3.5"
-                      className="blur-[5px]"
+                      strokeWidth="6"
+                      className="blur-[8px]"
                       strokeDasharray="180 380"
                       animate={{ strokeDashoffset: [0, -560] }}
                       transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
@@ -154,7 +154,7 @@ export const SetupSteps = () => {
                       ry="16"
                       fill="none"
                       stroke={`url(#glow-grad-${idx})`}
-                      strokeWidth="1.25"
+                      strokeWidth="2"
                       strokeDasharray="180 380"
                       animate={{ strokeDashoffset: [0, -560] }}
                       transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
