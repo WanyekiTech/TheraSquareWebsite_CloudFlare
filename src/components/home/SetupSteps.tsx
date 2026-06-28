@@ -163,11 +163,11 @@ export const SetupSteps = () => {
                 </div>
                 {/* Step number badge */}
                 <div className="flex items-center justify-between w-full mb-6 z-10">
-                  <div className="w-10 h-10 rounded-full bg-brand/20 border border-brand/30 flex items-center justify-center text-brand-light font-mono text-sm font-extrabold shadow-sm">
+                  <div className="w-12 h-12 rounded-full bg-brand/20 border border-brand/30 flex items-center justify-center text-white font-mono text-base font-extrabold shadow-sm group-hover:bg-brand group-hover:border-brand transition-all duration-300">
                     {step.num}
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-brand/20 text-brand-light group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all duration-300">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-brand/20 text-brand-light group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all duration-300">
+                    <Icon className="w-6 h-6" />
                   </div>
                 </div>
 
