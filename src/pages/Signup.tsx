@@ -79,7 +79,7 @@ export const Signup = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     // Basic pre-submission validation
@@ -121,7 +121,7 @@ export const Signup = () => {
                 Thera<span className="text-brand-light">Square</span>
               </span>
             </Link>
-            {!isSubmitted && (
+            {!state.succeeded && (
               <>
                 <h2 className="text-2xl font-extrabold text-white mb-2">Initialize Workspace</h2>
                 <p className="text-sm text-text-muted font-light max-w-md mx-auto leading-relaxed">
@@ -148,10 +148,10 @@ export const Signup = () => {
                     <span>{errorMsg}</span>
                   </div>
                 )}
-                {state.errors && state.errors.length > 0 && (
+                {state.errors && (
                   <div className="bg-destructive/10 border border-destructive/20 text-destructive p-3.5 rounded-xl text-xs flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 shrink-0" />
-                    <span>{state.errors.map(err => err.message).join(", ") || "Failed to initialize workspace. Please check the fields and try again."}</span>
+                    <span>Failed to initialize workspace. Please check the fields and try again.</span>
                   </div>
                 )}
 

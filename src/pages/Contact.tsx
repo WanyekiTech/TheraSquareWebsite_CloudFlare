@@ -87,10 +87,10 @@ export const Contact = () => {
                         Send an Inquiry Message
                       </h2>
 
-                      {state.errors && state.errors.length > 0 && (
+                      {state.errors && (
                         <div className="bg-destructive/10 border border-destructive/20 text-destructive p-3 rounded-xl text-xs flex items-center gap-2">
                           <ShieldAlert className="w-4 h-4 text-destructive shrink-0" />
-                          <span>{state.errors.map(err => err.message).join(", ") || "Failed to send message. Please check the fields and try again."}</span>
+                          <span>Failed to send message. Please check the fields and try again.</span>
                         </div>
                       )}
 
