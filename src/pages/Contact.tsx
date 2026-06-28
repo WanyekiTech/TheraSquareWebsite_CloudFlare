@@ -1,61 +1,16 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { AnimatedSection } from "@components/wrappers";
 import { Button } from "@components/ui";
 import { Phone, Mail, MapPin, Send, MessageSquareHeart, CheckCircle2, ShieldAlert } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 
 export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [botField, setBotField] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!name || !email || !message) return;
-
-    setIsSubmitting(true);
-    setErrorMsg("");
-    
-    // Helper function to encode form fields as x-www-form-urlencoded
-    const encode = (data: Record<string, string>) => {
-      return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-    };
-
-    // Netlify Forms requires standard POST requests to the home directory with properly serialized body
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ 
-        "form-name": "contact", 
-        "bot-field": botField,
-        name, 
-        email, 
-        message 
-      })
-    })
-      .then((res) => {
-        if (res.ok) {
-          setIsSubmitting(false);
-          setIsSubmitted(true);
-          setName("");
-          setEmail("");
-          setMessage("");
-        } else {
-          throw new Error("Form submission returned a non-ok response status");
-        }
-      })
-      .catch((error) => {
-        setIsSubmitting(false);
-        console.error("Netlify Form Submission Error:", error);
-        setErrorMsg("Failed to send message. Please try again later.");
-      });
-  };
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_CONTACT);
 
   return (
     <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 overflow-hidden text-left relative">
@@ -119,13 +74,9 @@ export const Contact = () => {
               <div className="bg-surface border border-brand/20 p-8 rounded-3xl relative overflow-hidden shadow-2xl">
                 
                 <AnimatePresence mode="wait">
-                  {!isSubmitted ? (
+                  {!state.succeeded ? (
                     <motion.form 
                       key="contactForm"
-                      name="contact"
-                      method="POST"
-                      data-netlify="true"
-                      data-netlify-honeypot="bot-field"
                       onSubmit={handleSubmit}
                       className="space-y-6"
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -136,23 +87,12 @@ export const Contact = () => {
                         Send an Inquiry Message
                       </h2>
 
-                      {errorMsg && (
+                      {state.errors && state.errors.length > 0 && (
                         <div className="bg-destructive/10 border border-destructive/20 text-destructive p-3 rounded-xl text-xs flex items-center gap-2">
                           <ShieldAlert className="w-4 h-4 text-destructive shrink-0" />
-                          <span>{errorMsg}</span>
+                          <span>{state.errors.map(err => err.message).join(", ") || "Failed to send message. Please check the fields and try again."}</span>
                         </div>
                       )}
-
-                      {/* Hidden form name identifier for Netlify parser */}
-                      <input type="hidden" name="form-name" value="contact" />
-
-                      {/* Hidden honeypot field for bot protection */}
-                      <div className="hidden" aria-hidden="true">
-                        <label>
-                          Don't fill this out if you're human:{" "}
-                          <input name="bot-field" tabIndex={-1} onChange={(e) => setBotField(e.target.value)} value={botField} />
-                        </label>
-                      </div>
 
                       {/* Name */}
                       <div className="text-left flex flex-col">
@@ -165,12 +105,13 @@ export const Contact = () => {
                           name="name"
                           autoComplete="name"
                           required
-                          disabled={isSubmitting}
+                          disabled={state.submitting}
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Dr. Jane Doe / Clinic Name"
                           className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         />
+                        <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs text-destructive mt-1" />
                       </div>
 
                       {/* Email */}
@@ -184,12 +125,13 @@ export const Contact = () => {
                           name="email"
                           autoComplete="email"
                           required
-                          disabled={isSubmitting}
+                          disabled={state.submitting}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="jane@clinic.ke"
                           className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         />
+                        <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-destructive mt-1" />
                       </div>
 
                       {/* Message */}
@@ -202,12 +144,13 @@ export const Contact = () => {
                           rows={4}
                           name="message"
                           required
-                          disabled={isSubmitting}
+                          disabled={state.submitting}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder="Tell us about your practice, size, and which features you want to migrate or trial..."
                           className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed resize-none leading-relaxed"
                         />
+                        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-destructive mt-1" />
                       </div>
 
                       {/* Submit */}
@@ -215,10 +158,10 @@ export const Contact = () => {
                         type="submit"
                         variant="primary" 
                         size="md" 
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         className="w-full flex items-center justify-center gap-2 mt-4 font-bold uppercase tracking-wider text-xs py-4"
                       >
-                        {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                        {state.submitting ? "Sending..." : "Submit Inquiry"}
                         <Send className="w-3.5 h-3.5" />
                       </Button>
                     </motion.form>
@@ -241,7 +184,7 @@ export const Contact = () => {
                       <Button 
                         variant="secondary" 
                         size="sm" 
-                        onClick={() => setIsSubmitted(false)}
+                        onClick={() => window.location.reload()}
                         className="py-3 px-8 text-xs font-semibold uppercase tracking-wider"
                       >
                         Send Another Message

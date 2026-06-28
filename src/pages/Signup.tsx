@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Button, Logo, BillingToggle, Select } from "@components/ui";
 import { ShieldCheck, User, Mail, Building2, Phone, Globe, Fingerprint, CheckCircle2, ShieldAlert, Home, CreditCard, CalendarDays, Sparkles } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 
 export const Signup = () => {
   const [searchParams] = useSearchParams();
@@ -42,9 +43,8 @@ export const Signup = () => {
 
   const [initialsManuallyEdited, setInitialsManuallyEdited] = useState(false);
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [state, submitToFormspree] = useForm(import.meta.env.VITE_FORMSPREE_SIGNUP);
 
   // Auto-generate initials
   useEffect(() => {
@@ -95,40 +95,10 @@ export const Signup = () => {
       return;
     }
 
-    setIsSubmitting(true);
     setErrorMsg("");
-
-    const encode = (data: Record<string, string>) => {
-      return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-    };
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ 
-        "form-name": "signup",
-        "bot-field": formData.botField,
-        ...formData,
-        fullSubdomain: `${formData.subdomain}.therapy.ke`,
-        subscriptionDetails: hiddenPayload,
-        expiryDate: formattedExpiry
-      })
-    })
-      .then((res) => {
-        if (res.ok) {
-          setIsSubmitting(false);
-          setIsSubmitted(true);
-        } else {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .catch((error) => {
-        setIsSubmitting(false);
-        console.error("Submission Error:", error);
-        setErrorMsg("Failed to initialize workspace. Please try again or contact support.");
-      });
+    
+    // Let Formspree handle the actual submission 
+    submitToFormspree(e);
   };
 
   return (
@@ -162,13 +132,9 @@ export const Signup = () => {
           </div>
 
           <AnimatePresence mode="wait">
-            {!isSubmitted ? (
+            {!state.succeeded ? (
               <motion.form 
                 key="workspace-form"
-                name="signup"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-6"
                 initial={{ opacity: 0 }}
@@ -182,14 +148,18 @@ export const Signup = () => {
                     <span>{errorMsg}</span>
                   </div>
                 )}
+                {state.errors && state.errors.length > 0 && (
+                  <div className="bg-destructive/10 border border-destructive/20 text-destructive p-3.5 rounded-xl text-xs flex items-center gap-2">
+                    <ShieldAlert className="w-4 h-4 shrink-0" />
+                    <span>{state.errors.map(err => err.message).join(", ") || "Failed to initialize workspace. Please check the fields and try again."}</span>
+                  </div>
+                )}
 
-                {/* Hidden fields for Netlify */}
-                <input type="hidden" name="form-name" value="signup" />
-                <div className="hidden" aria-hidden="true">
-                  <label>
-                    Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} onChange={(e) => setFormData(p => ({...p, botField: e.target.value}))} value={formData.botField} />
-                  </label>
-                </div>
+                {/* Hidden computed fields for Formspree serialization */}
+                <input type="hidden" name="fullSubdomain" value={`${formData.subdomain}.therapy.ke`} />
+                <input type="hidden" name="subscriptionDetails" value={hiddenPayload} />
+                <input type="hidden" name="expiryDate" value={formattedExpiry} />
+                <input type="hidden" name="billingCycle" value={formData.billingCycle} />
 
                 <div className="space-y-4">
                   {/* Grid for Contact Person & Clinic Name */}
@@ -204,12 +174,13 @@ export const Signup = () => {
                         name="contactPerson"
                         autoComplete="name"
                         required
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         value={formData.contactPerson}
                         onChange={handleInputChange}
                         placeholder="Dr. Mary Wanjiku"
                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
+                      <ValidationError prefix="Contact Person" field="contactPerson" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
                     
                     <div className="flex flex-col">
@@ -221,12 +192,13 @@ export const Signup = () => {
                         type="text"
                         name="clinicName"
                         required
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         value={formData.clinicName}
                         onChange={handleInputChange}
                         placeholder="Harmony Clinic"
                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
+                      <ValidationError prefix="Clinic Name" field="clinicName" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
                   </div>
 
@@ -242,12 +214,13 @@ export const Signup = () => {
                         name="email"
                         autoComplete="email"
                         required
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="mary@clinic.ke"
                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
 
                     <div className="flex flex-col">
@@ -261,13 +234,14 @@ export const Signup = () => {
                         inputMode="tel"
                         autoComplete="tel"
                         required
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         pattern="^\+?[0-9\s]{9,15}$"
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+254 700 000000"
                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       />
+                      <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
                   </div>
 
@@ -277,13 +251,13 @@ export const Signup = () => {
                       <label htmlFor="subdomain" className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 flex items-center gap-1.5">
                         <Globe className="w-3.5 h-3.5 text-brand-light" /> Preferred Subdomain
                       </label>
-                      <div className={`flex items-stretch rounded-xl border border-white/10 bg-white/5 overflow-hidden focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20 focus-within:bg-white/10 hover:border-white/20 transition-all duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                      <div className={`flex items-stretch rounded-xl border border-white/10 bg-white/5 overflow-hidden focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20 focus-within:bg-white/10 hover:border-white/20 transition-all duration-300 ${state.submitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
                         <input 
                           id="subdomain"
                           type="text"
                           name="subdomain"
                           required
-                          disabled={isSubmitting}
+                          disabled={state.submitting}
                           value={formData.subdomain}
                           onChange={handleInputChange}
                           placeholder="yourname"
@@ -293,6 +267,7 @@ export const Signup = () => {
                           .therapy.ke
                         </div>
                       </div>
+                      <ValidationError prefix="Subdomain" field="subdomain" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
 
                     <div className="flex flex-col">
@@ -304,13 +279,14 @@ export const Signup = () => {
                         type="text"
                         name="initials"
                         required
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                         value={formData.initials}
                         onChange={handleInputChange}
                         placeholder="HAP"
                         maxLength={3}
                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 focus:bg-white/10 hover:border-white/20 transition-all duration-300 w-full uppercase font-mono tracking-widest text-center disabled:opacity-50 disabled:cursor-not-allowed"
                       />
+                      <ValidationError prefix="Initials" field="initials" errors={state.errors} className="text-xs text-destructive mt-1" />
                     </div>
                   </div>
                 </div>
@@ -342,7 +318,7 @@ export const Signup = () => {
                           options={PRICING_PLANS.map(plan => ({ label: plan.name, value: plan.name }))}
                           value={formData.planType}
                           onChange={(val) => setFormData(p => ({ ...p, planType: val as PlanType }))}
-                          disabled={isSubmitting}
+                          disabled={state.submitting}
                         />
                     </div>
                     <div>
@@ -378,10 +354,10 @@ export const Signup = () => {
                   type="submit"
                   variant="primary"
                   size="lg"
-                  disabled={isSubmitting}
+                  disabled={state.submitting}
                   className="w-full flex items-center justify-center gap-2 mt-4 font-bold uppercase text-xs tracking-wider py-4 shadow-lg shadow-[var(--primary)]/20 cursor-pointer"
                 >
-                  {isSubmitting ? "Provisioning..." : "Request Workspace Setup"}
+                  {state.submitting ? "Provisioning..." : "Request Workspace Setup"}
                   <Sparkles className="w-4 h-4 text-yellow-300" />
                 </Button>
               </motion.form>
