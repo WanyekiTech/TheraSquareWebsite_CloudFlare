@@ -7,3 +7,4 @@ export * from './CustomCursor';
 export * from './SectionDivider';
 export * from './Particles';
 export * from './Select';
+export * from './WhatsAppButton';

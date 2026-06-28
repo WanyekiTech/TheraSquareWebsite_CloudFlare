@@ -6,7 +6,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { Navbar, Footer } from "@components/layout";
-import { CustomCursor } from "@components/ui";
+import { CustomCursor, WhatsAppButton } from "@components/ui";
 
 // Lazy loaded routes for performance (code-splitting)
 const Home = lazy(() => import("./pages/Home"));
@@ -48,6 +48,7 @@ function AppContent() {
 
       {/* Global Interactive Elements */}
       <CustomCursor />
+      <WhatsAppButton />
 
       {/* Conditionally display translucent navigation Header */}
       {!isAuthPage && <Navbar />}
