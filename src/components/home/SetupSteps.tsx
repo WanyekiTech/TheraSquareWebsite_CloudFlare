@@ -72,6 +72,37 @@ export const SetupSteps = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
+          {/* Mobile Vertical Connector Line with looping flow glow (Mobile Only) */}
+          <div className="md:hidden absolute left-[48px] top-6 bottom-6 w-[2px] pointer-events-none z-0 overflow-hidden">
+            {/* Base Line structure */}
+            <div className="absolute inset-0 bg-brand/25 rounded-full" />
+            
+            {/* Dynamic Thick Glow Layer */}
+            <motion.div
+              className="absolute left-1/2 -translate-x-1/2 w-[12px] h-[25%] bg-gradient-to-b from-transparent via-cyan-400 to-transparent blur-[6px] opacity-100"
+              animate={{
+                top: ["-20%", "120%"]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+            {/* Sharp Cyan Core Accent */}
+            <motion.div
+              className="absolute left-1/2 -translate-x-1/2 w-[3px] h-[20%] bg-gradient-to-b from-transparent via-cyan-200 to-transparent opacity-100 drop-shadow-[0_0_8px_rgba(34,211,238,1)]"
+              animate={{
+                top: ["-20%", "120%"]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </div>
+
           {/* Desktop Horizontal Connector Line with looping flow glow */}
           <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[2px] pointer-events-none z-0 overflow-hidden">
             {/* Base Line structure: ~2px on desktop with beautiful low-opacity structure */}
